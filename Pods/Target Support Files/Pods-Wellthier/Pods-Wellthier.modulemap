@@ -1,0 +1,6 @@
+framework module Pods_Wellthier {
+  umbrella header "Pods-Wellthier-umbrella.h"
+
+  export *
+  module * { export * }
+}

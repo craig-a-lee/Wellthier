@@ -1,0 +1,721 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		118392E7340E4C03EE2B1B08 /* Pods_WellthierTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ADD19855118EE1AE42A6A37 /* Pods_WellthierTests.framework */; };
+		73B91B7928762EA500857F73 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 73B91B7828762EA500857F73 /* AppDelegate.m */; };
+		73B91B7C28762EA500857F73 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 73B91B7B28762EA500857F73 /* SceneDelegate.m */; };
+		73B91B7F28762EA500857F73 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73B91B7E28762EA500857F73 /* ViewController.m */; };
+		73B91B8228762EA500857F73 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73B91B8028762EA500857F73 /* Main.storyboard */; };
+		73B91B8428762EA700857F73 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73B91B8328762EA700857F73 /* Assets.xcassets */; };
+		73B91B8728762EA700857F73 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73B91B8528762EA700857F73 /* LaunchScreen.storyboard */; };
+		73B91B8A28762EA700857F73 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 73B91B8928762EA700857F73 /* main.m */; };
+		73B91B9428762EA700857F73 /* WellthierTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 73B91B9328762EA700857F73 /* WellthierTests.m */; };
+		73B91B9E28762EA700857F73 /* WellthierUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 73B91B9D28762EA700857F73 /* WellthierUITests.m */; };
+		73B91BA028762EA700857F73 /* WellthierUITestsLaunchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 73B91B9F28762EA700857F73 /* WellthierUITestsLaunchTests.m */; };
+		7DEE59C124C6097B1AA7133A /* Pods_Wellthier_WellthierUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A44740A45D23BA248963FB1B /* Pods_Wellthier_WellthierUITests.framework */; };
+		FA17B6F140A560E7931667F7 /* Pods_Wellthier.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE365CA49EA2890D9F7E56A7 /* Pods_Wellthier.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		73B91B9028762EA700857F73 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 73B91B6C28762EA500857F73 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 73B91B7328762EA500857F73;
+			remoteInfo = Wellthier;
+		};
+		73B91B9A28762EA700857F73 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 73B91B6C28762EA500857F73 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 73B91B7328762EA500857F73;
+			remoteInfo = Wellthier;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2BA6A5B4169932F6BB81A73C /* Pods-WellthierTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WellthierTests.release.xcconfig"; path = "Target Support Files/Pods-WellthierTests/Pods-WellthierTests.release.xcconfig"; sourceTree = "<group>"; };
+		62622D26D2304DE596E8011C /* Pods-Wellthier.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wellthier.debug.xcconfig"; path = "Target Support Files/Pods-Wellthier/Pods-Wellthier.debug.xcconfig"; sourceTree = "<group>"; };
+		6ADD19855118EE1AE42A6A37 /* Pods_WellthierTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WellthierTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		73B91B7428762EA500857F73 /* Wellthier.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wellthier.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		73B91B7728762EA500857F73 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		73B91B7828762EA500857F73 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		73B91B7A28762EA500857F73 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
+		73B91B7B28762EA500857F73 /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
+		73B91B7D28762EA500857F73 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		73B91B7E28762EA500857F73 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		73B91B8128762EA500857F73 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		73B91B8328762EA700857F73 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		73B91B8628762EA700857F73 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		73B91B8828762EA700857F73 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		73B91B8928762EA700857F73 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		73B91B8F28762EA700857F73 /* WellthierTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WellthierTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		73B91B9328762EA700857F73 /* WellthierTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WellthierTests.m; sourceTree = "<group>"; };
+		73B91B9928762EA700857F73 /* WellthierUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WellthierUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		73B91B9D28762EA700857F73 /* WellthierUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WellthierUITests.m; sourceTree = "<group>"; };
+		73B91B9F28762EA700857F73 /* WellthierUITestsLaunchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WellthierUITestsLaunchTests.m; sourceTree = "<group>"; };
+		A44740A45D23BA248963FB1B /* Pods_Wellthier_WellthierUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Wellthier_WellthierUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B50347A7FFD4FFC4FEA8C3B0 /* Pods-Wellthier-WellthierUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wellthier-WellthierUITests.debug.xcconfig"; path = "Target Support Files/Pods-Wellthier-WellthierUITests/Pods-Wellthier-WellthierUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		C8699F23106F104BBFBB9A4E /* Pods-Wellthier-WellthierUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wellthier-WellthierUITests.release.xcconfig"; path = "Target Support Files/Pods-Wellthier-WellthierUITests/Pods-Wellthier-WellthierUITests.release.xcconfig"; sourceTree = "<group>"; };
+		DE365CA49EA2890D9F7E56A7 /* Pods_Wellthier.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Wellthier.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EFBD4FB236AF05A65C2B02F7 /* Pods-Wellthier.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wellthier.release.xcconfig"; path = "Target Support Files/Pods-Wellthier/Pods-Wellthier.release.xcconfig"; sourceTree = "<group>"; };
+		F418393A7448C5DFFB776181 /* Pods-WellthierTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WellthierTests.debug.xcconfig"; path = "Target Support Files/Pods-WellthierTests/Pods-WellthierTests.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		73B91B7128762EA500857F73 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA17B6F140A560E7931667F7 /* Pods_Wellthier.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		73B91B8C28762EA700857F73 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				118392E7340E4C03EE2B1B08 /* Pods_WellthierTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		73B91B9628762EA700857F73 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7DEE59C124C6097B1AA7133A /* Pods_Wellthier_WellthierUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1138062957852184F3862F92 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DE365CA49EA2890D9F7E56A7 /* Pods_Wellthier.framework */,
+				A44740A45D23BA248963FB1B /* Pods_Wellthier_WellthierUITests.framework */,
+				6ADD19855118EE1AE42A6A37 /* Pods_WellthierTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4E2C2FCAA658489E9FAC4F4C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				62622D26D2304DE596E8011C /* Pods-Wellthier.debug.xcconfig */,
+				EFBD4FB236AF05A65C2B02F7 /* Pods-Wellthier.release.xcconfig */,
+				B50347A7FFD4FFC4FEA8C3B0 /* Pods-Wellthier-WellthierUITests.debug.xcconfig */,
+				C8699F23106F104BBFBB9A4E /* Pods-Wellthier-WellthierUITests.release.xcconfig */,
+				F418393A7448C5DFFB776181 /* Pods-WellthierTests.debug.xcconfig */,
+				2BA6A5B4169932F6BB81A73C /* Pods-WellthierTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		73B91B6B28762EA500857F73 = {
+			isa = PBXGroup;
+			children = (
+				73B91B7628762EA500857F73 /* Wellthier */,
+				73B91B9228762EA700857F73 /* WellthierTests */,
+				73B91B9C28762EA700857F73 /* WellthierUITests */,
+				73B91B7528762EA500857F73 /* Products */,
+				4E2C2FCAA658489E9FAC4F4C /* Pods */,
+				1138062957852184F3862F92 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		73B91B7528762EA500857F73 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				73B91B7428762EA500857F73 /* Wellthier.app */,
+				73B91B8F28762EA700857F73 /* WellthierTests.xctest */,
+				73B91B9928762EA700857F73 /* WellthierUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		73B91B7628762EA500857F73 /* Wellthier */ = {
+			isa = PBXGroup;
+			children = (
+				73B91B7728762EA500857F73 /* AppDelegate.h */,
+				73B91B7828762EA500857F73 /* AppDelegate.m */,
+				73B91B7A28762EA500857F73 /* SceneDelegate.h */,
+				73B91B7B28762EA500857F73 /* SceneDelegate.m */,
+				73B91B7D28762EA500857F73 /* ViewController.h */,
+				73B91B7E28762EA500857F73 /* ViewController.m */,
+				73B91B8028762EA500857F73 /* Main.storyboard */,
+				73B91B8328762EA700857F73 /* Assets.xcassets */,
+				73B91B8528762EA700857F73 /* LaunchScreen.storyboard */,
+				73B91B8828762EA700857F73 /* Info.plist */,
+				73B91B8928762EA700857F73 /* main.m */,
+			);
+			path = Wellthier;
+			sourceTree = "<group>";
+		};
+		73B91B9228762EA700857F73 /* WellthierTests */ = {
+			isa = PBXGroup;
+			children = (
+				73B91B9328762EA700857F73 /* WellthierTests.m */,
+			);
+			path = WellthierTests;
+			sourceTree = "<group>";
+		};
+		73B91B9C28762EA700857F73 /* WellthierUITests */ = {
+			isa = PBXGroup;
+			children = (
+				73B91B9D28762EA700857F73 /* WellthierUITests.m */,
+				73B91B9F28762EA700857F73 /* WellthierUITestsLaunchTests.m */,
+			);
+			path = WellthierUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		73B91B7328762EA500857F73 /* Wellthier */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 73B91BA328762EA700857F73 /* Build configuration list for PBXNativeTarget "Wellthier" */;
+			buildPhases = (
+				B19164C783B1DD06DE720FDB /* [CP] Check Pods Manifest.lock */,
+				73B91B7028762EA500857F73 /* Sources */,
+				73B91B7128762EA500857F73 /* Frameworks */,
+				73B91B7228762EA500857F73 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Wellthier;
+			productName = Wellthier;
+			productReference = 73B91B7428762EA500857F73 /* Wellthier.app */;
+			productType = "com.apple.product-type.application";
+		};
+		73B91B8E28762EA700857F73 /* WellthierTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 73B91BA628762EA700857F73 /* Build configuration list for PBXNativeTarget "WellthierTests" */;
+			buildPhases = (
+				60E8943EE333BA6BA273E605 /* [CP] Check Pods Manifest.lock */,
+				73B91B8B28762EA700857F73 /* Sources */,
+				73B91B8C28762EA700857F73 /* Frameworks */,
+				73B91B8D28762EA700857F73 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				73B91B9128762EA700857F73 /* PBXTargetDependency */,
+			);
+			name = WellthierTests;
+			productName = WellthierTests;
+			productReference = 73B91B8F28762EA700857F73 /* WellthierTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		73B91B9828762EA700857F73 /* WellthierUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 73B91BA928762EA700857F73 /* Build configuration list for PBXNativeTarget "WellthierUITests" */;
+			buildPhases = (
+				5C442B97AADD768848B21E9A /* [CP] Check Pods Manifest.lock */,
+				73B91B9528762EA700857F73 /* Sources */,
+				73B91B9628762EA700857F73 /* Frameworks */,
+				73B91B9728762EA700857F73 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				73B91B9B28762EA700857F73 /* PBXTargetDependency */,
+			);
+			name = WellthierUITests;
+			productName = WellthierUITests;
+			productReference = 73B91B9928762EA700857F73 /* WellthierUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		73B91B6C28762EA500857F73 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastUpgradeCheck = 1340;
+				TargetAttributes = {
+					73B91B7328762EA500857F73 = {
+						CreatedOnToolsVersion = 13.4;
+					};
+					73B91B8E28762EA700857F73 = {
+						CreatedOnToolsVersion = 13.4;
+						TestTargetID = 73B91B7328762EA500857F73;
+					};
+					73B91B9828762EA700857F73 = {
+						CreatedOnToolsVersion = 13.4;
+						TestTargetID = 73B91B7328762EA500857F73;
+					};
+				};
+			};
+			buildConfigurationList = 73B91B6F28762EA500857F73 /* Build configuration list for PBXProject "Wellthier" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 73B91B6B28762EA500857F73;
+			productRefGroup = 73B91B7528762EA500857F73 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				73B91B7328762EA500857F73 /* Wellthier */,
+				73B91B8E28762EA700857F73 /* WellthierTests */,
+				73B91B9828762EA700857F73 /* WellthierUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		73B91B7228762EA500857F73 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				73B91B8728762EA700857F73 /* LaunchScreen.storyboard in Resources */,
+				73B91B8428762EA700857F73 /* Assets.xcassets in Resources */,
+				73B91B8228762EA500857F73 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		73B91B8D28762EA700857F73 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		73B91B9728762EA700857F73 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5C442B97AADD768848B21E9A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Wellthier-WellthierUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		60E8943EE333BA6BA273E605 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WellthierTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B19164C783B1DD06DE720FDB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Wellthier-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		73B91B7028762EA500857F73 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				73B91B7F28762EA500857F73 /* ViewController.m in Sources */,
+				73B91B7928762EA500857F73 /* AppDelegate.m in Sources */,
+				73B91B8A28762EA700857F73 /* main.m in Sources */,
+				73B91B7C28762EA500857F73 /* SceneDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		73B91B8B28762EA700857F73 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				73B91B9428762EA700857F73 /* WellthierTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		73B91B9528762EA700857F73 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				73B91B9E28762EA700857F73 /* WellthierUITests.m in Sources */,
+				73B91BA028762EA700857F73 /* WellthierUITestsLaunchTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		73B91B9128762EA700857F73 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 73B91B7328762EA500857F73 /* Wellthier */;
+			targetProxy = 73B91B9028762EA700857F73 /* PBXContainerItemProxy */;
+		};
+		73B91B9B28762EA700857F73 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 73B91B7328762EA500857F73 /* Wellthier */;
+			targetProxy = 73B91B9A28762EA700857F73 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		73B91B8028762EA500857F73 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				73B91B8128762EA500857F73 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		73B91B8528762EA700857F73 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				73B91B8628762EA700857F73 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		73B91BA128762EA700857F73 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		73B91BA228762EA700857F73 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		73B91BA428762EA700857F73 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 62622D26D2304DE596E8011C /* Pods-Wellthier.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = R4DFZ6X7PD;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Wellthier/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.codepath.Wellthier;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		73B91BA528762EA700857F73 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EFBD4FB236AF05A65C2B02F7 /* Pods-Wellthier.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = R4DFZ6X7PD;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Wellthier/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.codepath.Wellthier;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		73B91BA728762EA700857F73 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F418393A7448C5DFFB776181 /* Pods-WellthierTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = R4DFZ6X7PD;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.codepath.WellthierTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Wellthier.app/Wellthier";
+			};
+			name = Debug;
+		};
+		73B91BA828762EA700857F73 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2BA6A5B4169932F6BB81A73C /* Pods-WellthierTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = R4DFZ6X7PD;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.codepath.WellthierTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Wellthier.app/Wellthier";
+			};
+			name = Release;
+		};
+		73B91BAA28762EA700857F73 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B50347A7FFD4FFC4FEA8C3B0 /* Pods-Wellthier-WellthierUITests.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = R4DFZ6X7PD;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.codepath.WellthierUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Wellthier;
+			};
+			name = Debug;
+		};
+		73B91BAB28762EA700857F73 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C8699F23106F104BBFBB9A4E /* Pods-Wellthier-WellthierUITests.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = R4DFZ6X7PD;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.codepath.WellthierUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Wellthier;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		73B91B6F28762EA500857F73 /* Build configuration list for PBXProject "Wellthier" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				73B91BA128762EA700857F73 /* Debug */,
+				73B91BA228762EA700857F73 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		73B91BA328762EA700857F73 /* Build configuration list for PBXNativeTarget "Wellthier" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				73B91BA428762EA700857F73 /* Debug */,
+				73B91BA528762EA700857F73 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		73B91BA628762EA700857F73 /* Build configuration list for PBXNativeTarget "WellthierTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				73B91BA728762EA700857F73 /* Debug */,
+				73B91BA828762EA700857F73 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		73B91BA928762EA700857F73 /* Build configuration list for PBXNativeTarget "WellthierUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				73B91BAA28762EA700857F73 /* Debug */,
+				73B91BAB28762EA700857F73 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 73B91B6C28762EA500857F73 /* Project object */;
+}
