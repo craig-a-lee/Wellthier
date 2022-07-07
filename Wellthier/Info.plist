@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSHealthUpdateUsageDescription</key>
+	<string>Want to access health app to read exercise information</string>
+	<key>NSHealthShareUsageDescription</key>
+	<string>Want to access health app to read exercise information</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -21,5 +25,9 @@
 			</array>
 		</dict>
 	</dict>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Need library access to upload images</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Need camera access to take pictures</string>
 </dict>
 </plist>

@@ -6,6 +6,7 @@ target 'Wellthier' do
   use_frameworks!
 
   # Pods for Wellthier
+  pod 'Parse'
 
   target 'WellthierTests' do
     inherit! :search_paths

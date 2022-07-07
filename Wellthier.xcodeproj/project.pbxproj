@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		118392E7340E4C03EE2B1B08 /* Pods_WellthierTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ADD19855118EE1AE42A6A37 /* Pods_WellthierTests.framework */; };
+		735236E2287745A7002BB65E /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 735236E1287745A7002BB65E /* SignUpViewController.m */; };
+		735236E5287760CF002BB65E /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 735236E4287760CF002BB65E /* LoginViewController.m */; };
+		735236E72877827C002BB65E /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 735236E62877827C002BB65E /* HealthKit.framework */; };
 		73B91B7928762EA500857F73 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 73B91B7828762EA500857F73 /* AppDelegate.m */; };
 		73B91B7C28762EA500857F73 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 73B91B7B28762EA500857F73 /* SceneDelegate.m */; };
 		73B91B7F28762EA500857F73 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73B91B7E28762EA500857F73 /* ViewController.m */; };
@@ -18,6 +21,7 @@
 		73B91B9428762EA700857F73 /* WellthierTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 73B91B9328762EA700857F73 /* WellthierTests.m */; };
 		73B91B9E28762EA700857F73 /* WellthierUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 73B91B9D28762EA700857F73 /* WellthierUITests.m */; };
 		73B91BA028762EA700857F73 /* WellthierUITestsLaunchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 73B91B9F28762EA700857F73 /* WellthierUITestsLaunchTests.m */; };
+		73B91BAE287632CE00857F73 /* View Controllers in Resources */ = {isa = PBXBuildFile; fileRef = 73B91BAD287632CE00857F73 /* View Controllers */; };
 		7DEE59C124C6097B1AA7133A /* Pods_Wellthier_WellthierUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A44740A45D23BA248963FB1B /* Pods_Wellthier_WellthierUITests.framework */; };
 		FA17B6F140A560E7931667F7 /* Pods_Wellthier.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE365CA49EA2890D9F7E56A7 /* Pods_Wellthier.framework */; };
 /* End PBXBuildFile section */
@@ -43,6 +47,11 @@
 		2BA6A5B4169932F6BB81A73C /* Pods-WellthierTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WellthierTests.release.xcconfig"; path = "Target Support Files/Pods-WellthierTests/Pods-WellthierTests.release.xcconfig"; sourceTree = "<group>"; };
 		62622D26D2304DE596E8011C /* Pods-Wellthier.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wellthier.debug.xcconfig"; path = "Target Support Files/Pods-Wellthier/Pods-Wellthier.debug.xcconfig"; sourceTree = "<group>"; };
 		6ADD19855118EE1AE42A6A37 /* Pods_WellthierTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WellthierTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		735236E0287745A7002BB65E /* SignUpViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SignUpViewController.h; path = "View Controllers/SignUpViewController.h"; sourceTree = "<group>"; };
+		735236E1287745A7002BB65E /* SignUpViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = SignUpViewController.m; path = "View Controllers/SignUpViewController.m"; sourceTree = "<group>"; };
+		735236E3287760CF002BB65E /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = "View Controllers/LoginViewController.h"; sourceTree = "<group>"; };
+		735236E4287760CF002BB65E /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = "View Controllers/LoginViewController.m"; sourceTree = "<group>"; };
+		735236E62877827C002BB65E /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		73B91B7428762EA500857F73 /* Wellthier.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wellthier.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		73B91B7728762EA500857F73 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		73B91B7828762EA500857F73 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -60,6 +69,7 @@
 		73B91B9928762EA700857F73 /* WellthierUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WellthierUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		73B91B9D28762EA700857F73 /* WellthierUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WellthierUITests.m; sourceTree = "<group>"; };
 		73B91B9F28762EA700857F73 /* WellthierUITestsLaunchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WellthierUITestsLaunchTests.m; sourceTree = "<group>"; };
+		73B91BAD287632CE00857F73 /* View Controllers */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "View Controllers"; sourceTree = "<group>"; };
 		A44740A45D23BA248963FB1B /* Pods_Wellthier_WellthierUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Wellthier_WellthierUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B50347A7FFD4FFC4FEA8C3B0 /* Pods-Wellthier-WellthierUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wellthier-WellthierUITests.debug.xcconfig"; path = "Target Support Files/Pods-Wellthier-WellthierUITests/Pods-Wellthier-WellthierUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		C8699F23106F104BBFBB9A4E /* Pods-Wellthier-WellthierUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wellthier-WellthierUITests.release.xcconfig"; path = "Target Support Files/Pods-Wellthier-WellthierUITests/Pods-Wellthier-WellthierUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -74,6 +84,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA17B6F140A560E7931667F7 /* Pods_Wellthier.framework in Frameworks */,
+				735236E72877827C002BB65E /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,6 +110,7 @@
 		1138062957852184F3862F92 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				735236E62877827C002BB65E /* HealthKit.framework */,
 				DE365CA49EA2890D9F7E56A7 /* Pods_Wellthier.framework */,
 				A44740A45D23BA248963FB1B /* Pods_Wellthier_WellthierUITests.framework */,
 				6ADD19855118EE1AE42A6A37 /* Pods_WellthierTests.framework */,
@@ -116,7 +128,6 @@
 				F418393A7448C5DFFB776181 /* Pods-WellthierTests.debug.xcconfig */,
 				2BA6A5B4169932F6BB81A73C /* Pods-WellthierTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -145,6 +156,7 @@
 		73B91B7628762EA500857F73 /* Wellthier */ = {
 			isa = PBXGroup;
 			children = (
+				73B91BAD287632CE00857F73 /* View Controllers */,
 				73B91B7728762EA500857F73 /* AppDelegate.h */,
 				73B91B7828762EA500857F73 /* AppDelegate.m */,
 				73B91B7A28762EA500857F73 /* SceneDelegate.h */,
@@ -152,10 +164,14 @@
 				73B91B7D28762EA500857F73 /* ViewController.h */,
 				73B91B7E28762EA500857F73 /* ViewController.m */,
 				73B91B8028762EA500857F73 /* Main.storyboard */,
+				735236E0287745A7002BB65E /* SignUpViewController.h */,
+				735236E1287745A7002BB65E /* SignUpViewController.m */,
 				73B91B8328762EA700857F73 /* Assets.xcassets */,
 				73B91B8528762EA700857F73 /* LaunchScreen.storyboard */,
 				73B91B8828762EA700857F73 /* Info.plist */,
 				73B91B8928762EA700857F73 /* main.m */,
+				735236E3287760CF002BB65E /* LoginViewController.h */,
+				735236E4287760CF002BB65E /* LoginViewController.m */,
 			);
 			path = Wellthier;
 			sourceTree = "<group>";
@@ -188,6 +204,7 @@
 				73B91B7028762EA500857F73 /* Sources */,
 				73B91B7128762EA500857F73 /* Frameworks */,
 				73B91B7228762EA500857F73 /* Resources */,
+				D722212FBF943135F9BF747B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -225,6 +242,7 @@
 				73B91B9528762EA700857F73 /* Sources */,
 				73B91B9628762EA700857F73 /* Frameworks */,
 				73B91B9728762EA700857F73 /* Resources */,
+				CC17C7B3F9E2C1520F187E46 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -285,6 +303,7 @@
 			files = (
 				73B91B8728762EA700857F73 /* LaunchScreen.storyboard in Resources */,
 				73B91B8428762EA700857F73 /* Assets.xcassets in Resources */,
+				73B91BAE287632CE00857F73 /* View Controllers in Resources */,
 				73B91B8228762EA500857F73 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -372,6 +391,40 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		CC17C7B3F9E2C1520F187E46 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Wellthier-WellthierUITests/Pods-Wellthier-WellthierUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Wellthier-WellthierUITests/Pods-Wellthier-WellthierUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Wellthier-WellthierUITests/Pods-Wellthier-WellthierUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D722212FBF943135F9BF747B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Wellthier/Pods-Wellthier-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Wellthier/Pods-Wellthier-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Wellthier/Pods-Wellthier-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -380,6 +433,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				73B91B7F28762EA500857F73 /* ViewController.m in Sources */,
+				735236E2287745A7002BB65E /* SignUpViewController.m in Sources */,
+				735236E5287760CF002BB65E /* LoginViewController.m in Sources */,
 				73B91B7928762EA500857F73 /* AppDelegate.m in Sources */,
 				73B91B8A28762EA700857F73 /* main.m in Sources */,
 				73B91B7C28762EA500857F73 /* SceneDelegate.m in Sources */,
