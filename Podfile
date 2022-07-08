@@ -7,6 +7,9 @@ target 'Wellthier' do
 
   # Pods for Wellthier
   pod 'Parse'
+  pod 'AFNetworking'
+  pod 'DateTools'
+  pod 'Animated-Gif-iOS'
 
   target 'WellthierTests' do
     inherit! :search_paths
