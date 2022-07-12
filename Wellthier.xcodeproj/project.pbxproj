@@ -9,14 +9,15 @@
 /* Begin PBXBuildFile section */
 		118392E7340E4C03EE2B1B08 /* Pods_WellthierTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ADD19855118EE1AE42A6A37 /* Pods_WellthierTests.framework */; };
 		735236E2287745A7002BB65E /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 735236E1287745A7002BB65E /* SignUpViewController.m */; };
-		735236E5287760CF002BB65E /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 735236E4287760CF002BB65E /* LoginViewController.m */; };
 		735236E72877827C002BB65E /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 735236E62877827C002BB65E /* HealthKit.framework */; };
 		735236EA28779600002BB65E /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 735236E928779600002BB65E /* SearchViewController.m */; };
 		735236EC2877A68D002BB65E /* Models in Resources */ = {isa = PBXBuildFile; fileRef = 735236EB2877A68D002BB65E /* Models */; };
 		735236F12878913F002BB65E /* API in Resources */ = {isa = PBXBuildFile; fileRef = 735236F02878913F002BB65E /* API */; };
-		735236F42878919D002BB65E /* ExerciseAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 735236F32878919D002BB65E /* ExerciseAPIManager.m */; };
-		735236F72878957B002BB65E /* Exercise.m in Sources */ = {isa = PBXBuildFile; fileRef = 735236F62878957B002BB65E /* Exercise.m */; };
-		735236FA28789BDA002BB65E /* ExerciseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 735236F928789BDA002BB65E /* ExerciseCell.m */; };
+		739535CB287DF75100D1D4CF /* ExerciseAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 739535C9287DF75100D1D4CF /* ExerciseAPIManager.m */; };
+		739535CE287DF79500D1D4CF /* Exercise.m in Sources */ = {isa = PBXBuildFile; fileRef = 739535CC287DF79500D1D4CF /* Exercise.m */; };
+		739535D1287DF7B500D1D4CF /* ExerciseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 739535D0287DF7B500D1D4CF /* ExerciseCell.m */; };
+		739535D6287DF7E600D1D4CF /* SearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 739535D2287DF7E600D1D4CF /* SearchCell.m */; };
+		739535D7287DF7E600D1D4CF /* Workout.m in Sources */ = {isa = PBXBuildFile; fileRef = 739535D5287DF7E600D1D4CF /* Workout.m */; };
 		73B91B7928762EA500857F73 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 73B91B7828762EA500857F73 /* AppDelegate.m */; };
 		73B91B7C28762EA500857F73 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 73B91B7B28762EA500857F73 /* SceneDelegate.m */; };
 		73B91B7F28762EA500857F73 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73B91B7E28762EA500857F73 /* ViewController.m */; };
@@ -28,8 +29,7 @@
 		73B91B9E28762EA700857F73 /* WellthierUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 73B91B9D28762EA700857F73 /* WellthierUITests.m */; };
 		73B91BA028762EA700857F73 /* WellthierUITestsLaunchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 73B91B9F28762EA700857F73 /* WellthierUITestsLaunchTests.m */; };
 		73B91BAE287632CE00857F73 /* View Controllers in Resources */ = {isa = PBXBuildFile; fileRef = 73B91BAD287632CE00857F73 /* View Controllers */; };
-		73CA773928789ED10062A2E5 /* ExerciseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 73CA773828789ED10062A2E5 /* ExerciseCell.m */; };
-		73CA773C2878B2570062A2E5 /* GifViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73CA773B2878B2570062A2E5 /* GifViewController.m */; };
+		73E5EAE1287E1DAB008E3BC1 /* GIfViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73E5EAE0287E1DAB008E3BC1 /* GIfViewController.m */; };
 		7DEE59C124C6097B1AA7133A /* Pods_Wellthier_WellthierUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A44740A45D23BA248963FB1B /* Pods_Wellthier_WellthierUITests.framework */; };
 		FA17B6F140A560E7931667F7 /* Pods_Wellthier.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE365CA49EA2890D9F7E56A7 /* Pods_Wellthier.framework */; };
 /* End PBXBuildFile section */
@@ -57,19 +57,21 @@
 		6ADD19855118EE1AE42A6A37 /* Pods_WellthierTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WellthierTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		735236E0287745A7002BB65E /* SignUpViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SignUpViewController.h; path = "View Controllers/SignUpViewController.h"; sourceTree = "<group>"; };
 		735236E1287745A7002BB65E /* SignUpViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = SignUpViewController.m; path = "View Controllers/SignUpViewController.m"; sourceTree = "<group>"; };
-		735236E3287760CF002BB65E /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = "View Controllers/LoginViewController.h"; sourceTree = "<group>"; };
-		735236E4287760CF002BB65E /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = "View Controllers/LoginViewController.m"; sourceTree = "<group>"; };
 		735236E62877827C002BB65E /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		735236E828779600002BB65E /* SearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SearchViewController.h; path = "View Controllers/SearchViewController.h"; sourceTree = "<group>"; };
 		735236E928779600002BB65E /* SearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = SearchViewController.m; path = "View Controllers/SearchViewController.m"; sourceTree = "<group>"; };
 		735236EB2877A68D002BB65E /* Models */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Models; sourceTree = "<group>"; };
 		735236F02878913F002BB65E /* API */ = {isa = PBXFileReference; lastKnownFileType = folder; path = API; sourceTree = "<group>"; };
-		735236F22878919D002BB65E /* ExerciseAPIManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ExerciseAPIManager.h; path = API/ExerciseAPIManager.h; sourceTree = "<group>"; };
-		735236F32878919D002BB65E /* ExerciseAPIManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ExerciseAPIManager.m; path = API/ExerciseAPIManager.m; sourceTree = "<group>"; };
-		735236F52878957B002BB65E /* Exercise.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Exercise.h; path = Models/Exercise.h; sourceTree = "<group>"; };
-		735236F62878957B002BB65E /* Exercise.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = Exercise.m; path = Models/Exercise.m; sourceTree = "<group>"; };
-		735236F828789BDA002BB65E /* ExerciseCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ExerciseCell.h; path = Models/ExerciseCell.h; sourceTree = "<group>"; };
-		735236F928789BDA002BB65E /* ExerciseCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ExerciseCell.m; path = Models/ExerciseCell.m; sourceTree = "<group>"; };
+		739535C9287DF75100D1D4CF /* ExerciseAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ExerciseAPIManager.m; path = API/ExerciseAPIManager.m; sourceTree = "<group>"; };
+		739535CA287DF75100D1D4CF /* ExerciseAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExerciseAPIManager.h; path = API/ExerciseAPIManager.h; sourceTree = "<group>"; };
+		739535CC287DF79500D1D4CF /* Exercise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Exercise.m; path = Models/Exercise.m; sourceTree = "<group>"; };
+		739535CD287DF79500D1D4CF /* Exercise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Exercise.h; path = Models/Exercise.h; sourceTree = "<group>"; };
+		739535CF287DF7B500D1D4CF /* ExerciseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExerciseCell.h; path = Models/ExerciseCell.h; sourceTree = "<group>"; };
+		739535D0287DF7B500D1D4CF /* ExerciseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ExerciseCell.m; path = Models/ExerciseCell.m; sourceTree = "<group>"; };
+		739535D2287DF7E600D1D4CF /* SearchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchCell.m; path = Models/SearchCell.m; sourceTree = "<group>"; };
+		739535D3287DF7E600D1D4CF /* Workout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Workout.h; path = Models/Workout.h; sourceTree = "<group>"; };
+		739535D4287DF7E600D1D4CF /* SearchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchCell.h; path = Models/SearchCell.h; sourceTree = "<group>"; };
+		739535D5287DF7E600D1D4CF /* Workout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Workout.m; path = Models/Workout.m; sourceTree = "<group>"; };
 		73B91B7428762EA500857F73 /* Wellthier.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wellthier.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		73B91B7728762EA500857F73 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		73B91B7828762EA500857F73 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -88,10 +90,8 @@
 		73B91B9D28762EA700857F73 /* WellthierUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WellthierUITests.m; sourceTree = "<group>"; };
 		73B91B9F28762EA700857F73 /* WellthierUITestsLaunchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WellthierUITestsLaunchTests.m; sourceTree = "<group>"; };
 		73B91BAD287632CE00857F73 /* View Controllers */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "View Controllers"; sourceTree = "<group>"; };
-		73CA773728789ED10062A2E5 /* ExerciseCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ExerciseCell.h; path = Models/ExerciseCell.h; sourceTree = "<group>"; };
-		73CA773828789ED10062A2E5 /* ExerciseCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ExerciseCell.m; path = Models/ExerciseCell.m; sourceTree = "<group>"; };
-		73CA773A2878B2570062A2E5 /* GifViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GifViewController.h; path = "View Controllers/GifViewController.h"; sourceTree = "<group>"; };
-		73CA773B2878B2570062A2E5 /* GifViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = GifViewController.m; path = "View Controllers/GifViewController.m"; sourceTree = "<group>"; };
+		73E5EADF287E1DAB008E3BC1 /* GIfViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GIfViewController.h; path = "View Controllers/GIfViewController.h"; sourceTree = "<group>"; };
+		73E5EAE0287E1DAB008E3BC1 /* GIfViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = GIfViewController.m; path = "View Controllers/GIfViewController.m"; sourceTree = "<group>"; };
 		A44740A45D23BA248963FB1B /* Pods_Wellthier_WellthierUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Wellthier_WellthierUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B50347A7FFD4FFC4FEA8C3B0 /* Pods-Wellthier-WellthierUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wellthier-WellthierUITests.debug.xcconfig"; path = "Target Support Files/Pods-Wellthier-WellthierUITests/Pods-Wellthier-WellthierUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		C8699F23106F104BBFBB9A4E /* Pods-Wellthier-WellthierUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wellthier-WellthierUITests.release.xcconfig"; path = "Target Support Files/Pods-Wellthier-WellthierUITests/Pods-Wellthier-WellthierUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -178,6 +178,16 @@
 		73B91B7628762EA500857F73 /* Wellthier */ = {
 			isa = PBXGroup;
 			children = (
+				739535D4287DF7E600D1D4CF /* SearchCell.h */,
+				739535D2287DF7E600D1D4CF /* SearchCell.m */,
+				739535D3287DF7E600D1D4CF /* Workout.h */,
+				739535D5287DF7E600D1D4CF /* Workout.m */,
+				739535CF287DF7B500D1D4CF /* ExerciseCell.h */,
+				739535D0287DF7B500D1D4CF /* ExerciseCell.m */,
+				739535CD287DF79500D1D4CF /* Exercise.h */,
+				739535CC287DF79500D1D4CF /* Exercise.m */,
+				739535CA287DF75100D1D4CF /* ExerciseAPIManager.h */,
+				739535C9287DF75100D1D4CF /* ExerciseAPIManager.m */,
 				735236F02878913F002BB65E /* API */,
 				73B91BAD287632CE00857F73 /* View Controllers */,
 				735236EB2877A68D002BB65E /* Models */,
@@ -196,18 +206,8 @@
 				73B91B8528762EA700857F73 /* LaunchScreen.storyboard */,
 				73B91B8828762EA700857F73 /* Info.plist */,
 				73B91B8928762EA700857F73 /* main.m */,
-				735236E3287760CF002BB65E /* LoginViewController.h */,
-				735236E4287760CF002BB65E /* LoginViewController.m */,
-				735236F22878919D002BB65E /* ExerciseAPIManager.h */,
-				735236F32878919D002BB65E /* ExerciseAPIManager.m */,
-				735236F52878957B002BB65E /* Exercise.h */,
-				735236F62878957B002BB65E /* Exercise.m */,
-				735236F828789BDA002BB65E /* ExerciseCell.h */,
-				735236F928789BDA002BB65E /* ExerciseCell.m */,
-				73CA773728789ED10062A2E5 /* ExerciseCell.h */,
-				73CA773828789ED10062A2E5 /* ExerciseCell.m */,
-				73CA773A2878B2570062A2E5 /* GifViewController.h */,
-				73CA773B2878B2570062A2E5 /* GifViewController.m */,
+				73E5EADF287E1DAB008E3BC1 /* GIfViewController.h */,
+				73E5EAE0287E1DAB008E3BC1 /* GIfViewController.m */,
 			);
 			path = Wellthier;
 			sourceTree = "<group>";
@@ -470,18 +470,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				735236F42878919D002BB65E /* ExerciseAPIManager.m in Sources */,
 				73B91B7F28762EA500857F73 /* ViewController.m in Sources */,
 				735236E2287745A7002BB65E /* SignUpViewController.m in Sources */,
-				73CA773C2878B2570062A2E5 /* GifViewController.m in Sources */,
-				73CA773928789ED10062A2E5 /* ExerciseCell.m in Sources */,
-				735236E5287760CF002BB65E /* LoginViewController.m in Sources */,
 				73B91B7928762EA500857F73 /* AppDelegate.m in Sources */,
-				735236FA28789BDA002BB65E /* ExerciseCell.m in Sources */,
 				73B91B8A28762EA700857F73 /* main.m in Sources */,
+				739535D1287DF7B500D1D4CF /* ExerciseCell.m in Sources */,
+				739535CB287DF75100D1D4CF /* ExerciseAPIManager.m in Sources */,
+				739535CE287DF79500D1D4CF /* Exercise.m in Sources */,
+				73E5EAE1287E1DAB008E3BC1 /* GIfViewController.m in Sources */,
+				739535D6287DF7E600D1D4CF /* SearchCell.m in Sources */,
 				73B91B7C28762EA500857F73 /* SceneDelegate.m in Sources */,
-				735236F72878957B002BB65E /* Exercise.m in Sources */,
 				735236EA28779600002BB65E /* SearchViewController.m in Sources */,
+				739535D7287DF7E600D1D4CF /* Workout.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

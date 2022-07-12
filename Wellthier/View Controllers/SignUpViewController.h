@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UITextField *usernameField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordField;
 @property (weak, nonatomic) IBOutlet UIImageView *profilePic;
+- (IBAction)gesture:(id)sender;
 
 @end
 

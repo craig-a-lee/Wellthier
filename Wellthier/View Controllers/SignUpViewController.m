@@ -66,7 +66,6 @@
     
     // Get the image captured by the UIImagePickerController
     UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
-    UIImage *editedImage = info[UIImagePickerControllerEditedImage];
 
     // Do something with the images (based on your use case)
     CGSize size = CGSizeMake(112, 112);
@@ -122,11 +121,12 @@
                 NSLog(@"Error: %@", error.localizedDescription);
             } else {
                 NSLog(@"User registered successfully");
-                
                 // manually segue to logged in view
-                [self performSegueWithIdentifier:@"postSignUpSegue" sender:sender];
+                    [self performSegueWithIdentifier:@"postSignUpSegue" sender:sender];
             }
         }];
+        
+        
     }
 }
 
@@ -157,4 +157,9 @@
 }
 */
 
+- (IBAction)gesture:(id)sender {
+    [_displayNameField resignFirstResponder];
+    [_usernameField resignFirstResponder];
+    [_passwordField resignFirstResponder];
+}
 @end

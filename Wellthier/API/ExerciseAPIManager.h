@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface ExerciseAPIManager : NSObject
 
 - (void) fetchAllExercises: (void(^)(NSArray *exercises, NSError *error))completion;
+- (void) fetchBodyParts: (void(^)(NSArray *bodyParts, NSError *error))completion;
 
 @end
 

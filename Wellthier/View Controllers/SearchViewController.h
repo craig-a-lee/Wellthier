@@ -17,6 +17,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (nonatomic, strong) NSMutableArray *arrayOfExercises;
 @property (nonatomic, strong) NSMutableArray *filteredExercises;
+@property (nonatomic, strong) NSArray *bodyParts;
+@property (nonatomic, strong) NSString *selectedButtonString;
+- (IBAction)scrollGesture:(id)sender;
+
 @end
 
 NS_ASSUME_NONNULL_END

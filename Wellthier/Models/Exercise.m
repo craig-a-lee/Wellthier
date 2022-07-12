@@ -15,7 +15,8 @@
     self.target = dictionary[@"target"];
     self.equipment = dictionary[@"equipment"];
     self.bodyPart = dictionary[@"bodyPart"];
-    NSString *gifString = dictionary[@"gifURL"];
+    NSString *gifString = dictionary[@"gifUrl"];
+    gifString = [gifString stringByReplacingOccurrencesOfString:@"http" withString:@"https"];
     self.gifUrl = [NSURL URLWithString:gifString];
     
     return self;
