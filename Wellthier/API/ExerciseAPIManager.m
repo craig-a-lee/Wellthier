@@ -27,11 +27,7 @@
 
 - (void) fetchAllExercises: (void(^)(NSArray *exercises, NSError *error))completion {
 
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://exercisedb.p.rapidapi.com/exercises"]
-                                                           cachePolicy:NSURLRequestUseProtocolCachePolicy
-                                                       timeoutInterval:10.0];
-    [request setHTTPMethod:@"GET"];
-    [request setAllHTTPHeaderFields:self.headers];
+    NSMutableURLRequest *request = [self getHelper:@""];
 
     NSURLSessionDataTask *dataTask = [self.session dataTaskWithRequest:request
                                                 completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
@@ -51,15 +47,22 @@
     [dataTask resume];
 }
 
-- (void) fetchBodyParts: (void(^)(NSArray *bodyParts, NSError *error))completion {
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://exercisedb.p.rapidapi.com/exercises/bodyPartList"]
+- (NSMutableURLRequest *) getHelper: (NSString *) itemsName {
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://exercisedb.p.rapidapi.com/exercises%@", itemsName]]
                                                            cachePolicy:NSURLRequestUseProtocolCachePolicy
                                                        timeoutInterval:10.0];
     [request setHTTPMethod:@"GET"];
     [request setAllHTTPHeaderFields:self.headers];
+    
+    return request;
+}
 
-    NSURLSession *session = [NSURLSession sharedSession];
-    NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request
+- (void) fetchBodyParts: (void(^)(NSArray *bodyParts, NSError *error))completion {
+    NSMutableURLRequest *request = [self getHelper:@"/bodyPartList"];
+    
+
+
+    NSURLSessionDataTask *dataTask = [self.session dataTaskWithRequest:request
                                                 completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
                                                     if (error) {
                                                         NSLog(@"%@", error);

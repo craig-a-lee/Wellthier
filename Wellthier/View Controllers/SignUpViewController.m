@@ -57,9 +57,7 @@
     [alert addAction:chooseAction];
     [alert addAction:takePicAction];
     
-    [self presentViewController:alert animated:YES completion:^{
-        // optional code for what happens after the alert controller has finished presenting
-    }];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
@@ -125,8 +123,6 @@
                     [self performSegueWithIdentifier:@"postSignUpSegue" sender:sender];
             }
         }];
-        
-        
     }
 }
 

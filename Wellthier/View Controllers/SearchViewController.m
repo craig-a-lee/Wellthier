@@ -14,6 +14,7 @@
 
 
 @interface SearchViewController () <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, UICollectionViewDataSource, UICollectionViewDelegate>
+
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (nonatomic, assign) BOOL buttonPressed;
@@ -134,11 +135,7 @@
                     [evaluatedObject.equipment containsString:searchText] ||
                     [evaluatedObject.bodyPart containsString:searchText]);
         }];
-        
         self.filteredExercises = (NSMutableArray *) [self.arrayOfExercises filteredArrayUsingPredicate:predicate];
-
-        NSLog(@"%@", self.filteredExercises);
-
     }
     else {
         [self setSearchBarPressed:NO];
@@ -169,7 +166,6 @@
         Exercise *dataToPass = self.filteredExercises[myIndexPath.row];
         GifViewController *gVC = [segue destinationViewController];
         gVC.detailExercise = dataToPass;
-        
     }
 }
 

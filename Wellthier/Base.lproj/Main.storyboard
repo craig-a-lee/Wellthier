@@ -423,10 +423,6 @@
                             <constraint firstItem="wTD-YQ-ch2" firstAttribute="leading" secondItem="cB5-4t-bxI" secondAttribute="leading" id="ljD-AG-ZjX"/>
                             <constraint firstItem="Jec-F4-jVW" firstAttribute="top" secondItem="wTD-YQ-ch2" secondAttribute="bottom" constant="14" id="pHW-YA-6ux"/>
                         </constraints>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="nEE-L2-KS6" appends="YES" id="myS-yh-yBa"/>
-                            <outletCollection property="gestureRecognizers" destination="Qra-gi-rrC" appends="YES" id="Qfu-69-4xU"/>
-                        </connections>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="K9L-QU-2cw"/>
@@ -438,16 +434,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h8f-Qj-AZ4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer direction="right" id="nEE-L2-KS6">
-                    <connections>
-                        <action selector="scrollGesture:" destination="UuP-SS-z1G" id="eSm-FJ-tG0"/>
-                    </connections>
-                </swipeGestureRecognizer>
-                <panGestureRecognizer minimumNumberOfTouches="1" id="Qra-gi-rrC">
-                    <connections>
-                        <action selector="scrollGesture:" destination="UuP-SS-z1G" id="54g-ba-H2u"/>
-                    </connections>
-                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="966.15384615384608" y="1819.905213270142"/>
         </scene>
@@ -510,7 +496,7 @@
                     <connections>
                         <outlet property="bodyPart" destination="f80-IN-nDW" id="4f9-tA-nVm"/>
                         <outlet property="equipment" destination="iDA-m5-bEy" id="6nO-AS-ygF"/>
-                        <outlet property="gif" destination="ba8-RA-4lQ" id="aqP-0l-mbZ"/>
+                        <outlet property="gifImageView" destination="ba8-RA-4lQ" id="gEP-TG-k5i"/>
                         <outlet property="name" destination="6YK-FQ-hrK" id="tJ8-hQ-dBZ"/>
                         <outlet property="targetMuscle" destination="FrM-25-xvi" id="K2j-Dy-l51"/>
                     </connections>
@@ -658,6 +644,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" red="0.1166579252" green="0.84342966919999995" blue="0.37734218079999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </tabBar>
                     <connections>
                         <segue destination="91m-6I-yyU" kind="relationship" relationship="viewControllers" id="9lK-Qb-jWE"/>
@@ -806,9 +794,12 @@
         <designable name="3vX-FP-aRq">
             <size key="intrinsicContentSize" width="41.333333333333336" height="20.333333333333332"/>
         </designable>
+        <designable name="6YK-FQ-hrK">
+            <size key="intrinsicContentSize" width="61.333333333333336" height="28.666666666666668"/>
+        </designable>
     </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="2fW-It-q1U"/>
+        <segue reference="oCB-vf-35T"/>
         <segue reference="Zbp-Gh-e93"/>
         <segue reference="S53-mF-6ga"/>
     </inferredMetricsTieBreakers>

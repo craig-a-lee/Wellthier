@@ -17,7 +17,6 @@
 		739535CE287DF79500D1D4CF /* Exercise.m in Sources */ = {isa = PBXBuildFile; fileRef = 739535CC287DF79500D1D4CF /* Exercise.m */; };
 		739535D1287DF7B500D1D4CF /* ExerciseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 739535D0287DF7B500D1D4CF /* ExerciseCell.m */; };
 		739535D6287DF7E600D1D4CF /* SearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 739535D2287DF7E600D1D4CF /* SearchCell.m */; };
-		739535D7287DF7E600D1D4CF /* Workout.m in Sources */ = {isa = PBXBuildFile; fileRef = 739535D5287DF7E600D1D4CF /* Workout.m */; };
 		73B91B7928762EA500857F73 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 73B91B7828762EA500857F73 /* AppDelegate.m */; };
 		73B91B7C28762EA500857F73 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 73B91B7B28762EA500857F73 /* SceneDelegate.m */; };
 		73B91B7F28762EA500857F73 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73B91B7E28762EA500857F73 /* ViewController.m */; };
@@ -69,9 +68,7 @@
 		739535CF287DF7B500D1D4CF /* ExerciseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExerciseCell.h; path = Models/ExerciseCell.h; sourceTree = "<group>"; };
 		739535D0287DF7B500D1D4CF /* ExerciseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ExerciseCell.m; path = Models/ExerciseCell.m; sourceTree = "<group>"; };
 		739535D2287DF7E600D1D4CF /* SearchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchCell.m; path = Models/SearchCell.m; sourceTree = "<group>"; };
-		739535D3287DF7E600D1D4CF /* Workout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Workout.h; path = Models/Workout.h; sourceTree = "<group>"; };
 		739535D4287DF7E600D1D4CF /* SearchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchCell.h; path = Models/SearchCell.h; sourceTree = "<group>"; };
-		739535D5287DF7E600D1D4CF /* Workout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Workout.m; path = Models/Workout.m; sourceTree = "<group>"; };
 		73B91B7428762EA500857F73 /* Wellthier.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wellthier.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		73B91B7728762EA500857F73 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		73B91B7828762EA500857F73 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -180,8 +177,6 @@
 			children = (
 				739535D4287DF7E600D1D4CF /* SearchCell.h */,
 				739535D2287DF7E600D1D4CF /* SearchCell.m */,
-				739535D3287DF7E600D1D4CF /* Workout.h */,
-				739535D5287DF7E600D1D4CF /* Workout.m */,
 				739535CF287DF7B500D1D4CF /* ExerciseCell.h */,
 				739535D0287DF7B500D1D4CF /* ExerciseCell.m */,
 				739535CD287DF79500D1D4CF /* Exercise.h */,
@@ -481,7 +476,6 @@
 				739535D6287DF7E600D1D4CF /* SearchCell.m in Sources */,
 				73B91B7C28762EA500857F73 /* SceneDelegate.m in Sources */,
 				735236EA28779600002BB65E /* SearchViewController.m in Sources */,
-				739535D7287DF7E600D1D4CF /* Workout.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
