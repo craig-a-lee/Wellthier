@@ -6,10 +6,20 @@
 //
 
 #import "ViewController.h"
+#import "Exercise.h"
+#import "MarqueeLabel.h"
+
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface GifViewController : ViewController
+
+@property (weak, nonatomic) IBOutlet UIImageView *gifImageView;
+@property(nonatomic, weak) Exercise *detailExercise;
+@property (weak, nonatomic) IBOutlet MarqueeLabel *name;
+@property (weak, nonatomic) IBOutlet UILabel *equipment;
+@property (weak, nonatomic) IBOutlet UILabel *targetMuscle;
+@property (weak, nonatomic) IBOutlet UILabel *bodyPart;
 
 @end
 
