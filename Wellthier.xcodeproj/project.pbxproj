@@ -28,7 +28,7 @@
 		73B91B9E28762EA700857F73 /* WellthierUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 73B91B9D28762EA700857F73 /* WellthierUITests.m */; };
 		73B91BA028762EA700857F73 /* WellthierUITestsLaunchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 73B91B9F28762EA700857F73 /* WellthierUITestsLaunchTests.m */; };
 		73B91BAE287632CE00857F73 /* View Controllers in Resources */ = {isa = PBXBuildFile; fileRef = 73B91BAD287632CE00857F73 /* View Controllers */; };
-		73E5EAE1287E1DAB008E3BC1 /* GIfViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73E5EAE0287E1DAB008E3BC1 /* GIfViewController.m */; };
+		73E5EAE4287F360F008E3BC1 /* GifViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73E5EAE3287F360F008E3BC1 /* GifViewController.m */; };
 		7DEE59C124C6097B1AA7133A /* Pods_Wellthier_WellthierUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A44740A45D23BA248963FB1B /* Pods_Wellthier_WellthierUITests.framework */; };
 		FA17B6F140A560E7931667F7 /* Pods_Wellthier.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE365CA49EA2890D9F7E56A7 /* Pods_Wellthier.framework */; };
 /* End PBXBuildFile section */
@@ -87,8 +87,8 @@
 		73B91B9D28762EA700857F73 /* WellthierUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WellthierUITests.m; sourceTree = "<group>"; };
 		73B91B9F28762EA700857F73 /* WellthierUITestsLaunchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WellthierUITestsLaunchTests.m; sourceTree = "<group>"; };
 		73B91BAD287632CE00857F73 /* View Controllers */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "View Controllers"; sourceTree = "<group>"; };
-		73E5EADF287E1DAB008E3BC1 /* GIfViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GIfViewController.h; path = "View Controllers/GIfViewController.h"; sourceTree = "<group>"; };
-		73E5EAE0287E1DAB008E3BC1 /* GIfViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = GIfViewController.m; path = "View Controllers/GIfViewController.m"; sourceTree = "<group>"; };
+		73E5EAE2287F360F008E3BC1 /* GifViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GifViewController.h; path = "View Controllers/GifViewController.h"; sourceTree = "<group>"; };
+		73E5EAE3287F360F008E3BC1 /* GifViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = GifViewController.m; path = "View Controllers/GifViewController.m"; sourceTree = "<group>"; };
 		A44740A45D23BA248963FB1B /* Pods_Wellthier_WellthierUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Wellthier_WellthierUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B50347A7FFD4FFC4FEA8C3B0 /* Pods-Wellthier-WellthierUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wellthier-WellthierUITests.debug.xcconfig"; path = "Target Support Files/Pods-Wellthier-WellthierUITests/Pods-Wellthier-WellthierUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		C8699F23106F104BBFBB9A4E /* Pods-Wellthier-WellthierUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wellthier-WellthierUITests.release.xcconfig"; path = "Target Support Files/Pods-Wellthier-WellthierUITests/Pods-Wellthier-WellthierUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -201,8 +201,8 @@
 				73B91B8528762EA700857F73 /* LaunchScreen.storyboard */,
 				73B91B8828762EA700857F73 /* Info.plist */,
 				73B91B8928762EA700857F73 /* main.m */,
-				73E5EADF287E1DAB008E3BC1 /* GIfViewController.h */,
-				73E5EAE0287E1DAB008E3BC1 /* GIfViewController.m */,
+				73E5EAE2287F360F008E3BC1 /* GifViewController.h */,
+				73E5EAE3287F360F008E3BC1 /* GifViewController.m */,
 			);
 			path = Wellthier;
 			sourceTree = "<group>";
@@ -469,10 +469,10 @@
 				735236E2287745A7002BB65E /* SignUpViewController.m in Sources */,
 				73B91B7928762EA500857F73 /* AppDelegate.m in Sources */,
 				73B91B8A28762EA700857F73 /* main.m in Sources */,
+				73E5EAE4287F360F008E3BC1 /* GifViewController.m in Sources */,
 				739535D1287DF7B500D1D4CF /* ExerciseCell.m in Sources */,
 				739535CB287DF75100D1D4CF /* ExerciseAPIManager.m in Sources */,
 				739535CE287DF79500D1D4CF /* Exercise.m in Sources */,
-				73E5EAE1287E1DAB008E3BC1 /* GIfViewController.m in Sources */,
 				739535D6287DF7E600D1D4CF /* SearchCell.m in Sources */,
 				73B91B7C28762EA500857F73 /* SceneDelegate.m in Sources */,
 				735236EA28779600002BB65E /* SearchViewController.m in Sources */,
