@@ -60,7 +60,7 @@
     }
 }
 
-- (IBAction)gesture:(id)sender {
+- (IBAction)tapGesture:(id)sender {
     [_usernameField resignFirstResponder];
     [_passwordField resignFirstResponder];
 }

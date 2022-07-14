@@ -23,8 +23,8 @@
     // Do any additional setup after loading the view.
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
-    self.currUser = PFUser.currentUser;
-    self.profilePic.file = self.currUser[@"profilePic"];
+    self.currentUser = PFUser.currentUser;
+    self.profilePic.file = self.currentUser[@"profilePic"];
     [self.profilePic loadInBackground];
     [self getWorkouts];
 }
@@ -52,20 +52,9 @@
     Workout *workout = self.arrayOfWorkouts[indexPath.row];
     cell.workoutImageView.file = workout[@"image"];
     [cell.workoutImageView loadInBackground];
-    cell.workoutAuthorInfo.text = self.currUser[@"displayName"];
+    cell.workoutAuthorInfo.text = self.currentUser[@"displayName"];
     cell.workoutTitle.text = workout.title;
     return cell;
 }
-
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

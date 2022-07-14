@@ -26,7 +26,6 @@
 - (void) setParams:(Exercise *)exercise {
     AnimatedGif *newGif = [AnimatedGif getAnimationForGifAtUrl:exercise.gifUrl];
     [self.gifImageView setAnimatedGif:newGif startImmediately:YES];
-    NSLog(@"here: %@", exercise.gifUrl);
     self.name.text = [exercise.name capitalizedString];
     self.name.animationCurve = UIViewAnimationCurveEaseIn;
     self.name.fadeLength = 10.0;

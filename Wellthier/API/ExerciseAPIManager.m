@@ -27,7 +27,7 @@
 
 - (void) fetchAllExercises: (void(^)(NSArray *exercises, NSError *error))completion {
 
-    NSMutableURLRequest *request = [self getHelper:@""];
+    NSMutableURLRequest *request = [self urlRequestForItems:@""];
 
     NSURLSessionDataTask *dataTask = [self.session dataTaskWithRequest:request
                                                 completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
@@ -47,7 +47,7 @@
     [dataTask resume];
 }
 
-- (NSMutableURLRequest *) getHelper: (NSString *) itemsName {
+- (NSMutableURLRequest *) urlRequestForItems: (NSString *) itemsName {
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://exercisedb.p.rapidapi.com/exercises%@", itemsName]]
                                                            cachePolicy:NSURLRequestUseProtocolCachePolicy
                                                        timeoutInterval:10.0];
@@ -58,7 +58,7 @@
 }
 
 - (void) fetchBodyParts: (void(^)(NSArray *bodyParts, NSError *error))completion {
-    NSMutableURLRequest *request = [self getHelper:@"/bodyPartList"];
+    NSMutableURLRequest *request = [self urlRequestForItems:@"/bodyPartList"];
     
 
 

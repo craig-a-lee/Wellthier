@@ -8,8 +8,5 @@
 #import "SearchCell.h"
 
 @implementation SearchCell
-- (IBAction)buttonPressed:(id)sender {
-    
-}
 
 @end

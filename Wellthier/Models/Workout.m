@@ -29,13 +29,10 @@
         newWorkout.title = title;
         newWorkout.exercises = [NSMutableArray new];
         newWorkout.likeCount = @(0);
-    
-        
         [newWorkout saveInBackgroundWithBlock: completion];
 }
 
 + (PFFileObject *)getPFFileFromImage: (UIImage * _Nullable)image {
- 
     // check if image is not nil
     if (!image) {
         return nil;
