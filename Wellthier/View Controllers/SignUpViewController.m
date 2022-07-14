@@ -7,6 +7,7 @@
 
 #import "SignUpViewController.h"
 #import "Parse/Parse.h"
+#import "Workout.h"
 
 @interface SignUpViewController ()
 
@@ -57,16 +58,13 @@
     [alert addAction:chooseAction];
     [alert addAction:takePicAction];
     
-    [self presentViewController:alert animated:YES completion:^{
-        // optional code for what happens after the alert controller has finished presenting
-    }];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
     
     // Get the image captured by the UIImagePickerController
     UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
-    UIImage *editedImage = info[UIImagePickerControllerEditedImage];
 
     // Do something with the images (based on your use case)
     CGSize size = CGSizeMake(112, 112);
@@ -122,8 +120,10 @@
                 NSLog(@"Error: %@", error.localizedDescription);
             } else {
                 NSLog(@"User registered successfully");
-                
                 // manually segue to logged in view
+                [Workout postUserWorkout:[UIImage imageNamed:@"purpleheart"] withTitle:@"Liked Exercises" withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+
+                }];
                 [self performSegueWithIdentifier:@"postSignUpSegue" sender:sender];
             }
         }];
@@ -146,15 +146,9 @@
     return [PFFileObject fileObjectWithName:@"image.png" data:imageData];
 }
 
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (IBAction)gesture:(id)sender {
+    [_displayNameField resignFirstResponder];
+    [_usernameField resignFirstResponder];
+    [_passwordField resignFirstResponder];
 }
-*/
-
 @end

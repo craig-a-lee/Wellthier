@@ -27,11 +27,7 @@
 
 - (void) fetchAllExercises: (void(^)(NSArray *exercises, NSError *error))completion {
 
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://exercisedb.p.rapidapi.com/exercises"]
-                                                           cachePolicy:NSURLRequestUseProtocolCachePolicy
-                                                       timeoutInterval:10.0];
-    [request setHTTPMethod:@"GET"];
-    [request setAllHTTPHeaderFields:self.headers];
+    NSMutableURLRequest *request = [self urlRequestForItems:@""];
 
     NSURLSessionDataTask *dataTask = [self.session dataTaskWithRequest:request
                                                 completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
@@ -51,4 +47,33 @@
     [dataTask resume];
 }
 
+- (NSMutableURLRequest *) urlRequestForItems: (NSString *) itemsName {
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://exercisedb.p.rapidapi.com/exercises%@", itemsName]]
+                                                           cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                                       timeoutInterval:10.0];
+    [request setHTTPMethod:@"GET"];
+    [request setAllHTTPHeaderFields:self.headers];
+    
+    return request;
+}
+
+- (void) fetchBodyParts: (void(^)(NSArray *bodyParts, NSError *error))completion {
+    NSMutableURLRequest *request = [self urlRequestForItems:@"/bodyPartList"];
+    
+
+
+    NSURLSessionDataTask *dataTask = [self.session dataTaskWithRequest:request
+                                                completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                                                    if (error) {
+                                                        NSLog(@"%@", error);
+                                                    } else {
+                                                        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
+                                                        NSLog(@"%@", httpResponse);
+                                                        NSArray *dataDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+                                                        completion(dataDictionary, nil);
+                                                    }
+                                                }];
+    [dataTask resume];
+
+}
 @end

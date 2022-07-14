@@ -2,8 +2,9 @@
 //  GifViewController.m
 //  Wellthier
 //
-//  Created by Craig Lee on 7/8/22.
+//  Created by Craig Lee on 7/13/22.
 //
+
 
 #import "AFNetworking.h"
 #import "GifViewController.h"
@@ -24,23 +25,16 @@
 
 - (void) setParams:(Exercise *)exercise {
     AnimatedGif *newGif = [AnimatedGif getAnimationForGifAtUrl:exercise.gifUrl];
-    [self.gif setAnimatedGif:newGif startImmediately:YES];
-    NSLog(@"here: %@", exercise.gifUrl);
-    self.name.text = exercise.name;
-    self.equipment.text = exercise.equipment;
-    self.bodyPart.text = exercise.bodyPart;
-    self.targetMuscle.text = exercise.target;
-//    [newGif setLoadingProgressBlock:^(AnimatedGif *obj, CGFloat progress) {
-//        progressView.progress = progress;
-//    }];
-//    [newGif setWillShowFrameBlock:^(AnimatedGif *obj, UIImage *img) {
-//        progressView.hidden = YES;
-//        //... Do stuff
-//    }];
-    
-    [self.view addSubview:self.gif];
+    [self.gifImageView setAnimatedGif:newGif startImmediately:YES];
+    self.name.text = [exercise.name capitalizedString];
+    self.name.animationCurve = UIViewAnimationCurveEaseIn;
+    self.name.fadeLength = 10.0;
+    self.name.scrollDuration = 3.0;
+    self.equipment.text = [exercise.equipment capitalizedString];
+    self.bodyPart.text = [exercise.bodyPart capitalizedString];
+    self.targetMuscle.text = [exercise.target capitalizedString];
+    [self.view addSubview:self.gifImageView];
 }
-
 /*
 #pragma mark - Navigation
 
@@ -50,5 +44,6 @@
     // Pass the selected object to the new view controller.
 }
 */
+
 
 @end
