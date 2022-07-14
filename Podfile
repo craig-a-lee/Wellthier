@@ -11,6 +11,7 @@ target 'Wellthier' do
   pod 'DateTools'
   pod 'Animated-Gif-iOS'
   pod 'MarqueeLabel-ObjC'
+  pod 'Parse/UI'
 
   target 'WellthierTests' do
     inherit! :search_paths

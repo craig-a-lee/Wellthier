@@ -7,6 +7,7 @@
 
 #import "SignUpViewController.h"
 #import "Parse/Parse.h"
+#import "Workout.h"
 
 @interface SignUpViewController ()
 
@@ -120,7 +121,10 @@
             } else {
                 NSLog(@"User registered successfully");
                 // manually segue to logged in view
-                    [self performSegueWithIdentifier:@"postSignUpSegue" sender:sender];
+                [Workout postUserWorkout:[UIImage imageNamed:@"purpleheart"] withTitle:@"Liked Exercises" withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+
+                }];
+                [self performSegueWithIdentifier:@"postSignUpSegue" sender:sender];
             }
         }];
     }
@@ -141,17 +145,6 @@
     
     return [PFFileObject fileObjectWithName:@"image.png" data:imageData];
 }
-
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 - (IBAction)gesture:(id)sender {
     [_displayNameField resignFirstResponder];
