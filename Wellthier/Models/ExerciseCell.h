@@ -11,6 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ExerciseCell : UITableViewCell
+
 @property (weak, nonatomic) IBOutlet MarqueeLabel *name;
 @property (weak, nonatomic) IBOutlet UILabel *bodyPart;
 

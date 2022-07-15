@@ -39,7 +39,6 @@
             imagePickerVC.sourceType = UIImagePickerControllerSourceTypeCamera;
         }
         else {
-            NSLog(@"Camera 🚫 available so we will use photo library instead");
             imagePickerVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
         }
         [self presentViewController:imagePickerVC animated:YES completion:nil];
@@ -49,7 +48,6 @@
                                                        style:UIAlertActionStyleDefault
                                                      handler:^(UIAlertAction * _Nonnull action) {
                                                              // handle response here.
-            NSLog(@"Camera 🚫 available so we will use photo library instead");
             imagePickerVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
         [self presentViewController:imagePickerVC animated:YES completion:nil];
 
@@ -117,9 +115,7 @@
         // call sign up function on the object
         [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
             if (error != nil) {
-                NSLog(@"Error: %@", error.localizedDescription);
             } else {
-                NSLog(@"User registered successfully");
                 // manually segue to logged in view
                 [Workout postUserWorkout:[UIImage imageNamed:@"purpleheart"] withTitle:@"Liked Exercises" withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
 
