@@ -9,6 +9,7 @@
 #import "Parse/Parse.h"
 #import "Workout.h"
 #import "WorkoutCell.h"
+#import "WorkoutViewController.h"
 
 @interface LibraryViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
 
@@ -29,14 +30,15 @@
     [self getWorkouts];
 }
 
--(void) getWorkouts {
+- (void) getWorkouts {
     PFQuery *workoutQuery = [Workout query];
     [workoutQuery includeKey:@"author"];
     [workoutQuery whereKey:@"author" equalTo:PFUser.currentUser];
-    [workoutQuery findObjectsInBackgroundWithBlock:^(NSArray<Workout *> * _Nullable posts, NSError * _Nullable error) {
-        if (posts) {
+    [workoutQuery findObjectsInBackgroundWithBlock:^(NSArray<Workout *> * _Nullable workouts, NSError * _Nullable error) {
+        if (workouts) {
             // do something with the data fetched
-            self.arrayOfWorkouts = (NSMutableArray *) posts;
+            self.arrayOfWorkouts = (NSMutableArray *) workouts;
+            self.filteredWorkouts = (NSMutableArray *) workouts;
             [self.collectionView reloadData];
         }
     }];
@@ -47,7 +49,6 @@
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-
     WorkoutCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"WorkoutCell" forIndexPath:indexPath];
     Workout *workout = self.arrayOfWorkouts[indexPath.row];
     cell.workoutImageView.file = workout[@"image"];
@@ -55,6 +56,15 @@
     cell.workoutAuthorInfo.text = self.currentUser[@"displayName"];
     cell.workoutTitle.text = workout.title;
     return cell;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"workoutSegueFromProfile"]) {
+        NSIndexPath *indexPath = [self.collectionView indexPathForCell:sender];
+        Workout *selectedWorkout = self.filteredWorkouts[indexPath.row];
+        WorkoutViewController *wVC = [segue destinationViewController];
+        wVC.detailWorkout = selectedWorkout;
+    }
 }
 
 @end

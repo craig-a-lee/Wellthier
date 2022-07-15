@@ -10,8 +10,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface SearchCell : UICollectionViewCell
-@property (weak, nonatomic) IBOutlet UIButton *button;
 
+@property (weak, nonatomic) IBOutlet UIButton *button;
 
 @end
 

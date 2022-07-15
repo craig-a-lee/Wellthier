@@ -19,11 +19,10 @@
     // Do any additional setup after loading the view.
 }
 - (IBAction)didTapLogin:(id)sender {
-
     UIAlertController *emptyAlert = [UIAlertController alertControllerWithTitle:@"Empty Field"
                                                                                message:@"There is an empty field, please fill it."
                                                                         preferredStyle:(UIAlertControllerStyleAlert)];
-    
+
     UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK"
                                                        style:UIAlertActionStyleDefault
                                                      handler:^(UIAlertAction * _Nonnull action) {

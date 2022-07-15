@@ -20,6 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *equipment;
 @property (weak, nonatomic) IBOutlet UILabel *targetMuscle;
 @property (weak, nonatomic) IBOutlet UILabel *bodyPart;
+@property (weak, nonatomic) IBOutlet UIButton *likeButton;
 
 @end
 

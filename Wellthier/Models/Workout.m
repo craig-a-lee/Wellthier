@@ -7,6 +7,7 @@
 
 #import "Workout.h"
 #import <Parse/Parse.h>
+#import "Exercise.h"
 
 @implementation Workout
 
@@ -32,6 +33,16 @@
         [newWorkout saveInBackgroundWithBlock: completion];
 }
 
++ (void) updateUserWorkout: ( Workout * _Nullable )workout withExercise: ( Exercise * _Nullable )exercise withCompletion: (PFBooleanResultBlock  _Nullable)completion {
+    [workout addObject:exercise.exerciseID forKey:@"exercises"];
+    [workout saveInBackgroundWithBlock: completion];
+}
+
++ (void) deleteExerciseFromWorkout: ( Workout * _Nullable )workout withExercise: ( Exercise * _Nullable )exercise withCompletion: (PFBooleanResultBlock  _Nullable)completion {
+    [workout removeObject:exercise.exerciseID forKey:@"exercises"];
+    [workout saveInBackgroundWithBlock: completion];
+}
+
 + (PFFileObject *)getPFFileFromImage: (UIImage * _Nullable)image {
     // check if image is not nil
     if (!image) {
@@ -46,7 +57,5 @@
     
     return [PFFileObject fileObjectWithName:@"image.png" data:imageData];
 }
-    
-
 
 @end

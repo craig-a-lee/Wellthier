@@ -25,7 +25,6 @@
 @implementation SearchViewController
 
 - (void)viewDidLoad {
-
     [super viewDidLoad];
     [self getAllExercises];
     [self getBodyParts];
@@ -42,8 +41,6 @@
     self.tableView.rowHeight = UITableViewAutomaticDimension;
 }
 
-
-
 - (void) getAllExercises {
     ExerciseAPIManager *manager = [ExerciseAPIManager new];
     [manager fetchAllExercises:^(NSArray *exercises, NSError *error) {
@@ -56,13 +53,7 @@
 }
 
 - (void) getBodyParts {
-    ExerciseAPIManager *manager = [ExerciseAPIManager new];
-    [manager fetchBodyParts:^(NSArray *bodyParts, NSError *  error) {
-        self.bodyParts = bodyParts;
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.collectionView reloadData];
-        });
-    }];
+    self.bodyParts = @[@"back", @"cardio", @"chest", @"lower arms", @"lower legs", @"neck", @"shoulders", @"upper arms", @"upper legs", @"waist"];
 }
 
 - (IBAction)buttonPressed:(id)sender {
@@ -71,11 +62,9 @@
             self.selectedButtonString = @"";
             self.filteredExercises = self.arrayOfExercises;
             [self setButtonPressed:NO];
-            
         } else {
             self.selectedButtonString = [sender currentTitle];
             NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(Exercise *evaluatedObject, NSDictionary *bindings) {
-                NSLog(@"%@", evaluatedObject);
                 return ([evaluatedObject.bodyPart containsString:[self.selectedButtonString lowercaseString]]);
             }];
             
@@ -92,7 +81,6 @@
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-
     SearchCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"SearchCell" forIndexPath:indexPath];
     NSString *partName = self.bodyParts[indexPath.row];
     [cell.button setTitle:[partName capitalizedString] forState:UIControlStateNormal];
@@ -100,9 +88,12 @@
     cell.contentView.layer.borderWidth = 1.0f;
     cell.contentView.layer.borderColor = [UIColor whiteColor].CGColor;
     if ([[partName capitalizedString] isEqualToString:self.selectedButtonString]) {
-        [cell.button setBackgroundColor:[UIColor greenColor]];
+        //[cell.button setBackgroundColor:[UIColor colorWithRed:30 green:215 blue:96 alpha:1.0]];
+        cell.button.backgroundColor = [UIColor greenColor];
+        [cell.button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     } else {
         cell.button.backgroundColor = [UIColor blackColor];
+        [cell.button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     }
     cell.contentView.layer.masksToBounds = true;
     return cell;
@@ -128,20 +119,26 @@
     searchText = [searchText lowercaseString];
     if (searchText.length != 0) {
         [self setSearchBarPressed:YES];
-        NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(Exercise *evaluatedObject, NSDictionary *bindings) {
-            NSLog(@"%@", evaluatedObject);
+        NSPredicate *searchPredicate = [NSPredicate predicateWithBlock:^BOOL(Exercise *evaluatedObject, NSDictionary *bindings) {
             return ([evaluatedObject.name containsString:searchText] ||
                     [evaluatedObject.target containsString:searchText] ||
                     [evaluatedObject.equipment containsString:searchText] ||
                     [evaluatedObject.bodyPart containsString:searchText]);
         }];
-        self.filteredExercises = (NSMutableArray *) [self.arrayOfExercises filteredArrayUsingPredicate:predicate];
+        
+        self.filteredExercises = (NSMutableArray *) [self.arrayOfExercises filteredArrayUsingPredicate:searchPredicate];
+        
+        if (self.selectedButtonString.length > 0) {
+            NSPredicate *filterPredicate = [NSPredicate predicateWithBlock:^BOOL(Exercise *evaluatedObject, NSDictionary *bindings) {
+                return ([evaluatedObject.bodyPart containsString:[self.selectedButtonString lowercaseString]]);
+            }];
+            self.filteredExercises = (NSMutableArray *) [self.filteredExercises filteredArrayUsingPredicate:filterPredicate];
+        }
     }
     else {
         [self setSearchBarPressed:NO];
         if (self.selectedButtonString.length > 0) {
             NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(Exercise *evaluatedObject, NSDictionary *bindings) {
-                NSLog(@"%@", evaluatedObject);
                 return ([evaluatedObject.bodyPart containsString:[self.selectedButtonString lowercaseString]]);
             }];
             
@@ -161,7 +158,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-    if ([segue.identifier isEqualToString:@"gifSegue1"]) {
+    if ([segue.identifier isEqualToString:@"gifSegueFromSearch"]) {
         NSIndexPath *myIndexPath = [self.tableView indexPathForCell:sender];
         Exercise *dataToPass = self.filteredExercises[myIndexPath.row];
         GifViewController *gVC = [segue destinationViewController];

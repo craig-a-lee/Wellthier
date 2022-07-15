@@ -10,8 +10,12 @@
 #import "GifViewController.h"
 #import "AnimatedGif.h"
 #import "UIImageView+AnimatedGif.h"
+#import "Parse/Parse.h"
+#import "Workout.h"
 
 @interface GifViewController ()
+
+@property (nonatomic, assign) BOOL isLiked;
 
 @end
 
@@ -20,7 +24,22 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self setParams:self.detailExercise];
+    PFQuery *workoutQuery = [Workout query];
+    [workoutQuery whereKey:@"title" equalTo:@"Liked Exercises"];
+    [workoutQuery whereKey:@"author" equalTo:PFUser.currentUser];
+    [workoutQuery findObjectsInBackgroundWithBlock:^(NSArray<Workout *> * _Nullable workouts, NSError * _Nullable error) {
+        if (workouts) {
+            // do something with the data fetched
+            if ([workouts[0].exercises containsObject:self.detailExercise.exerciseID]) {
+                [self setIsLiked:YES];
+            } else {
+                [self setIsLiked:NO];
+            }
+            
+        }
+        [self setParams:self.detailExercise];
+    }];
+    
 }
 
 - (void) setParams:(Exercise *)exercise {
@@ -33,17 +52,39 @@
     self.equipment.text = [exercise.equipment capitalizedString];
     self.bodyPart.text = [exercise.bodyPart capitalizedString];
     self.targetMuscle.text = [exercise.target capitalizedString];
+    if (self.isLiked) {
+        [self.likeButton setImage: [UIImage imageNamed:@"favor-icon-red"] forState:UIControlStateNormal];
+    } else {
+        [self.likeButton setImage: [UIImage imageNamed:@"heart.fill"] forState:UIControlStateNormal];
+    }
     [self.view addSubview:self.gifImageView];
 }
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (IBAction)didTapLikeButton:(id)sender {
+    PFQuery *workoutQuery = [Workout query];
+    [workoutQuery whereKey:@"title" equalTo:@"Liked Exercises"];
+    [workoutQuery whereKey:@"author" equalTo:PFUser.currentUser];
+    if (!self.isLiked) {
+        [workoutQuery findObjectsInBackgroundWithBlock:^(NSArray<Workout *> * _Nullable workouts, NSError * _Nullable error) {
+            if (workouts) {
+                // do something with the data fetched
+                [Workout updateUserWorkout:workouts[0] withExercise:self.detailExercise withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+                    [self setIsLiked:YES];
+                    [self setParams:self.detailExercise];
+                }];
+            }
+        }];
+    } else {
+        [workoutQuery findObjectsInBackgroundWithBlock:^(NSArray<Workout *> * _Nullable workouts, NSError * _Nullable error) {
+            if (workouts) {
+                // do something with the data fetched
+                [Workout deleteExerciseFromWorkout:workouts[0] withExercise:self.detailExercise withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+                    [self setIsLiked:NO];
+                    [self setParams:self.detailExercise];
+                }];
+            }
+        }];
+    }
 }
-*/
-
 
 @end

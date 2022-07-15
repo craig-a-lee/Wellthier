@@ -18,7 +18,7 @@
     NSString *gifString = dictionary[@"gifUrl"];
     gifString = [gifString stringByReplacingOccurrencesOfString:@"http" withString:@"https"];
     self.gifUrl = [NSURL URLWithString:gifString];
-    
+    self.exerciseID = dictionary[@"id"];
     return self;
 }
 

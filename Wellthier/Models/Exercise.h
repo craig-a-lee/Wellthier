@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *target;
 @property (nonatomic, strong) NSString *equipment;
 @property (nonatomic, strong) NSURL *gifUrl;
+@property (nonatomic, strong) NSString *exerciseID;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;
 + (NSArray *)exercisesWithDictionaries:(NSArray *)dictionaries;
