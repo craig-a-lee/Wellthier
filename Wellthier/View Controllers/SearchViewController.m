@@ -11,6 +11,7 @@
 #import "Exercise.h"
 #import "SearchCell.h"
 #import "GifViewController.h"
+#import "ExerciseCommonManager.h"
 
 
 @interface SearchViewController () <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, UICollectionViewDataSource, UICollectionViewDelegate>
@@ -19,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (nonatomic, assign) BOOL buttonPressed;
 @property (nonatomic, assign) BOOL searchBarPressed;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 @end
 
@@ -26,6 +28,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.activityIndicator startAnimating];
     [self getAllExercises];
     [self getBodyParts];
     [self setButtonPressed:NO];
@@ -42,14 +45,9 @@
 }
 
 - (void) getAllExercises {
-    ExerciseAPIManager *manager = [ExerciseAPIManager new];
-    [manager fetchAllExercises:^(NSArray *exercises, NSError *error) {
-        self.arrayOfExercises = (NSMutableArray *) exercises;
-        self.filteredExercises = (NSMutableArray *) exercises;
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.tableView reloadData];
-        });
-    }];
+    self.arrayOfExercises = [[ExerciseCommonManager sharedManager] allExercises];
+    self.filteredExercises = self.arrayOfExercises;
+    [self.tableView reloadData];
 }
 
 - (void) getBodyParts {
@@ -88,7 +86,6 @@
     cell.contentView.layer.borderWidth = 1.0f;
     cell.contentView.layer.borderColor = [UIColor whiteColor].CGColor;
     if ([[partName capitalizedString] isEqualToString:self.selectedButtonString]) {
-        //[cell.button setBackgroundColor:[UIColor colorWithRed:30 green:215 blue:96 alpha:1.0]];
         cell.button.backgroundColor = [UIColor greenColor];
         [cell.button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     } else {
@@ -126,13 +123,13 @@
                     [evaluatedObject.bodyPart containsString:searchText]);
         }];
         
-        self.filteredExercises = (NSMutableArray *) [self.arrayOfExercises filteredArrayUsingPredicate:searchPredicate];
+        self.filteredExercises = [self.arrayOfExercises filteredArrayUsingPredicate:searchPredicate];
         
         if (self.selectedButtonString.length > 0) {
             NSPredicate *filterPredicate = [NSPredicate predicateWithBlock:^BOOL(Exercise *evaluatedObject, NSDictionary *bindings) {
                 return ([evaluatedObject.bodyPart containsString:[self.selectedButtonString lowercaseString]]);
             }];
-            self.filteredExercises = (NSMutableArray *) [self.filteredExercises filteredArrayUsingPredicate:filterPredicate];
+            self.filteredExercises = [self.filteredExercises filteredArrayUsingPredicate:filterPredicate];
         }
     }
     else {
@@ -142,7 +139,7 @@
                 return ([evaluatedObject.bodyPart containsString:[self.selectedButtonString lowercaseString]]);
             }];
             
-            self.filteredExercises = (NSMutableArray *) [self.arrayOfExercises filteredArrayUsingPredicate:predicate];
+            self.filteredExercises = [self.arrayOfExercises filteredArrayUsingPredicate:predicate];
         } else {
             self.filteredExercises = self.arrayOfExercises;
         }

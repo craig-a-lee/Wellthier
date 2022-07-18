@@ -13,8 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface SearchViewController : ViewController
 
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
-@property (nonatomic, strong) NSMutableArray <Exercise *> *arrayOfExercises;
-@property (nonatomic, strong) NSMutableArray <Exercise *> *filteredExercises;
+@property (nonatomic, strong) NSArray <Exercise *> *arrayOfExercises;
+@property (nonatomic, strong) NSArray <Exercise *> *filteredExercises;
 @property (nonatomic, strong) NSArray <NSString *> *bodyParts;
 @property (nonatomic, strong) NSString *selectedButtonString;
 

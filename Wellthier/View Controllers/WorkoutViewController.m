@@ -11,7 +11,7 @@
 #import "ExerciseCell.h"
 #import "ExerciseAPIManager.h"
 #import "Parse/Parse.h"
-
+#import "ExerciseCommonManager.h"
 
 @interface WorkoutViewController () <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate>
 
@@ -36,19 +36,16 @@
 }
 
 - (void) getExercises {
-    ExerciseAPIManager *manager = [ExerciseAPIManager new];
     self.arrayOfExercises = [NSMutableArray new];
     self.filteredExercises = [NSMutableArray new];
+    NSArray *allExercises = [[ExerciseCommonManager sharedManager] allExercises];
     for (NSString *currentID in self.detailWorkout.exercises) {
-        [manager fetchExerciseByID:currentID withCompletion:^(Exercise *exercise, NSError *error) {
-            [self.arrayOfExercises addObject:exercise];
-            [self.filteredExercises addObject:exercise];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self.tableView reloadData];
-            });
+        NSPredicate *idPredicate = [NSPredicate predicateWithBlock:^BOOL(Exercise *evaluatedObject, NSDictionary *bindings) {
+            return ([evaluatedObject.exerciseID isEqualToString:currentID]);
         }];
+        self.arrayOfExercises = [self.arrayOfExercises arrayByAddingObjectsFromArray:[allExercises filteredArrayUsingPredicate:idPredicate]];
     }
-    
+    self.filteredExercises = self.arrayOfExercises;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

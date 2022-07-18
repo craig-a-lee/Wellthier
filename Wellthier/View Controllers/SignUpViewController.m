@@ -17,10 +17,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    self.profilePic.layer.cornerRadius = self.profilePic.frame.size.height /2;
-    self.profilePic.layer.masksToBounds = YES;
-    self.profilePic.layer.borderWidth = 0;
 }
 
 - (IBAction)didTapUploadPic:(id)sender {
@@ -60,7 +56,6 @@
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
-    
     // Get the image captured by the UIImagePickerController
     UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
 
@@ -127,7 +122,6 @@
 }
 
 - (PFFileObject *)getPFFileFromImage: (UIImage * _Nullable)image {
- 
     // check if image is not nil
     if (!image) {
         return nil;
@@ -142,9 +136,10 @@
     return [PFFileObject fileObjectWithName:@"image.png" data:imageData];
 }
 
-- (IBAction)gesture:(id)sender {
+- (IBAction)tapGesture:(id)sender {
     [_displayNameField resignFirstResponder];
     [_usernameField resignFirstResponder];
     [_passwordField resignFirstResponder];
 }
+
 @end

@@ -39,7 +39,6 @@
                                                             }
     }];
 }
-    
 
 - (NSMutableURLRequest *) urlRequestForItems: (NSString *) itemsName {
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://exercisedb.p.rapidapi.com/exercises%@", itemsName]]
@@ -49,28 +48,6 @@
     [request setAllHTTPHeaderFields:self.headers];
     
     return request;
-}
-
-- (void) fetchExerciseByID: (NSString *) exerciseID withCompletion: (void(^)(Exercise *exercise, NSError *error))completion {
-    NSMutableURLRequest *request = [self urlRequestForItems:[NSString stringWithFormat:@"/exercise/%@", exerciseID]];
-    [self makeRequest:request completion:^(id dataDictionary, NSError *error) {
-                                                            if (error) {
-                                                            } else {
-                                                                if ([dataDictionary isKindOfClass:[NSDictionary class]]) {
-                                                                    Exercise *exercise = [Exercise new];
-                                                                    exercise.name = dataDictionary[@"name"];
-                                                                    exercise.bodyPart = dataDictionary[@"bodyPart"];
-                                                                    exercise.equipment = dataDictionary[@"equipment"];
-                                                                    exercise.target = dataDictionary[@"target"];
-                                                                    NSString *gifString = dataDictionary[@"gifUrl"];
-                                                                    gifString = [gifString stringByReplacingOccurrencesOfString:@"http" withString:@"https"];
-                                                                    exercise.gifUrl = [NSURL URLWithString:gifString];
-                                                                    exercise.exerciseID = dataDictionary[@"id"];
-                                                                    completion(exercise, nil);
-
-                                                                }
-                                                            }
-    }];
 }
 
 - (void) makeRequest:(NSMutableURLRequest *)request completion:(void(^)(id object, NSError *error))completion {

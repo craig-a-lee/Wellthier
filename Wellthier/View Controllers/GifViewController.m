@@ -16,6 +16,7 @@
 @interface GifViewController ()
 
 @property (nonatomic, assign) BOOL isLiked;
+@property (strong, nonatomic) PFQuery *workoutQuery;
 
 @end
 
@@ -24,10 +25,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    PFQuery *workoutQuery = [Workout query];
-    [workoutQuery whereKey:@"title" equalTo:@"Liked Exercises"];
-    [workoutQuery whereKey:@"author" equalTo:PFUser.currentUser];
-    [workoutQuery findObjectsInBackgroundWithBlock:^(NSArray<Workout *> * _Nullable workouts, NSError * _Nullable error) {
+    self.workoutQuery = [Workout query];
+    [self.workoutQuery whereKey:@"title" equalTo:@"Liked Exercises"];
+    [self.workoutQuery whereKey:@"author" equalTo:PFUser.currentUser];
+    [self.workoutQuery findObjectsInBackgroundWithBlock:^(NSArray<Workout *> * _Nullable workouts, NSError * _Nullable error) {
         if (workouts) {
             // do something with the data fetched
             if ([workouts[0].exercises containsObject:self.detailExercise.exerciseID]) {
@@ -37,12 +38,12 @@
             }
             
         }
-        [self setParams:self.detailExercise];
+        [self setExerciseProperties:self.detailExercise];
     }];
     
 }
 
-- (void) setParams:(Exercise *)exercise {
+- (void) setExerciseProperties:(Exercise *)exercise {
     AnimatedGif *newGif = [AnimatedGif getAnimationForGifAtUrl:exercise.gifUrl];
     [self.gifImageView setAnimatedGif:newGif startImmediately:YES];
     self.name.text = [exercise.name capitalizedString];
@@ -61,26 +62,23 @@
 }
 
 - (IBAction)didTapLikeButton:(id)sender {
-    PFQuery *workoutQuery = [Workout query];
-    [workoutQuery whereKey:@"title" equalTo:@"Liked Exercises"];
-    [workoutQuery whereKey:@"author" equalTo:PFUser.currentUser];
     if (!self.isLiked) {
-        [workoutQuery findObjectsInBackgroundWithBlock:^(NSArray<Workout *> * _Nullable workouts, NSError * _Nullable error) {
+        [self.workoutQuery findObjectsInBackgroundWithBlock:^(NSArray<Workout *> * _Nullable workouts, NSError * _Nullable error) {
             if (workouts) {
                 // do something with the data fetched
                 [Workout updateUserWorkout:workouts[0] withExercise:self.detailExercise withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
                     [self setIsLiked:YES];
-                    [self setParams:self.detailExercise];
+                    [self setExerciseProperties:self.detailExercise];
                 }];
             }
         }];
     } else {
-        [workoutQuery findObjectsInBackgroundWithBlock:^(NSArray<Workout *> * _Nullable workouts, NSError * _Nullable error) {
+        [self.workoutQuery findObjectsInBackgroundWithBlock:^(NSArray<Workout *> * _Nullable workouts, NSError * _Nullable error) {
             if (workouts) {
                 // do something with the data fetched
                 [Workout deleteExerciseFromWorkout:workouts[0] withExercise:self.detailExercise withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
                     [self setIsLiked:NO];
-                    [self setParams:self.detailExercise];
+                    [self setExerciseProperties:self.detailExercise];
                 }];
             }
         }];
