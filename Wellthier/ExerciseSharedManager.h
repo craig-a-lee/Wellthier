@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ExerciseCommonManager : NSObject //change to exercise shared manager
+@interface ExerciseSharedManager : NSObject //change to exercise shared manager
 
 + (id)sharedManager;
 - (void) fetchAllExercises;

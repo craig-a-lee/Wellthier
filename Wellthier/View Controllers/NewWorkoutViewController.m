@@ -56,15 +56,11 @@
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
-    
-    // Get the image captured by the UIImagePickerController
     UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
 
-    // Do something with the images (based on your use case)
     CGSize size = CGSizeMake(167, 167);
     self.workoutImage.image = [self resizeImage:originalImage withSize:size];
-    
-    // Dismiss UIImagePickerController to go back to your original view controller
+
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

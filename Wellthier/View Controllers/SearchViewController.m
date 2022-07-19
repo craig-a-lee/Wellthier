@@ -11,16 +11,16 @@
 #import "Exercise.h"
 #import "SearchCell.h"
 #import "GifViewController.h"
-#import "ExerciseCommonManager.h"
+#import "ExerciseSharedManager.h"
 
 
 @interface SearchViewController () <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, UICollectionViewDataSource, UICollectionViewDelegate>
 
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (nonatomic, weak) IBOutlet UITableView *tableView;
+@property (nonatomic, weak) IBOutlet UICollectionView *collectionView;
 @property (nonatomic, assign) BOOL buttonPressed;
 @property (nonatomic, assign) BOOL searchBarPressed;
-@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (nonatomic, weak) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 @end
 
@@ -45,7 +45,7 @@
 }
 
 - (void) getAllExercises {
-    self.arrayOfExercises = [[ExerciseCommonManager sharedManager] allExercises];
+    self.arrayOfExercises = [[ExerciseSharedManager sharedManager] allExercises];
     self.filteredExercises = self.arrayOfExercises;
     [self.tableView reloadData];
 }
@@ -81,16 +81,16 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     SearchCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"SearchCell" forIndexPath:indexPath];
     NSString *partName = self.bodyParts[indexPath.row];
-    [cell.button setTitle:[partName capitalizedString] forState:UIControlStateNormal];
+    [cell.filterButton setTitle:[partName capitalizedString] forState:UIControlStateNormal];
     cell.contentView.layer.cornerRadius = 10.0;
     cell.contentView.layer.borderWidth = 1.0f;
     cell.contentView.layer.borderColor = [UIColor whiteColor].CGColor;
     if ([[partName capitalizedString] isEqualToString:self.selectedButtonString]) {
-        cell.button.backgroundColor = [UIColor greenColor];
-        [cell.button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        cell.filterButton.backgroundColor = [UIColor greenColor];
+        [cell.filterButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     } else {
-        cell.button.backgroundColor = [UIColor blackColor];
-        [cell.button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        cell.filterButton.backgroundColor = [UIColor blackColor];
+        [cell.filterButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     }
     cell.contentView.layer.masksToBounds = true;
     return cell;
@@ -149,9 +149,6 @@
 
 }
 
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.

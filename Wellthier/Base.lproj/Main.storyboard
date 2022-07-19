@@ -558,7 +558,7 @@
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="100" height="36"/>
                                         <connections>
-                                            <outlet property="button" destination="pN0-3Z-Dpi" id="Ptc-AK-Laj"/>
+                                            <outlet property="filterButton" destination="pN0-3Z-Dpi" id="Ptc-AK-Laj"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -825,6 +825,9 @@
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                             </button>
+                            <connections>
+                                <action selector="didTapCancel:" destination="bTJ-Ga-OeQ" id="3cl-NZ-QkD"/>
+                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="plain" id="Hkm-Bt-2qE">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="sp7-Cu-92o">

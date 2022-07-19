@@ -34,7 +34,7 @@
 		73B91BA028762EA700857F73 /* WellthierUITestsLaunchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 73B91B9F28762EA700857F73 /* WellthierUITestsLaunchTests.m */; };
 		73B91BAE287632CE00857F73 /* View Controllers in Resources */ = {isa = PBXBuildFile; fileRef = 73B91BAD287632CE00857F73 /* View Controllers */; };
 		73DE058E2885BE5B00CAB9F6 /* Cells in Resources */ = {isa = PBXBuildFile; fileRef = 73DE058D2885BE5B00CAB9F6 /* Cells */; };
-		73DE05912885C01E00CAB9F6 /* ExerciseCommonManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 73DE05902885C01E00CAB9F6 /* ExerciseCommonManager.m */; };
+		73DE05912885C01E00CAB9F6 /* ExerciseSharedManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 73DE05902885C01E00CAB9F6 /* ExerciseSharedManager.m */; };
 		73DE05942885CEDF00CAB9F6 /* NewWorkoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73DE05932885CEDF00CAB9F6 /* NewWorkoutViewController.m */; };
 		73DE05972885E04700CAB9F6 /* AddToWorkoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73DE05962885E04700CAB9F6 /* AddToWorkoutViewController.m */; };
 		73DE059A2885E11100CAB9F6 /* WorkoutTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 73DE05992885E11100CAB9F6 /* WorkoutTableViewCell.m */; };
@@ -109,8 +109,8 @@
 		73B91B9F28762EA700857F73 /* WellthierUITestsLaunchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WellthierUITestsLaunchTests.m; sourceTree = "<group>"; };
 		73B91BAD287632CE00857F73 /* View Controllers */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "View Controllers"; sourceTree = "<group>"; };
 		73DE058D2885BE5B00CAB9F6 /* Cells */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Cells; sourceTree = "<group>"; };
-		73DE058F2885C01E00CAB9F6 /* ExerciseCommonManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExerciseCommonManager.h; sourceTree = "<group>"; };
-		73DE05902885C01E00CAB9F6 /* ExerciseCommonManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExerciseCommonManager.m; sourceTree = "<group>"; };
+		73DE058F2885C01E00CAB9F6 /* ExerciseSharedManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExerciseSharedManager.h; sourceTree = "<group>"; };
+		73DE05902885C01E00CAB9F6 /* ExerciseSharedManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExerciseSharedManager.m; sourceTree = "<group>"; };
 		73DE05922885CEDF00CAB9F6 /* NewWorkoutViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = NewWorkoutViewController.h; path = "View Controllers/NewWorkoutViewController.h"; sourceTree = "<group>"; };
 		73DE05932885CEDF00CAB9F6 /* NewWorkoutViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = NewWorkoutViewController.m; path = "View Controllers/NewWorkoutViewController.m"; sourceTree = "<group>"; };
 		73DE05952885E04700CAB9F6 /* AddToWorkoutViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AddToWorkoutViewController.h; path = "View Controllers/AddToWorkoutViewController.h"; sourceTree = "<group>"; };
@@ -248,8 +248,8 @@
 				73496B44287F83E600A1E77C /* LoginViewController.m */,
 				73E55CA22880B78000D9B73F /* WorkoutViewController.h */,
 				73E55CA32880B78000D9B73F /* WorkoutViewController.m */,
-				73DE058F2885C01E00CAB9F6 /* ExerciseCommonManager.h */,
-				73DE05902885C01E00CAB9F6 /* ExerciseCommonManager.m */,
+				73DE058F2885C01E00CAB9F6 /* ExerciseSharedManager.h */,
+				73DE05902885C01E00CAB9F6 /* ExerciseSharedManager.m */,
 				73DE05922885CEDF00CAB9F6 /* NewWorkoutViewController.h */,
 				73DE05932885CEDF00CAB9F6 /* NewWorkoutViewController.m */,
 				73DE05952885E04700CAB9F6 /* AddToWorkoutViewController.h */,
@@ -530,7 +530,7 @@
 				73E55CA42880B78000D9B73F /* WorkoutViewController.m in Sources */,
 				73B22DA6287F3DDD002548DE /* LibraryViewController.m in Sources */,
 				739535CB287DF75100D1D4CF /* ExerciseAPIManager.m in Sources */,
-				73DE05912885C01E00CAB9F6 /* ExerciseCommonManager.m in Sources */,
+				73DE05912885C01E00CAB9F6 /* ExerciseSharedManager.m in Sources */,
 				739535CE287DF79500D1D4CF /* Exercise.m in Sources */,
 				739535D6287DF7E600D1D4CF /* SearchCell.m in Sources */,
 				73B91B7C28762EA500857F73 /* SceneDelegate.m in Sources */,

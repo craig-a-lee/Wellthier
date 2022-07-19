@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NewWorkoutViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
-@property (nonatomic, weak) id<NewWorkoutViewControllerDelegate> delegate;
+@property (weak, nonatomic) id<NewWorkoutViewControllerDelegate> delegate;
 @property (weak, nonatomic) IBOutlet UIImageView *workoutImage;
 @property (weak, nonatomic) IBOutlet UITextField *workoutName;
 

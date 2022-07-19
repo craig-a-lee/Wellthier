@@ -7,7 +7,7 @@
 
 #import "SceneDelegate.h"
 #import "Parse/Parse.h"
-#import "ExerciseCommonManager.h"
+#import "ExerciseSharedManager.h"
 
 @interface SceneDelegate ()
 
@@ -20,7 +20,7 @@
     
     // Code to initialize Parse
     // (See above section 'Parse `initializeWithConfiguration` vs `setApplicationId`', if you have not already set it up)
-    [[ExerciseCommonManager sharedManager] fetchAllExercises];
+    [[ExerciseSharedManager sharedManager] fetchAllExercises];
     if (PFUser.currentUser) {
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
 

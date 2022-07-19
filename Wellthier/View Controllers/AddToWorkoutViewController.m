@@ -20,7 +20,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self getWorkouts];
@@ -33,7 +32,6 @@
     [workoutQuery whereKey:@"title" notEqualTo:@"Liked Exercises"];
     [workoutQuery findObjectsInBackgroundWithBlock:^(NSArray<Workout *> * _Nullable workouts, NSError * _Nullable error) {
         if (workouts) {
-            // do something with the data fetched
             self.arrayOfWorkouts = workouts;
             self.filteredWorkouts = workouts;
             [self.tableView reloadData];
@@ -53,9 +51,6 @@
     PFUser *user = workout[@"author"];
     cell.workoutName.text = workout.title;
     cell.workoutAuthorInfo.text = user.username;
-    if ([cell isSelected]) {
-        cell.accessoryType = UITableViewCellAccessoryCheckmark;
-    }
     return cell;
 }
 

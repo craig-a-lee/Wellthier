@@ -11,7 +11,7 @@
 #import "ExerciseCell.h"
 #import "ExerciseAPIManager.h"
 #import "Parse/Parse.h"
-#import "ExerciseCommonManager.h"
+#import "ExerciseSharedManager.h"
 
 @interface WorkoutViewController () <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate>
 
@@ -28,7 +28,6 @@
     self.tableView.dataSource = self;
     self.searchBar.delegate = self;
     self.workoutTitle.text = self.detailWorkout.title;
-    // Do any additional setup after loading the view.
     self.workoutImageView.file = self.detailWorkout[@"image"];
     PFUser *user = self.detailWorkout[@"author"];
     self.author.text = user[@"displayName"];
@@ -36,9 +35,7 @@
 }
 
 - (void) getExercises {
-    self.arrayOfExercises = [NSMutableArray new];
-    self.filteredExercises = [NSMutableArray new];
-    NSArray *allExercises = [[ExerciseCommonManager sharedManager] allExercises];
+    NSArray *allExercises = [[ExerciseSharedManager sharedManager] allExercises];
     for (NSString *currentID in self.detailWorkout.exercises) {
         NSPredicate *idPredicate = [NSPredicate predicateWithBlock:^BOOL(Exercise *evaluatedObject, NSDictionary *bindings) {
             return ([evaluatedObject.exerciseID isEqualToString:currentID]);
@@ -64,9 +61,6 @@
     return cell;
 }
 
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
