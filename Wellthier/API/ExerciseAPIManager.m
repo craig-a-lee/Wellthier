@@ -20,7 +20,7 @@
 -(id) init {
     self = [super init];
     self.session = [NSURLSession sharedSession];
-    self.headers =  @{ @"X-RapidAPI-Key": @"59155f3b42msh4c970b09e3798d7p149cb3jsnd367e6d28891",
+    self.headers =  @{ @"X-RapidAPI-Key": @"e99f2849d4msh4efe5bd2dd65144p123359jsn5caff4b8683d",
                        @"X-RapidAPI-Host": @"exercisedb.p.rapidapi.com" };
     return self;
 }
@@ -28,23 +28,16 @@
 - (void) fetchAllExercises: (void(^)(NSArray *exercises, NSError *error))completion {
 
     NSMutableURLRequest *request = [self urlRequestForItems:@""];
-
-    NSURLSessionDataTask *dataTask = [self.session dataTaskWithRequest:request
-                                                completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-                                                    if (error) {
-                                                        NSLog(@"%@", error);
-                                                    } else {
-                                                        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
-                                                        NSLog(@"%@", httpResponse);
-                                                        NSArray *dataDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-
-                                                        //NSArray *dictionaries = dataDictionary;
-                                                        NSArray *exercises = [Exercise exercisesWithDictionaries:dataDictionary];
-                                                        completion(exercises, nil);
-                                                        
-                                                    }
-                                                }];
-    [dataTask resume];
+    [self makeRequest:request completion:^(id object, NSError *error) {
+                                                            if (error) {
+                                                            } else {
+                                                                if ([object isKindOfClass:[NSArray class]]) {
+                                                                    NSArray *allExercises = (NSArray *)object;
+                                                                    NSArray *exercises = [Exercise exercisesWithDictionaries:allExercises];
+                                                                    completion(exercises, nil);
+                                                                }
+                                                            }
+    }];
 }
 
 - (NSMutableURLRequest *) urlRequestForItems: (NSString *) itemsName {
@@ -57,23 +50,16 @@
     return request;
 }
 
-- (void) fetchBodyParts: (void(^)(NSArray *bodyParts, NSError *error))completion {
-    NSMutableURLRequest *request = [self urlRequestForItems:@"/bodyPartList"];
-    
-
-
+- (void) makeRequest:(NSMutableURLRequest *)request completion:(void(^)(id object, NSError *error))completion {
     NSURLSessionDataTask *dataTask = [self.session dataTaskWithRequest:request
                                                 completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
                                                     if (error) {
-                                                        NSLog(@"%@", error);
                                                     } else {
-                                                        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *) response;
-                                                        NSLog(@"%@", httpResponse);
-                                                        NSArray *dataDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-                                                        completion(dataDictionary, nil);
+                                                        id dataObject = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+                                                        completion(dataObject, nil);
                                                     }
                                                 }];
     [dataTask resume];
-
 }
+
 @end

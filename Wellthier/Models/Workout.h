@@ -6,6 +6,7 @@
 //
 
 #import <Parse/Parse.h>
+#import "Exercise.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -19,7 +20,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSNumber *likeCount;
 @property (nonatomic, strong) NSMutableArray *exercises;
 
-+ (void) postUserWorkout: ( UIImage * _Nullable )image withTitle: ( NSString * _Nullable )title withCompletion: (PFBooleanResultBlock  _Nullable)completion;
++ (void) postUserWorkout: (UIImage* _Nullable )image withTitle: (NSString* _Nullable )title withCompletion: (PFBooleanResultBlock  _Nullable)completion;
++ (void) updateUserWorkout: (Workout* _Nullable )workout withExercise: (Exercise* _Nullable )exercise withCompletion: (PFBooleanResultBlock  _Nullable)completion;
++ (void) deleteExerciseFromWorkout: (Workout* _Nullable )workout withExercise: (Exercise* _Nullable )exercise withCompletion: (PFBooleanResultBlock  _Nullable)completion;
 
 @end
 

@@ -6,6 +6,7 @@
 //
 
 #import "NewWorkoutViewController.h"
+#import "Workout.h"
 
 @interface NewWorkoutViewController ()
 
@@ -34,7 +35,6 @@
             imagePickerVC.sourceType = UIImagePickerControllerSourceTypeCamera;
         }
         else {
-            NSLog(@"Camera 🚫 available so we will use photo library instead");
             imagePickerVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
         }
         [self presentViewController:imagePickerVC animated:YES completion:nil];
@@ -44,7 +44,6 @@
                                                        style:UIAlertActionStyleDefault
                                                      handler:^(UIAlertAction * _Nonnull action) {
                                                              // handle response here.
-            NSLog(@"Camera 🚫 available so we will use photo library instead");
             imagePickerVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
         [self presentViewController:imagePickerVC animated:YES completion:nil];
 
@@ -56,9 +55,36 @@
     [self presentViewController:alert animated:YES completion:nil];
 }
 
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
+    UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
+
+    CGSize size = CGSizeMake(167, 167);
+    self.workoutImage.image = [self resizeImage:originalImage withSize:size];
+
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (UIImage *)resizeImage:(UIImage *)image withSize:(CGSize)size {
+    UIImageView *resizeImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height)];
+    
+    resizeImageView.contentMode = UIViewContentModeScaleAspectFill;
+    resizeImageView.image = image;
+    
+    UIGraphicsBeginImageContext(size);
+    [resizeImageView.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return newImage;
+}
 
 - (IBAction)didTapCreate:(id)sender {
-    
+    [Workout postUserWorkout:self.workoutImage.image withTitle:self.workoutName.text withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+        [self.delegate didCreateWorkout];
+        [self.navigationController popViewControllerAnimated:true];
+    }];
 }
+
+
 
 @end

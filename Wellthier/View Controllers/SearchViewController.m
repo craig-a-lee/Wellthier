@@ -11,22 +11,24 @@
 #import "Exercise.h"
 #import "SearchCell.h"
 #import "GifViewController.h"
+#import "ExerciseSharedManager.h"
 
 
 @interface SearchViewController () <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, UICollectionViewDataSource, UICollectionViewDelegate>
 
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (nonatomic, weak) IBOutlet UITableView *tableView;
+@property (nonatomic, weak) IBOutlet UICollectionView *collectionView;
 @property (nonatomic, assign) BOOL buttonPressed;
 @property (nonatomic, assign) BOOL searchBarPressed;
+@property (nonatomic, weak) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 @end
 
 @implementation SearchViewController
 
 - (void)viewDidLoad {
-
     [super viewDidLoad];
+    [self.activityIndicator startAnimating];
     [self getAllExercises];
     [self getBodyParts];
     [self setButtonPressed:NO];
@@ -42,27 +44,14 @@
     self.tableView.rowHeight = UITableViewAutomaticDimension;
 }
 
-
-
 - (void) getAllExercises {
-    ExerciseAPIManager *manager = [ExerciseAPIManager new];
-    [manager fetchAllExercises:^(NSArray *exercises, NSError *error) {
-        self.arrayOfExercises = (NSMutableArray *) exercises;
-        self.filteredExercises = (NSMutableArray *) exercises;
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.tableView reloadData];
-        });
-    }];
+    self.arrayOfExercises = [[ExerciseSharedManager sharedManager] allExercises];
+    self.filteredExercises = self.arrayOfExercises;
+    [self.tableView reloadData];
 }
 
 - (void) getBodyParts {
-    ExerciseAPIManager *manager = [ExerciseAPIManager new];
-    [manager fetchBodyParts:^(NSArray *bodyParts, NSError *  error) {
-        self.bodyParts = bodyParts;
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.collectionView reloadData];
-        });
-    }];
+    self.bodyParts = @[@"back", @"cardio", @"chest", @"lower arms", @"lower legs", @"neck", @"shoulders", @"upper arms", @"upper legs", @"waist"];
 }
 
 - (IBAction)buttonPressed:(id)sender {
@@ -71,11 +60,9 @@
             self.selectedButtonString = @"";
             self.filteredExercises = self.arrayOfExercises;
             [self setButtonPressed:NO];
-            
         } else {
             self.selectedButtonString = [sender currentTitle];
             NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(Exercise *evaluatedObject, NSDictionary *bindings) {
-                NSLog(@"%@", evaluatedObject);
                 return ([evaluatedObject.bodyPart containsString:[self.selectedButtonString lowercaseString]]);
             }];
             
@@ -92,17 +79,18 @@
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-
     SearchCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"SearchCell" forIndexPath:indexPath];
     NSString *partName = self.bodyParts[indexPath.row];
-    [cell.button setTitle:[partName capitalizedString] forState:UIControlStateNormal];
+    [cell.filterButton setTitle:[partName capitalizedString] forState:UIControlStateNormal];
     cell.contentView.layer.cornerRadius = 10.0;
     cell.contentView.layer.borderWidth = 1.0f;
     cell.contentView.layer.borderColor = [UIColor whiteColor].CGColor;
     if ([[partName capitalizedString] isEqualToString:self.selectedButtonString]) {
-        [cell.button setBackgroundColor:[UIColor greenColor]];
+        cell.filterButton.backgroundColor = [UIColor greenColor];
+        [cell.filterButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     } else {
-        cell.button.backgroundColor = [UIColor blackColor];
+        cell.filterButton.backgroundColor = [UIColor blackColor];
+        [cell.filterButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     }
     cell.contentView.layer.masksToBounds = true;
     return cell;
@@ -128,24 +116,30 @@
     searchText = [searchText lowercaseString];
     if (searchText.length != 0) {
         [self setSearchBarPressed:YES];
-        NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(Exercise *evaluatedObject, NSDictionary *bindings) {
-            NSLog(@"%@", evaluatedObject);
+        NSPredicate *searchPredicate = [NSPredicate predicateWithBlock:^BOOL(Exercise *evaluatedObject, NSDictionary *bindings) {
             return ([evaluatedObject.name containsString:searchText] ||
                     [evaluatedObject.target containsString:searchText] ||
                     [evaluatedObject.equipment containsString:searchText] ||
                     [evaluatedObject.bodyPart containsString:searchText]);
         }];
-        self.filteredExercises = (NSMutableArray *) [self.arrayOfExercises filteredArrayUsingPredicate:predicate];
+        
+        self.filteredExercises = [self.arrayOfExercises filteredArrayUsingPredicate:searchPredicate];
+        
+        if (self.selectedButtonString.length > 0) {
+            NSPredicate *filterPredicate = [NSPredicate predicateWithBlock:^BOOL(Exercise *evaluatedObject, NSDictionary *bindings) {
+                return ([evaluatedObject.bodyPart containsString:[self.selectedButtonString lowercaseString]]);
+            }];
+            self.filteredExercises = [self.filteredExercises filteredArrayUsingPredicate:filterPredicate];
+        }
     }
     else {
         [self setSearchBarPressed:NO];
         if (self.selectedButtonString.length > 0) {
             NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(Exercise *evaluatedObject, NSDictionary *bindings) {
-                NSLog(@"%@", evaluatedObject);
                 return ([evaluatedObject.bodyPart containsString:[self.selectedButtonString lowercaseString]]);
             }];
             
-            self.filteredExercises = (NSMutableArray *) [self.arrayOfExercises filteredArrayUsingPredicate:predicate];
+            self.filteredExercises = [self.arrayOfExercises filteredArrayUsingPredicate:predicate];
         } else {
             self.filteredExercises = self.arrayOfExercises;
         }
@@ -155,13 +149,10 @@
 
 }
 
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-    if ([segue.identifier isEqualToString:@"gifSegue1"]) {
+    if ([segue.identifier isEqualToString:@"gifSegueFromSearch"]) {
         NSIndexPath *myIndexPath = [self.tableView indexPathForCell:sender];
         Exercise *dataToPass = self.filteredExercises[myIndexPath.row];
         GifViewController *gVC = [segue destinationViewController];

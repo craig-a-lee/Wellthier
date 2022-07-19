@@ -17,10 +17,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    self.profilePic.layer.cornerRadius = self.profilePic.frame.size.height /2;
-    self.profilePic.layer.masksToBounds = YES;
-    self.profilePic.layer.borderWidth = 0;
 }
 
 - (IBAction)didTapUploadPic:(id)sender {
@@ -39,7 +35,6 @@
             imagePickerVC.sourceType = UIImagePickerControllerSourceTypeCamera;
         }
         else {
-            NSLog(@"Camera 🚫 available so we will use photo library instead");
             imagePickerVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
         }
         [self presentViewController:imagePickerVC animated:YES completion:nil];
@@ -49,7 +44,6 @@
                                                        style:UIAlertActionStyleDefault
                                                      handler:^(UIAlertAction * _Nonnull action) {
                                                              // handle response here.
-            NSLog(@"Camera 🚫 available so we will use photo library instead");
             imagePickerVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
         [self presentViewController:imagePickerVC animated:YES completion:nil];
 
@@ -62,7 +56,6 @@
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
-    
     // Get the image captured by the UIImagePickerController
     UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
 
@@ -117,9 +110,7 @@
         // call sign up function on the object
         [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
             if (error != nil) {
-                NSLog(@"Error: %@", error.localizedDescription);
             } else {
-                NSLog(@"User registered successfully");
                 // manually segue to logged in view
                 [Workout postUserWorkout:[UIImage imageNamed:@"purpleheart"] withTitle:@"Liked Exercises" withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
 
@@ -131,7 +122,6 @@
 }
 
 - (PFFileObject *)getPFFileFromImage: (UIImage * _Nullable)image {
- 
     // check if image is not nil
     if (!image) {
         return nil;
@@ -146,9 +136,10 @@
     return [PFFileObject fileObjectWithName:@"image.png" data:imageData];
 }
 
-- (IBAction)gesture:(id)sender {
+- (IBAction)tapGesture:(id)sender {
     [_displayNameField resignFirstResponder];
     [_usernameField resignFirstResponder];
     [_passwordField resignFirstResponder];
 }
+
 @end
