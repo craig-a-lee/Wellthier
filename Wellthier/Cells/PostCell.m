@@ -1,23 +1,20 @@
 //
-//  ExerciseCell.m
+//  PostCell.m
 //  Wellthier
 //
-//  Created by Craig Lee on 7/8/22.
+//  Created by Craig Lee on 7/19/22.
 //
 
-#import "ExerciseCell.h"
+#import "PostCell.h"
 
-@implementation ExerciseCell
+@implementation PostCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
 }
 
 @end

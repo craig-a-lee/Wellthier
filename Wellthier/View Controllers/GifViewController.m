@@ -12,6 +12,8 @@
 #import "UIImageView+AnimatedGif.h"
 #import "Parse/Parse.h"
 #import "Workout.h"
+#import "AddToWorkoutViewController.h"
+#import "WorkoutViewController.h"
 
 @interface GifViewController ()
 
@@ -26,6 +28,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.workoutQuery = [Workout query];
+    self.title = self.detailExercise.name;
     [self.workoutQuery whereKey:@"title" equalTo:@"Liked Exercises"];
     [self.workoutQuery whereKey:@"author" equalTo:PFUser.currentUser];
     [self.workoutQuery findObjectsInBackgroundWithBlock:^(NSArray<Workout *> * _Nullable workouts, NSError * _Nullable error) {
@@ -82,6 +85,15 @@
                 }];
             }
         }];
+    }
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"detailViewToAddToWorkoutSegue"]) {
+        Exercise *exerciseToSend = self.detailExercise;
+        UINavigationController *navigationController = [segue destinationViewController];
+        AddToWorkoutViewController *newVC = (AddToWorkoutViewController*) navigationController.topViewController;
+        newVC.selectedExercise = exerciseToSend;
     }
 }
 

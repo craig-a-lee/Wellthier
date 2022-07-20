@@ -13,19 +13,25 @@
 @interface AddToWorkoutViewController () <UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) WorkoutTableViewCell *currentlySelectedCell;
 
 @end
 
 @implementation AddToWorkoutViewController
 
-- (void)viewDidLoad {
+- (void) viewDidLoad {
     [super viewDidLoad];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    self.currentlySelectedCell = nil;
+}
+
+- (void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     [self getWorkouts];
 }
 
-- (void)getWorkouts {
+- (void) getWorkouts {
     PFQuery *workoutQuery = [Workout query];
     [workoutQuery includeKey:@"author"];
     [workoutQuery whereKey:@"author" equalTo:PFUser.currentUser];
@@ -51,18 +57,34 @@
     PFUser *user = workout[@"author"];
     cell.workoutName.text = workout.title;
     cell.workoutAuthorInfo.text = user.username;
+    cell.workout = workout;
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     WorkoutTableViewCell *selectedCell= [self.tableView cellForRowAtIndexPath:indexPath];
     selectedCell.accessoryType = UITableViewCellAccessoryCheckmark;
+    self.currentlySelectedCell = selectedCell;
 }
 
 - (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
-     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-     WorkoutTableViewCell *selectedCell= [self.tableView cellForRowAtIndexPath:indexPath];
-     selectedCell.accessoryType = UITableViewCellAccessoryNone;
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    WorkoutTableViewCell *selectedCell= [self.tableView cellForRowAtIndexPath:indexPath];
+    selectedCell.accessoryType = UITableViewCellAccessoryNone;
  }
+
+- (IBAction)didTapDone:(id)sender {
+    if (self.currentlySelectedCell) {
+        Workout *workout = self.currentlySelectedCell.workout;
+        [Workout updateUserWorkout:workout withExercise:self.selectedExercise withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+//            [self.delegate didAddToWorkout];
+            [self dismissViewControllerAnimated:true completion:nil];
+        }];
+    }
+}
+
+- (IBAction)didTapCancel:(id)sender {
+    [self dismissViewControllerAnimated:true completion:nil];
+}
 
 @end

@@ -43,12 +43,10 @@
     UIAlertAction *takePicAction = [UIAlertAction actionWithTitle:@"Take a Picture"
                                                        style:UIAlertActionStyleDefault
                                                      handler:^(UIAlertAction * _Nonnull action) {
-                                                             // handle response here.
             imagePickerVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
         [self presentViewController:imagePickerVC animated:YES completion:nil];
 
                                                      }];
-    // add the OK action to the alert controller
     [alert addAction:chooseAction];
     [alert addAction:takePicAction];
     
