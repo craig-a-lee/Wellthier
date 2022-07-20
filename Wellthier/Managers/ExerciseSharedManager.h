@@ -17,7 +17,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) NSArray <Exercise *> *allExercises;
 
-
 @end
 
 NS_ASSUME_NONNULL_END
