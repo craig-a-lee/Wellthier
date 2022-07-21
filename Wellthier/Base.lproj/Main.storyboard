@@ -1061,10 +1061,10 @@
             </objects>
             <point key="canvasLocation" x="-113.84615384615384" y="4088.3886255924167"/>
         </scene>
-        <!--Feed View Controller-->
+        <!--Workout Feed View Controller-->
         <scene sceneID="2Ya-eZ-Ut7">
             <objects>
-                <viewController id="91m-6I-yyU" customClass="FeedViewController" sceneMemberID="viewController">
+                <viewController id="91m-6I-yyU" customClass="WorkoutFeedViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gZM-8U-dPN">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1119,7 +1119,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
-                                            <outlet property="date" destination="3aj-QE-pIO" id="uYj-1I-pR0"/>
+                                            <outlet property="date" destination="sYH-Qu-nNw" id="2Pz-Jh-yci"/>
                                             <outlet property="displayName" destination="3aj-QE-pIO" id="G3L-1E-ErS"/>
                                             <outlet property="postImageView" destination="MaV-BG-nGn" id="m05-wS-hHZ"/>
                                             <outlet property="postText" destination="Irb-oj-fV0" id="zSD-4B-GLO"/>

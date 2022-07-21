@@ -22,11 +22,11 @@
     [super viewDidLoad];
     [[self.textView layer] setBorderColor:[[UIColor lightGrayColor] CGColor]];
     [[self.textView layer] setBorderWidth:1.0];
-    [self setParams];
+    [self setUserInfo];
     self.clearImageButton.hidden = YES;
 }
 
-- (void) setParams {
+- (void) setUserInfo {
     self.currentUser = PFUser.currentUser;
     self.profilePic.file = self.currentUser[@"profilePic"];
     [self.profilePic loadInBackground];

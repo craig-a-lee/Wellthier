@@ -18,7 +18,7 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
-@property (strong, nonatomic) AddToWorkoutViewController *controller;
+@property (strong, nonatomic) AddToWorkoutViewController *addToWorkoutController;
 
 @end
 
@@ -27,8 +27,8 @@
 - (id) init {
     self = [super init];
     if (self) {
-        self.controller = [AddToWorkoutViewController new];
-        self.controller.delegate = self;
+        self.addToWorkoutController = [AddToWorkoutViewController new];
+        self.addToWorkoutController.delegate = self;
     }
     return self;
 }
@@ -60,7 +60,6 @@
     }
     self.filteredExercises = self.arrayOfExercises;
     [self.tableView reloadData];
-    NSLog(@"%@", self.filteredExercises);
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

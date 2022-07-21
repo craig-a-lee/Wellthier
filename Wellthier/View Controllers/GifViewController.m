@@ -89,8 +89,8 @@
     if ([segue.identifier isEqualToString:@"detailViewToAddToWorkoutSegue"]) {
         Exercise *exerciseToSend = self.detailExercise;
         UINavigationController *navigationController = [segue destinationViewController];
-        AddToWorkoutViewController *newVC = (AddToWorkoutViewController*) navigationController.topViewController;
-        newVC.selectedExercise = exerciseToSend;
+        AddToWorkoutViewController *addToWorkoutVC = (AddToWorkoutViewController*) navigationController.topViewController;
+        addToWorkoutVC.selectedExercise = exerciseToSend;
     }
 }
 

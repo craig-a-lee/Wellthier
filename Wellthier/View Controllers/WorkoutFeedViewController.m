@@ -5,20 +5,21 @@
 //  Created by Craig Lee on 7/19/22.
 //
 
-#import "FeedViewController.h"
+#import "WorkoutFeedViewController.h"
 #import "HealthKitSharedManager.h"
 
-@interface FeedViewController ()
+@interface WorkoutFeedViewController ()
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
-@implementation FeedViewController
+@implementation WorkoutFeedViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [[HealthKitSharedManager sharedManager] requestAuthorization];
+    
 }
 
 @end

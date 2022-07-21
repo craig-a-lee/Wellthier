@@ -77,7 +77,6 @@
     if (self.currentlySelectedCell) {
         Workout *workout = self.currentlySelectedCell.workout;
         [Workout updateUserWorkout:workout withExercise:self.selectedExercise withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
-//            [self.delegate didAddToWorkout];
             [self dismissViewControllerAnimated:true completion:nil];
         }];
     }

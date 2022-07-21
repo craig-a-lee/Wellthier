@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		118392E7340E4C03EE2B1B08 /* Pods_WellthierTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ADD19855118EE1AE42A6A37 /* Pods_WellthierTests.framework */; };
-		7300D031288756AB0057FEEB /* FeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7300D030288756AB0057FEEB /* FeedViewController.m */; };
+		7300D031288756AB0057FEEB /* WorkoutFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7300D030288756AB0057FEEB /* WorkoutFeedViewController.m */; };
 		7300D03428876B6B0057FEEB /* PostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7300D03328876B6B0057FEEB /* PostCell.m */; };
 		7300D03728876E200057FEEB /* ComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7300D03628876E200057FEEB /* ComposeViewController.m */; };
 		7300D03A288863640057FEEB /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 7300D039288863640057FEEB /* Post.m */; };
@@ -71,8 +71,8 @@
 		2BA6A5B4169932F6BB81A73C /* Pods-WellthierTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WellthierTests.release.xcconfig"; path = "Target Support Files/Pods-WellthierTests/Pods-WellthierTests.release.xcconfig"; sourceTree = "<group>"; };
 		62622D26D2304DE596E8011C /* Pods-Wellthier.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wellthier.debug.xcconfig"; path = "Target Support Files/Pods-Wellthier/Pods-Wellthier.debug.xcconfig"; sourceTree = "<group>"; };
 		6ADD19855118EE1AE42A6A37 /* Pods_WellthierTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WellthierTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		7300D02F288756AB0057FEEB /* FeedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FeedViewController.h; path = "View Controllers/FeedViewController.h"; sourceTree = "<group>"; };
-		7300D030288756AB0057FEEB /* FeedViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = FeedViewController.m; path = "View Controllers/FeedViewController.m"; sourceTree = "<group>"; };
+		7300D02F288756AB0057FEEB /* WorkoutFeedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = WorkoutFeedViewController.h; path = "View Controllers/WorkoutFeedViewController.h"; sourceTree = "<group>"; };
+		7300D030288756AB0057FEEB /* WorkoutFeedViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = WorkoutFeedViewController.m; path = "View Controllers/WorkoutFeedViewController.m"; sourceTree = "<group>"; };
 		7300D03228876B6B0057FEEB /* PostCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PostCell.h; path = Cells/PostCell.h; sourceTree = "<group>"; };
 		7300D03328876B6B0057FEEB /* PostCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = PostCell.m; path = Cells/PostCell.m; sourceTree = "<group>"; };
 		7300D03528876E200057FEEB /* ComposeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ComposeViewController.h; path = "View Controllers/ComposeViewController.h"; sourceTree = "<group>"; };
@@ -246,8 +246,8 @@
 				73B91B7D28762EA500857F73 /* ViewController.h */,
 				73B91B7E28762EA500857F73 /* ViewController.m */,
 				73B91B8028762EA500857F73 /* Main.storyboard */,
-				7300D02F288756AB0057FEEB /* FeedViewController.h */,
-				7300D030288756AB0057FEEB /* FeedViewController.m */,
+				7300D02F288756AB0057FEEB /* WorkoutFeedViewController.h */,
+				7300D030288756AB0057FEEB /* WorkoutFeedViewController.m */,
 				735236E828779600002BB65E /* SearchViewController.h */,
 				735236E928779600002BB65E /* SearchViewController.m */,
 				735236E0287745A7002BB65E /* SignUpViewController.h */,
@@ -570,7 +570,7 @@
 				73B22DAC287F490A002548DE /* WorkoutCollectionViewCell.m in Sources */,
 				73DE05942885CEDF00CAB9F6 /* NewWorkoutViewController.m in Sources */,
 				735236EA28779600002BB65E /* SearchViewController.m in Sources */,
-				7300D031288756AB0057FEEB /* FeedViewController.m in Sources */,
+				7300D031288756AB0057FEEB /* WorkoutFeedViewController.m in Sources */,
 				73DE05972885E04700CAB9F6 /* AddToWorkoutViewController.m in Sources */,
 				737E430328887AE7004D0C13 /* ExerciseSharedManager.m in Sources */,
 				7300D03428876B6B0057FEEB /* PostCell.m in Sources */,
