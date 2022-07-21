@@ -25,6 +25,7 @@
 - (void)viewDidLoad {
     [self.activityIndicator startAnimating];
     [super viewDidLoad];
+    self.title = @"Profile";
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
     self.currentUser = PFUser.currentUser;

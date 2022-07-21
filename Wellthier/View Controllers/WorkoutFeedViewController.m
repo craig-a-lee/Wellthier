@@ -22,6 +22,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"Home";
+    [self.navigationController.navigationBar setTitleTextAttributes:
+       @{NSForegroundColorAttributeName:[UIColor whiteColor]}];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [[HealthKitSharedManager sharedManager] requestAuthorization];

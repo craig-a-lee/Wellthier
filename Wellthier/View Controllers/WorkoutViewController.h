@@ -7,6 +7,7 @@
 
 #import "ViewController.h"
 #import "Workout.h"
+#import "Exercise.h"
 
 @import Parse;
 

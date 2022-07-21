@@ -13,14 +13,6 @@
 
 @implementation PostCell
 
-//- (void)awakeFromNib {
-//    [super awakeFromNib];
-//}
-//
-//- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-//    [super setSelected:selected animated:animated];
-//}
-
 - (void)setPostDetails: (Post *)post {
     _detailPost = post;
     self.displayName.text = post.author[@"displayName"];
@@ -30,10 +22,8 @@
         [self.postImageView loadInBackground];
     }
     self.postText.text = post[@"text"];
-    PFImageView *helperImageView = [PFImageView new];
-    helperImageView.file = post.author[@"profilePic"];
-    [helperImageView loadInBackground];
-    [self.profilePic setImage:helperImageView.image forState:UIControlStateNormal];
+    self.profilePicView.file = post.author[@"profilePic"];
+    [self.profilePicView loadInBackground];
 }
 
 @end
