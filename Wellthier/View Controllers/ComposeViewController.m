@@ -98,7 +98,7 @@
 }
 
 - (IBAction)didTapFetchData:(id)sender {
-    HKWorkout *latestWorkout = [[HealthKitSharedManager sharedManager] getLatestWorkout];
+    
 }
 
 - (IBAction)didTapPost:(id)sender {
