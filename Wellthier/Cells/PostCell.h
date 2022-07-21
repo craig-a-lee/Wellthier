@@ -6,6 +6,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Post.h"
 
 @import Parse;
 
@@ -18,6 +19,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UITextView *postText;
 @property (weak, nonatomic) IBOutlet PFImageView *postImageView;
 @property (weak, nonatomic) IBOutlet UILabel *date;
+@property (strong, nonatomic) Post *detailPost;
+
+- (void)setPostDetails: (Post *)post;
 
 @end
 

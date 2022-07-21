@@ -9,6 +9,7 @@
 #import "Parse/Parse.h"
 #import "HealthKit/HealthKit.h"
 #import "HealthKitSharedManager.h"
+#import "Post.h"
 
 @interface ComposeViewController ()
 
@@ -42,6 +43,14 @@
     UIAlertAction *chooseAction = [UIAlertAction actionWithTitle:@"Choose Picture"
                                                        style:UIAlertActionStyleDefault
                                                      handler:^(UIAlertAction * _Nonnull action) {
+        imagePickerVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    [self presentViewController:imagePickerVC animated:YES completion:nil];
+
+                                                     }];
+    
+    UIAlertAction *takePicAction = [UIAlertAction actionWithTitle:@"Take a Picture"
+                                                       style:UIAlertActionStyleDefault
+                                                     handler:^(UIAlertAction * _Nonnull action) {
         if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
             imagePickerVC.sourceType = UIImagePickerControllerSourceTypeCamera;
         }
@@ -49,14 +58,6 @@
             imagePickerVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
         }
         [self presentViewController:imagePickerVC animated:YES completion:nil];
-                                                     }];
-    
-    UIAlertAction *takePicAction = [UIAlertAction actionWithTitle:@"Take a Picture"
-                                                       style:UIAlertActionStyleDefault
-                                                     handler:^(UIAlertAction * _Nonnull action) {
-            imagePickerVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-        [self presentViewController:imagePickerVC animated:YES completion:nil];
-
                                                      }];
     
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel"
@@ -71,7 +72,7 @@
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
     UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
-    CGSize size = CGSizeMake(112, 112);
+    CGSize size = CGSizeMake(293, 293);
     self.selectedPhotoView.image = [self resizeImage:originalImage withSize:size];
     self.clearImageButton.hidden = NO;
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -101,6 +102,9 @@
 }
 
 - (IBAction)didTapPost:(id)sender {
+    [Post makeUserPost:self.selectedPhotoView.image withText:self.textView.text withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+        [self dismissViewControllerAnimated:true completion:nil];
+    }];
 }
 
 - (IBAction)didTapCancel:(id)sender {

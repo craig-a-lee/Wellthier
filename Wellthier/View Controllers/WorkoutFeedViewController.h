@@ -6,10 +6,13 @@
 //
 
 #import "ViewController.h"
+#import "Post.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface WorkoutFeedViewController : UIViewController
+
+@property (strong, nonatomic) NSArray <Post *> *arrayOfPosts;
 
 @end
 
