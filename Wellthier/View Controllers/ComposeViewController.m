@@ -7,13 +7,13 @@
 
 #import "ComposeViewController.h"
 #import "Parse/Parse.h"
-#import "HealthKit/HealthKit.h"
+#import <HealthKit/HealthKit.h>
 #import "HealthKitSharedManager.h"
 #import "Post.h"
 
 @interface ComposeViewController ()
 
-@property (weak, nonatomic) IBOutlet UITextView *textView;
+@property (nonatomic, weak) IBOutlet UITextView *textView;
 
 @end
 
@@ -110,6 +110,5 @@
 - (IBAction)didTapCancel:(id)sender {
     [self dismissViewControllerAnimated:true completion:nil];
 }
-
 
 @end

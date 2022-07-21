@@ -13,8 +13,8 @@
 
 @interface WorkoutFeedViewController () <UITableViewDataSource, UITableViewDelegate>
 
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (strong, nonatomic) UIRefreshControl *refreshControl;
+@property (nonatomic, weak) IBOutlet UITableView *tableView;
+@property (nonatomic, strong) UIRefreshControl *refreshControl;
 
 @end
 
@@ -49,7 +49,6 @@
         [postQuery orderByDescending:@"createdAt"];
         [postQuery includeKey:@"author"];
         postQuery.limit = 20;
-
         // fetch data asynchronously
         [postQuery findObjectsInBackgroundWithBlock:^(NSArray<Post *> * _Nullable posts, NSError * _Nullable error) {
             if (posts) {

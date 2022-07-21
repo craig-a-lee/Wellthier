@@ -6,7 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "HealthKit/HealthKit.h"
+#import <HealthKit/HealthKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
