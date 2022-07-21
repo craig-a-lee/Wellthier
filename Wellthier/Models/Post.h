@@ -22,7 +22,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (void) makeUserPost: (UIImage* _Nullable )image withText: (NSString* _Nullable )text withCompletion: (PFBooleanResultBlock  _Nullable)completion;
 
-
 @end
 
 NS_ASSUME_NONNULL_END

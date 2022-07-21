@@ -24,7 +24,7 @@
         return;
     }
     
-    NSSet *readTypes = [[NSSet alloc] initWithArray:@[[HKObjectType workoutType], [HKSeriesType activitySummaryType], [HKSeriesType workoutType]]];
+    NSSet *readTypes = [[NSSet alloc] initWithObjects:@[[HKObjectType workoutType], [HKSeriesType activitySummaryType], [HKSeriesType workoutType]], nil];
     
     [self.healthStore requestAuthorizationToShareTypes:nil readTypes:readTypes completion:^(BOOL success, NSError * _Nullable error) {
         
