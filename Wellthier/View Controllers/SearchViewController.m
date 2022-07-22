@@ -29,6 +29,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.activityIndicator startAnimating];
+    self.title = @"Search";
+//    [self.navigationController.navigationBar setTitleTextAttributes:
+//       @{NSForegroundColorAttributeName:[UIColor whiteColor]}];
     [self getAllExercises];
     [self getBodyParts];
     [self setButtonPressed:NO];

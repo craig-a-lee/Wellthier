@@ -8,11 +8,12 @@
 #import "LibraryViewController.h"
 #import "Parse/Parse.h"
 #import "Workout.h"
-#import "WorkoutCell.h"
+#import "WorkoutCollectionViewCell.h"
 #import "WorkoutViewController.h"
 #import "NewWorkoutViewController.h"
+#import "AddToWorkoutViewController.h"
 
-@interface LibraryViewController () <NewWorkoutViewControllerDelegate, UICollectionViewDelegate, UICollectionViewDataSource>
+@interface LibraryViewController () <AddToWorkoutViewControllerDelegate, NewWorkoutViewControllerDelegate, UICollectionViewDelegate, UICollectionViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
@@ -24,12 +25,16 @@
 - (void)viewDidLoad {
     [self.activityIndicator startAnimating];
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.title = @"Profile";
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
     self.currentUser = PFUser.currentUser;
     self.profilePic.file = self.currentUser[@"profilePic"];
     [self.profilePic loadInBackground];
+}
+
+- (void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     [self getWorkouts];
 }
 
@@ -39,7 +44,6 @@
     [workoutQuery whereKey:@"author" equalTo:PFUser.currentUser];
     [workoutQuery findObjectsInBackgroundWithBlock:^(NSArray<Workout *> * _Nullable workouts, NSError * _Nullable error) {
         if (workouts) {
-            // do something with the data fetched
             self.arrayOfWorkouts = (NSMutableArray *) workouts;
             self.filteredWorkouts = (NSMutableArray *) workouts;
             [self.collectionView reloadData];
@@ -57,7 +61,7 @@
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    WorkoutCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"WorkoutCell" forIndexPath:indexPath];
+    WorkoutCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"WorkoutCell" forIndexPath:indexPath];
     Workout *workout = self.filteredWorkouts[indexPath.row];
     cell.workoutImageView.file = workout[@"image"];
     [cell.workoutImageView loadInBackground];

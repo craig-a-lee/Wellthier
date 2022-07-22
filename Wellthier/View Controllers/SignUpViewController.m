@@ -8,6 +8,8 @@
 #import "SignUpViewController.h"
 #import "Parse/Parse.h"
 #import "Workout.h"
+#import "HealthKit/HealthKit.h"
+#import "HealthKitUI/HealthKitUI.h"
 
 @interface SignUpViewController ()
 
@@ -30,7 +32,6 @@
     UIAlertAction *chooseAction = [UIAlertAction actionWithTitle:@"Choose Picture"
                                                        style:UIAlertActionStyleDefault
                                                      handler:^(UIAlertAction * _Nonnull action) {
-                                                             // handle response here.
         if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
             imagePickerVC.sourceType = UIImagePickerControllerSourceTypeCamera;
         }

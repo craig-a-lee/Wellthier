@@ -12,6 +12,8 @@
 #import "UIImageView+AnimatedGif.h"
 #import "Parse/Parse.h"
 #import "Workout.h"
+#import "AddToWorkoutViewController.h"
+#import "WorkoutViewController.h"
 
 @interface GifViewController ()
 
@@ -24,13 +26,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     self.workoutQuery = [Workout query];
+    self.title = self.detailExercise.name;
     [self.workoutQuery whereKey:@"title" equalTo:@"Liked Exercises"];
     [self.workoutQuery whereKey:@"author" equalTo:PFUser.currentUser];
     [self.workoutQuery findObjectsInBackgroundWithBlock:^(NSArray<Workout *> * _Nullable workouts, NSError * _Nullable error) {
         if (workouts) {
-            // do something with the data fetched
             if ([workouts[0].exercises containsObject:self.detailExercise.exerciseID]) {
                 [self setIsLiked:YES];
             } else {
@@ -75,13 +76,21 @@
     } else {
         [self.workoutQuery findObjectsInBackgroundWithBlock:^(NSArray<Workout *> * _Nullable workouts, NSError * _Nullable error) {
             if (workouts) {
-                // do something with the data fetched
                 [Workout deleteExerciseFromWorkout:workouts[0] withExercise:self.detailExercise withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
                     [self setIsLiked:NO];
                     [self setExerciseProperties:self.detailExercise];
                 }];
             }
         }];
+    }
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"detailViewToAddToWorkoutSegue"]) {
+        Exercise *exerciseToSend = self.detailExercise;
+        UINavigationController *navigationController = [segue destinationViewController];
+        AddToWorkoutViewController *addToWorkoutVC = (AddToWorkoutViewController*) navigationController.topViewController;
+        addToWorkoutVC.selectedExercise = exerciseToSend;
     }
 }
 

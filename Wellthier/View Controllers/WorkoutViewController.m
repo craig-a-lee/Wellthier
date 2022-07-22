@@ -12,17 +12,28 @@
 #import "ExerciseAPIManager.h"
 #import "Parse/Parse.h"
 #import "ExerciseSharedManager.h"
+#import "AddToWorkoutViewController.h"
 
-@interface WorkoutViewController () <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate>
+@interface WorkoutViewController () <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, AddToWorkoutViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+@property (strong, nonatomic) AddToWorkoutViewController *addToWorkoutController;
 
 @end
 
 @implementation WorkoutViewController
 
-- (void)viewDidLoad {
+- (id) init {
+    self = [super init];
+    if (self) {
+        self.addToWorkoutController = [AddToWorkoutViewController new];
+        self.addToWorkoutController.delegate = self;
+    }
+    return self;
+}
+
+- (void) viewDidLoad {
     [super viewDidLoad];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -31,10 +42,15 @@
     self.workoutImageView.file = self.detailWorkout[@"image"];
     PFUser *user = self.detailWorkout[@"author"];
     self.author.text = user[@"displayName"];
+}
+
+- (void) viewWillAppear:(BOOL)animated {
     [self getExercises];
 }
 
 - (void) getExercises {
+    self.arrayOfExercises = [NSArray new];
+    self.filteredExercises = [NSArray new];
     NSArray *allExercises = [[ExerciseSharedManager sharedManager] allExercises];
     for (NSString *currentID in self.detailWorkout.exercises) {
         NSPredicate *idPredicate = [NSPredicate predicateWithBlock:^BOOL(Exercise *evaluatedObject, NSDictionary *bindings) {
@@ -43,10 +59,15 @@
         self.arrayOfExercises = [self.arrayOfExercises arrayByAddingObjectsFromArray:[allExercises filteredArrayUsingPredicate:idPredicate]];
     }
     self.filteredExercises = self.arrayOfExercises;
+    [self.tableView reloadData];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-        return self.filteredExercises.count;
+    return self.filteredExercises.count;
+}
+
+- (void) didAddToWorkout {
+    [self.tableView reloadData];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
