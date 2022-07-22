@@ -71,7 +71,7 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"workoutSegueFromProfile"]) {
+    if ([segue.identifier isEqualToString:@"workoutSegueFromLibrary"]) {
         NSIndexPath *indexPath = [self.collectionView indexPathForCell:sender];
         Workout *selectedWorkout = self.filteredWorkouts[indexPath.row];
         WorkoutViewController *wVC = [segue destinationViewController];
