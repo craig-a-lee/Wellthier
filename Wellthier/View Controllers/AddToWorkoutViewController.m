@@ -5,8 +5,8 @@
 //  Created by Craig Lee on 7/18/22.
 //
 
+#import <Parse/Parse.h>
 #import "AddToWorkoutViewController.h"
-#import "Parse/Parse.h"
 #import "Workout.h"
 #import "WorkoutTableViewCell.h"
 

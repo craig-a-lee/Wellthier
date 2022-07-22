@@ -5,12 +5,12 @@
 //  Created by Craig Lee on 7/14/22.
 //
 
+#import <Parse/Parse.h>
 #import "WorkoutViewController.h"
 #import "Exercise.h"
 #import "GifViewController.h"
 #import "ExerciseCell.h"
 #import "ExerciseAPIManager.h"
-#import "Parse/Parse.h"
 #import "ExerciseSharedManager.h"
 #import "AddToWorkoutViewController.h"
 

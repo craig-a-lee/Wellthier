@@ -5,9 +5,9 @@
 //  Created by Craig Lee on 7/19/22.
 //
 
+#import <Parse/Parse.h>
 #import "WorkoutFeedViewController.h"
 #import "HealthKitSharedManager.h"
-#import "Parse/Parse.h"
 #import "Post.h"
 #import "PostCell.h"
 #import "ProfileViewController.h"
@@ -45,19 +45,19 @@
 }
 
 - (void)getTimeline {
-        PFQuery *postQuery = [Post query];
-        [postQuery orderByDescending:@"createdAt"];
-        [postQuery includeKey:@"author"];
-        postQuery.limit = 20;
-        [postQuery findObjectsInBackgroundWithBlock:^(NSArray<Post *> * _Nullable posts, NSError * _Nullable error) {
-            if (posts) {
-                self.arrayOfPosts = posts;
-                [self.tableView reloadData];
-                [self.refreshControl endRefreshing];
-            }
-            else {
-            }
-        }];
+    PFQuery *postQuery = [Post query];
+    [postQuery orderByDescending:@"createdAt"];
+    [postQuery includeKey:@"author"];
+    postQuery.limit = 20;
+    [postQuery findObjectsInBackgroundWithBlock:^(NSArray<Post *> * _Nullable posts, NSError * _Nullable error) {
+        if (posts) {
+            self.arrayOfPosts = posts;
+            [self.tableView reloadData];
+            [self.refreshControl endRefreshing];
+        }
+        else {
+        }
+    }];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
