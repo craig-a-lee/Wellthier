@@ -16,9 +16,9 @@
 
 @interface WorkoutViewController () <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, AddToWorkoutViewControllerDelegate>
 
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
-@property (strong, nonatomic) AddToWorkoutViewController *addToWorkoutController;
+@property (nonatomic, weak) IBOutlet UITableView *tableView;
+@property (nonatomic, strong) IBOutlet UISearchBar *searchBar;
+@property (nonatomic, strong) AddToWorkoutViewController *addToWorkoutController;
 
 @end
 

@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface WorkoutFeedViewController : UIViewController
 
-@property (strong, nonatomic) NSArray <Post *> *arrayOfPosts;
+@property (nonatomic, strong) NSArray <Post *> *arrayOfPosts;
 
 @end
 

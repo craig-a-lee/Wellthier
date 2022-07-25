@@ -14,10 +14,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface LibraryViewController : ViewController
 
-@property (weak, nonatomic) IBOutlet PFImageView *profilePic;
-@property (strong, nonatomic) PFUser *currentUser;
-@property (strong, nonatomic) NSMutableArray <Workout *> *arrayOfWorkouts;
-@property (strong, nonatomic) NSMutableArray <Workout *> *filteredWorkouts;
+@property (nonatomic, weak) IBOutlet PFImageView *profilePic;
+@property (nonatomic, strong) PFUser *currentUser;
+@property (nonatomic, strong) NSMutableArray <Workout *> *arrayOfWorkouts;
+@property (nonatomic, strong) NSMutableArray <Workout *> *filteredWorkouts;
 
 @end
 

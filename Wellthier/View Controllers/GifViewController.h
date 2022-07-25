@@ -14,13 +14,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface GifViewController : ViewController
 
-@property (weak, nonatomic) IBOutlet UIImageView *gifImageView;
-@property(nonatomic, weak) Exercise *detailExercise;
-@property (weak, nonatomic) IBOutlet MarqueeLabel *name;
-@property (weak, nonatomic) IBOutlet UILabel *equipment;
-@property (weak, nonatomic) IBOutlet UILabel *targetMuscle;
-@property (weak, nonatomic) IBOutlet UILabel *bodyPart;
-@property (weak, nonatomic) IBOutlet UIButton *likeButton;
+@property (nonatomic, weak) IBOutlet UIImageView *gifImageView;
+@property (nonatomic, weak) Exercise *detailExercise;
+@property (nonatomic, weak) IBOutlet MarqueeLabel *name;
+@property (nonatomic, weak) IBOutlet UILabel *equipment;
+@property (nonatomic, weak) IBOutlet UILabel *targetMuscle;
+@property (nonatomic, weak) IBOutlet UILabel *bodyPart;
+@property (nonatomic, weak) IBOutlet UIButton *likeButton;
 
 @end
 
