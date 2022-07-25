@@ -14,10 +14,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface WorkoutTableViewCell : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet PFImageView *workoutImageView;
-@property (weak, nonatomic) IBOutlet UILabel *workoutName;
-@property (weak, nonatomic) IBOutlet UILabel *numberOfExercises;
-@property (strong, nonatomic) Workout *workout;
+@property (nonatomic, weak) IBOutlet PFImageView *workoutImageView;
+@property (nonatomic, weak) IBOutlet UILabel *workoutName;
+@property (nonatomic, weak) IBOutlet UILabel *numberOfExercises;
+@property (nonatomic, strong) Workout *workout;
 
 - (void)setCellParams: (Workout *)workout;
 

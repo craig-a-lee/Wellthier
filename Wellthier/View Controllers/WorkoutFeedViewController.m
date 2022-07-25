@@ -78,7 +78,6 @@
     if ([segue.identifier isEqualToString:@"feedToProfileSegue"]) {
         Post *selectedPost = self.arrayOfPosts[[sender tag]];
         PFUser *userToPass = selectedPost.author;
-        NSLog(@"%@", selectedPost.author.username);
         ProfileViewController *profileController = [segue destinationViewController];
         profileController.selectedUser = userToPass;
     }
