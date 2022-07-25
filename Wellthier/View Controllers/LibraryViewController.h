@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) PFUser *currentUser;
 @property (nonatomic, strong) NSMutableArray <Workout *> *arrayOfWorkouts;
 @property (nonatomic, strong) NSMutableArray <Workout *> *filteredWorkouts;
-@property (weak, nonatomic) IBOutlet UILabel *displayName;
+@property (nonatomic, weak) IBOutlet UILabel *displayName;
 
 @end
 
