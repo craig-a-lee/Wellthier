@@ -6,11 +6,10 @@
 //
 
 
-#import "AFNetworking.h"
+#import <Parse/Parse.h>
 #import "GifViewController.h"
 #import "AnimatedGif.h"
 #import "UIImageView+AnimatedGif.h"
-#import "Parse/Parse.h"
 #import "Workout.h"
 #import "AddToWorkoutViewController.h"
 #import "WorkoutViewController.h"

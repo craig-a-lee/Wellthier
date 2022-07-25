@@ -5,9 +5,9 @@
 //  Created by Craig Lee on 7/19/22.
 //
 
-#import "ComposeViewController.h"
-#import "Parse/Parse.h"
+#import <Parse/Parse.h>
 #import <HealthKit/HealthKit.h>
+#import "ComposeViewController.h"
 #import "HealthKitSharedManager.h"
 #import "Post.h"
 
@@ -98,7 +98,6 @@
 }
 
 - (IBAction)didTapFetchData:(id)sender {
-    
 }
 
 - (IBAction)didTapPost:(id)sender {

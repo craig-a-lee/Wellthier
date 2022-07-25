@@ -5,11 +5,12 @@
 //  Created by Craig Lee on 7/19/22.
 //
 
+#import <Parse/Parse.h>
 #import "WorkoutFeedViewController.h"
 #import "HealthKitSharedManager.h"
-#import "Parse/Parse.h"
 #import "Post.h"
 #import "PostCell.h"
+#import "ProfileViewController.h"
 
 @interface WorkoutFeedViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -40,26 +41,23 @@
 }
 
 - (void)beginRefresh:(UIRefreshControl *)refreshControl {
-    // Create NSURL and NSURLRequest
     [self getTimeline];
 }
 
-- (void)getTimeline{
-        PFQuery *postQuery = [Post query];
-        [postQuery orderByDescending:@"createdAt"];
-        [postQuery includeKey:@"author"];
-        postQuery.limit = 20;
-        // fetch data asynchronously
-        [postQuery findObjectsInBackgroundWithBlock:^(NSArray<Post *> * _Nullable posts, NSError * _Nullable error) {
-            if (posts) {
-                // do something with the data fetched
-                self.arrayOfPosts = posts;
-                [self.tableView reloadData];
-                [self.refreshControl endRefreshing];
-            }
-            else {
-            }
-        }];
+- (void)getTimeline {
+    PFQuery *postQuery = [Post query];
+    [postQuery orderByDescending:@"createdAt"];
+    [postQuery includeKey:@"author"];
+    postQuery.limit = 20;
+    [postQuery findObjectsInBackgroundWithBlock:^(NSArray<Post *> * _Nullable posts, NSError * _Nullable error) {
+        if (posts) {
+            self.arrayOfPosts = posts;
+            [self.tableView reloadData];
+            [self.refreshControl endRefreshing];
+        }
+        else {
+        }
+    }];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -74,6 +72,14 @@
     return cell;
 }
 
-
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"feedToProfileSegue"]) {
+        NSIndexPath *indexPathOfSelectedPost = [self.tableView indexPathForCell:sender];
+        Post *selectedPost = self.arrayOfPosts[indexPathOfSelectedPost.row];
+        PFUser *userToPass = selectedPost.author;
+        ProfileViewController *profileController = [segue destinationViewController];
+        profileController.selectedUser = userToPass;
+    }
+}
 
 @end

@@ -5,8 +5,8 @@
 //  Created by Craig Lee on 7/13/22.
 //
 
+#import <Parse/Parse.h>
 #import "LibraryViewController.h"
-#import "Parse/Parse.h"
 #import "Workout.h"
 #import "WorkoutCollectionViewCell.h"
 #import "WorkoutViewController.h"
@@ -71,7 +71,7 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"workoutSegueFromProfile"]) {
+    if ([segue.identifier isEqualToString:@"workoutSegueFromLibrary"]) {
         NSIndexPath *indexPath = [self.collectionView indexPathForCell:sender];
         Workout *selectedWorkout = self.filteredWorkouts[indexPath.row];
         WorkoutViewController *wVC = [segue destinationViewController];
