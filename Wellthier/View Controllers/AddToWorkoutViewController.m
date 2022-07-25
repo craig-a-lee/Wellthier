@@ -12,8 +12,8 @@
 
 @interface AddToWorkoutViewController () <UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate>
 
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (strong, nonatomic) WorkoutTableViewCell *currentlySelectedCell;
+@property (nonatomic, weak) IBOutlet UITableView *tableView;
+@property (nonatomic, strong) WorkoutTableViewCell *currentlySelectedCell;
 
 @end
 

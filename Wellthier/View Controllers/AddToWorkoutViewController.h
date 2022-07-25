@@ -18,10 +18,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface AddToWorkoutViewController : ViewController
 
-@property (weak, nonatomic) id<AddToWorkoutViewControllerDelegate> delegate;
-@property (strong, nonatomic) NSArray <Workout *> *arrayOfWorkouts;
-@property (strong, nonatomic) NSArray <Workout *> *filteredWorkouts;
-@property (strong, nonatomic) Exercise *selectedExercise;
+@property (nonatomic, weak) id<AddToWorkoutViewControllerDelegate> delegate;
+@property (nonatomic, strong) NSArray <Workout *> *arrayOfWorkouts;
+@property (nonatomic, strong) NSArray <Workout *> *filteredWorkouts;
+@property (nonatomic, strong) Exercise *selectedExercise;
 
 @end
 

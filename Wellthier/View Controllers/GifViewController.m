@@ -17,7 +17,7 @@
 @interface GifViewController ()
 
 @property (nonatomic, assign) BOOL isLiked;
-@property (strong, nonatomic) PFQuery *workoutQuery;
+@property (nonatomic, strong) PFQuery *workoutQuery;
 
 @end
 

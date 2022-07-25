@@ -15,10 +15,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ComposeViewController : ViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
-@property (weak, nonatomic) IBOutlet PFImageView *profilePic;
-@property (strong, nonatomic) PFUser *currentUser;
-@property (weak, nonatomic) IBOutlet PFImageView *selectedPhotoView;
-@property (weak, nonatomic) IBOutlet UIButton *clearImageButton;
+@property (nonatomic, weak) IBOutlet PFImageView *profilePic;
+@property (nonatomic, strong) PFUser *currentUser;
+@property (nonatomic, weak) IBOutlet PFImageView *selectedPhotoView;
+@property (nonatomic, weak) IBOutlet UIButton *clearImageButton;
 
 @end
 

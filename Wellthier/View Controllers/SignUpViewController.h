@@ -11,10 +11,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface SignUpViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
-@property (weak, nonatomic) IBOutlet UITextField *displayNameField;
-@property (weak, nonatomic) IBOutlet UITextField *usernameField;
-@property (weak, nonatomic) IBOutlet UITextField *passwordField;
-@property (weak, nonatomic) IBOutlet UIImageView *profilePic;
+@property (nonatomic, weak) IBOutlet UITextField *displayNameField;
+@property (nonatomic, weak) IBOutlet UITextField *usernameField;
+@property (nonatomic, weak) IBOutlet UITextField *passwordField;
+@property (nonatomic, weak) IBOutlet UIImageView *profilePic;
 - (IBAction)tapGesture:(id)sender;
 
 @end

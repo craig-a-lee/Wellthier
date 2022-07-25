@@ -15,12 +15,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface WorkoutViewController : ViewController
 
-@property (weak, nonatomic) IBOutlet UILabel *workoutTitle;
-@property (weak, nonatomic) IBOutlet UILabel *author;
-@property (strong, nonatomic) NSArray <Exercise*> *arrayOfExercises;
-@property (strong, nonatomic) NSArray <Exercise*> *filteredExercises;
-@property (strong, nonatomic) Workout *detailWorkout;
-@property (weak, nonatomic) IBOutlet PFImageView *workoutImageView;
+@property (nonatomic, weak) IBOutlet UILabel *workoutTitle;
+@property (nonatomic, weak) IBOutlet UILabel *author;
+@property (nonatomic, strong) NSArray <Exercise*> *arrayOfExercises;
+@property (nonatomic, strong) NSArray <Exercise*> *filteredExercises;
+@property (nonatomic, strong) Workout *detailWorkout;
+@property (nonatomic, strong) IBOutlet PFImageView *workoutImageView;
 
 @end
 
