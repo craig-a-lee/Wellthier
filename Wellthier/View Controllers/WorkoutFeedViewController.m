@@ -16,6 +16,7 @@
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
+@property (nonatomic, strong) Post *selectedPost;
 
 @end
 
@@ -69,14 +70,15 @@
     Post *post = self.arrayOfPosts[indexPath.row];
     cell.detailPost = post;
     [cell setPostDetails:cell.detailPost];
+    cell.toProfileHiddenButton.tag = indexPath.row;
     return cell;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"feedToProfileSegue"]) {
-        NSIndexPath *indexPathOfSelectedPost = [self.tableView indexPathForCell:sender];
-        Post *selectedPost = self.arrayOfPosts[indexPathOfSelectedPost.row];
+        Post *selectedPost = self.arrayOfPosts[[sender tag]];
         PFUser *userToPass = selectedPost.author;
+        NSLog(@"%@", selectedPost.author.username);
         ProfileViewController *profileController = [segue destinationViewController];
         profileController.selectedUser = userToPass;
     }

@@ -16,8 +16,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (weak, nonatomic) IBOutlet PFImageView *workoutImageView;
 @property (weak, nonatomic) IBOutlet UILabel *workoutName;
-@property (weak, nonatomic) IBOutlet UILabel *workoutAuthorInfo;
+@property (weak, nonatomic) IBOutlet UILabel *numberOfExercises;
 @property (strong, nonatomic) Workout *workout;
+
+- (void)setCellParams: (Workout *)workout;
 
 @end
 

@@ -80,9 +80,8 @@
         Workout *workout = self.arrayOfWorkouts[indexPath.row];
         cell.workoutImageView.file = workout[@"image"];
         [cell.workoutImageView loadInBackground];
-        PFUser *user = workout[@"author"];
         cell.workoutName.text = workout.title;
-        cell.workoutAuthorInfo.text = user.username;
+        cell.numberOfExercises.text = [NSString stringWithFormat:@"%lu Exercises", workout.exercises.count];
         cell.workout = workout;
         return cell;
     } else {

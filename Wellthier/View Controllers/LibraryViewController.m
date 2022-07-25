@@ -12,6 +12,7 @@
 #import "WorkoutViewController.h"
 #import "NewWorkoutViewController.h"
 #import "AddToWorkoutViewController.h"
+#import "ProfileViewController.h"
 
 @interface LibraryViewController () <AddToWorkoutViewControllerDelegate, NewWorkoutViewControllerDelegate, UICollectionViewDelegate, UICollectionViewDataSource>
 
@@ -25,11 +26,12 @@
 - (void)viewDidLoad {
     [self.activityIndicator startAnimating];
     [super viewDidLoad];
-    self.title = @"Profile";
+    self.title = @"Workouts";
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
     self.currentUser = PFUser.currentUser;
     self.profilePic.file = self.currentUser[@"profilePic"];
+    self.displayName.text = self.currentUser[@"displayName"];
     [self.profilePic loadInBackground];
 }
 
@@ -63,10 +65,7 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     WorkoutCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"WorkoutCell" forIndexPath:indexPath];
     Workout *workout = self.filteredWorkouts[indexPath.row];
-    cell.workoutImageView.file = workout[@"image"];
-    [cell.workoutImageView loadInBackground];
-    cell.workoutAuthorInfo.text = self.currentUser[@"displayName"];
-    cell.workoutTitle.text = workout.title;
+    [cell setParams:workout];
     return cell;
 }
 
@@ -76,10 +75,14 @@
         Workout *selectedWorkout = self.filteredWorkouts[indexPath.row];
         WorkoutViewController *wVC = [segue destinationViewController];
         wVC.detailWorkout = selectedWorkout;
-    } else if ([segue.identifier isEqualToString:@"profileToNewWorkoutSegue"]) {
+    } else if ([segue.identifier isEqualToString:@"libraryToNewWorkoutSegue"]) {
         NewWorkoutViewController *controller = [segue destinationViewController];
         controller.delegate = self;
+    } else if ([segue.identifier isEqualToString:@"libraryToProfileSegue"]) {
+        ProfileViewController *controller = [segue destinationViewController];
+        controller.selectedUser = PFUser.currentUser;
     }
+        
 }
 
 @end
