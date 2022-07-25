@@ -112,9 +112,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="673"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="3qE-oz-aVW">
-                                <rect key="frame" x="16" y="250" width="358" height="555"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="3qE-oz-aVW">
+                                <rect key="frame" x="12" y="162" width="362" height="514"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="2AB-Fg-qHk">
                                     <size key="itemSize" width="167" height="225"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -122,7 +121,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <activityIndicatorView key="backgroundView" hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" id="sTh-SO-kJf">
-                                    <rect key="frame" x="0.0" y="0.0" width="358" height="555"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="362" height="514"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </activityIndicatorView>
@@ -136,6 +135,7 @@
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9Ur-MC-82R" customClass="PFImageView">
                                                     <rect key="frame" x="0.0" y="0.0" width="167" height="167"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="167" id="QEv-qK-wYt"/>
                                                         <constraint firstAttribute="width" constant="167" id="Ze1-A7-3sh"/>
@@ -171,7 +171,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <size key="customSize" width="167" height="225"/>
                                         <connections>
-                                            <outlet property="workoutAuthorInfo" destination="bXM-iX-kZV" id="81x-vl-hWX"/>
+                                            <outlet property="numberOfExercises" destination="bXM-iX-kZV" id="81x-vl-hWX"/>
                                             <outlet property="workoutImageView" destination="9Ur-MC-82R" id="uHP-BM-hp7"/>
                                             <outlet property="workoutTitle" destination="oHN-Ui-BAb" id="QCj-4T-pgI"/>
                                             <segue destination="zGz-Ej-hTu" kind="show" identifier="workoutSegueFromLibrary" id="IYN-gF-AWG"/>
@@ -194,7 +194,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="+ Add  New Workout"/>
                                 <connections>
-                                    <segue destination="wYK-gK-grN" kind="show" identifier="profileToNewWorkoutSegue" id="Zbp-Gh-e93"/>
+                                    <segue destination="wYK-gK-grN" kind="show" identifier="libraryToNewWorkoutSegue" id="Zbp-Gh-e93"/>
                                 </connections>
                             </button>
                             <searchBar contentMode="redraw" text="" placeholder="Search your workouts" translatesAutoresizingMaskIntoConstraints="NO" id="qK8-DY-3EE">
@@ -212,6 +212,10 @@
                             </searchBar>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oeg-6C-ifm" customClass="PFImageView">
                                 <rect key="frame" x="16" y="0.0" width="70" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="AeN-JM-EjN"/>
+                                    <constraint firstAttribute="width" constant="70" id="FEy-H0-1E6"/>
+                                </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="35"/>
@@ -220,19 +224,29 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer." value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cJN-jq-VVo">
+                                <rect key="frame" x="16" y="0.0" width="70" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain"/>
+                                <connections>
+                                    <segue destination="vuB-xe-beQ" kind="show" identifier="libraryToProfileSegue" id="bu1-fh-mxa"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="gRr-IE-ab6"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="PhK-rS-JuL" firstAttribute="leading" secondItem="gRr-IE-ab6" secondAttribute="leading" constant="12" id="1s1-rx-7Gf"/>
-                            <constraint firstItem="3qE-oz-aVW" firstAttribute="bottom" secondItem="gRr-IE-ab6" secondAttribute="bottom" id="Apc-7P-rmn"/>
+                            <constraint firstItem="3qE-oz-aVW" firstAttribute="bottom" secondItem="gRr-IE-ab6" secondAttribute="bottom" constant="3" id="Apc-7P-rmn"/>
                             <constraint firstItem="qK8-DY-3EE" firstAttribute="leading" secondItem="gRr-IE-ab6" secondAttribute="leading" id="GGX-1b-xhg"/>
-                            <constraint firstItem="oeg-6C-ifm" firstAttribute="leading" secondItem="3qE-oz-aVW" secondAttribute="leading" id="K4a-zC-9ef"/>
+                            <constraint firstItem="oeg-6C-ifm" firstAttribute="leading" secondItem="3qE-oz-aVW" secondAttribute="leading" constant="4" id="K4a-zC-9ef"/>
                             <constraint firstItem="oeg-6C-ifm" firstAttribute="top" secondItem="gRr-IE-ab6" secondAttribute="top" id="Scp-rb-yMz"/>
-                            <constraint firstItem="3qE-oz-aVW" firstAttribute="top" secondItem="PhK-rS-JuL" secondAttribute="bottom" constant="8" symbolic="YES" id="TTz-eY-J1G"/>
+                            <constraint firstItem="3qE-oz-aVW" firstAttribute="top" secondItem="PhK-rS-JuL" secondAttribute="bottom" constant="8" id="TTz-eY-J1G"/>
                             <constraint firstItem="JML-4Q-0Yh" firstAttribute="top" secondItem="gRr-IE-ab6" secondAttribute="top" constant="25" id="Xgj-Ck-7xO"/>
                             <constraint firstItem="qK8-DY-3EE" firstAttribute="top" secondItem="JML-4Q-0Yh" secondAttribute="bottom" constant="30" id="f9v-8c-juI"/>
-                            <constraint firstItem="qK8-DY-3EE" firstAttribute="centerX" secondItem="3qE-oz-aVW" secondAttribute="centerX" id="lgy-RG-xuX"/>
+                            <constraint firstItem="qK8-DY-3EE" firstAttribute="centerX" secondItem="3qE-oz-aVW" secondAttribute="centerX" constant="2" id="lgy-RG-xuX"/>
                             <constraint firstItem="qK8-DY-3EE" firstAttribute="top" secondItem="oeg-6C-ifm" secondAttribute="bottom" constant="9" id="nS2-IE-STl"/>
                             <constraint firstItem="3qE-oz-aVW" firstAttribute="trailing" secondItem="wEc-aF-vCk" secondAttribute="trailingMargin" id="r3f-N4-QNN"/>
                             <constraint firstItem="JML-4Q-0Yh" firstAttribute="leading" secondItem="oeg-6C-ifm" secondAttribute="trailing" constant="8" id="sZM-rU-Yle"/>
@@ -260,6 +274,7 @@
                     <connections>
                         <outlet property="activityIndicator" destination="sTh-SO-kJf" id="33m-9h-4de"/>
                         <outlet property="collectionView" destination="3qE-oz-aVW" id="Mdm-pH-y4g"/>
+                        <outlet property="displayName" destination="JML-4Q-0Yh" id="MLn-Du-9ZM"/>
                         <outlet property="profilePic" destination="oeg-6C-ifm" id="Pw2-Yx-qpE"/>
                     </connections>
                 </viewController>
@@ -300,7 +315,7 @@
             <objects>
                 <viewController id="zGz-Ej-hTu" customClass="WorkoutViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HRo-T5-OWV">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="673"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="756"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" text="" placeholder="Find exercise" translatesAutoresizingMaskIntoConstraints="NO" id="BxF-j9-W0P">
@@ -324,7 +339,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="HrH-dM-LqB">
-                                <rect key="frame" x="0.0" y="275" width="390" height="445"/>
+                                <rect key="frame" x="0.0" y="275" width="390" height="396"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ExerciseCell" rowHeight="123" id="Q3O-Nv-SWU" customClass="ExerciseCell">
@@ -451,7 +466,7 @@
                                 <gestureRecognizers/>
                                 <color key="sectionIndexColor" red="0.1166579252" green="0.84342966919999995" blue="0.37734218079999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <activityIndicatorView key="tableFooterView" hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" id="M8M-cH-bsP">
-                                    <rect key="frame" x="0.0" y="190.33333206176758" width="390" height="44"/>
+                                    <rect key="frame" x="0.0" y="190.33333206176761" width="390" height="44"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </activityIndicatorView>
@@ -758,7 +773,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
-                                            <outlet property="workoutAuthorInfo" destination="mec-nQ-mdB" id="rz5-dp-fmQ"/>
+                                            <outlet property="numberOfExercises" destination="mec-nQ-mdB" id="rz5-dp-fmQ"/>
                                             <outlet property="workoutImageView" destination="Mkc-s2-5dg" id="Dra-pq-1uU"/>
                                             <outlet property="workoutName" destination="KIi-ho-RtQ" id="FjQ-gh-zzr"/>
                                         </connections>
@@ -935,7 +950,7 @@
             <objects>
                 <viewController id="bFM-B1-5qp" customClass="ComposeViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IhV-fi-g6C">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="761"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CEg-US-qVa">
@@ -1058,15 +1073,15 @@
             <objects>
                 <viewController id="91m-6I-yyU" customClass="WorkoutFeedViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gZM-8U-dPN">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="673"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="756"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="QXV-Qv-9dM">
-                                <rect key="frame" x="0.0" y="0.0" width="390" height="756"/>
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="624"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="sectionIndexColor" red="0.1166579252" green="0.84342966919999995" blue="0.37734218079999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="PostCell" rowHeight="448" id="QcN-x6-UHL" customClass="PostCell">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostCell" rowHeight="448" id="QcN-x6-UHL" customClass="PostCell">
                                         <rect key="frame" x="0.0" y="44.666666030883789" width="390" height="448"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QcN-x6-UHL" id="LuT-N3-kfn">
@@ -1186,7 +1201,7 @@
                             <constraint firstItem="QXV-Qv-9dM" firstAttribute="centerX" secondItem="gZM-8U-dPN" secondAttribute="centerX" id="H0H-ui-jme"/>
                             <constraint firstItem="QXV-Qv-9dM" firstAttribute="leading" secondItem="4Ew-QY-lCU" secondAttribute="leading" id="XzI-Mg-vnj"/>
                             <constraint firstItem="QXV-Qv-9dM" firstAttribute="top" secondItem="4Ew-QY-lCU" secondAttribute="top" id="f3s-3n-xna"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="QXV-Qv-9dM" secondAttribute="bottom" constant="-83" id="rc2-o9-EYk"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="QXV-Qv-9dM" secondAttribute="bottom" id="rc2-o9-EYk"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="h7e-Xl-QPt">
@@ -1204,6 +1219,7 @@
                             </button>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="tableView" destination="QXV-Qv-9dM" id="HPF-Be-LjC"/>
                     </connections>
@@ -1384,11 +1400,11 @@
             </objects>
             <point key="canvasLocation" x="362" y="1820"/>
         </scene>
-        <!--Profile-->
+        <!--Workouts-->
         <scene sceneID="iSe-lr-MyQ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Qn9-8w-9NK" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" image="person" catalog="system" selectedImage="person" id="HFy-aS-M4V"/>
+                    <tabBarItem key="tabBarItem" title="Workouts" image="person" catalog="system" selectedImage="person" id="HFy-aS-M4V"/>
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
@@ -1436,7 +1452,7 @@
             <objects>
                 <viewController id="vuB-xe-beQ" customClass="ProfileViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="b60-Lw-5OC">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="673"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="756"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gJt-q8-98V" customClass="PFImageView">
@@ -1452,22 +1468,22 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer." value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="13a-Nq-mMm">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="13a-Nq-mMm">
                                 <rect key="frame" x="0.0" y="236" width="390" height="522"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="608" id="EVV-qJ-uYe"/>
+                                    <constraint firstAttribute="height" constant="522" id="EVV-qJ-uYe"/>
                                 </constraints>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <segmentedControl key="tableHeaderView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="dxk-jN-ipK">
                                     <rect key="frame" x="0.0" y="0.0" width="390" height="32"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <segments>
                                         <segment title="Workouts"/>
                                         <segment title="Posts"/>
                                     </segments>
-                                    <color key="selectedSegmentTintColor" red="0.1166579252" green="0.84342966919999995" blue="0.37734218079999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="selectedSegmentTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <connections>
                                         <action selector="segmentIndexChanged:" destination="vuB-xe-beQ" eventType="valueChanged" id="IbD-YZ-JgG"/>
                                     </connections>
@@ -1624,7 +1640,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
-                                            <outlet property="workoutAuthorInfo" destination="yGf-GQ-iK2" id="Y8a-75-YFg"/>
+                                            <outlet property="numberOfExercises" destination="yGf-GQ-iK2" id="Y8a-75-YFg"/>
                                             <outlet property="workoutImageView" destination="fGs-KV-Ko2" id="qF3-0U-mLl"/>
                                             <outlet property="workoutName" destination="pK0-dZ-Ksx" id="Rqh-ft-KBT"/>
                                             <segue destination="zGz-Ej-hTu" kind="show" identifier="workoutSegueFromProfile" id="8kk-tt-hpH"/>
@@ -1684,7 +1700,6 @@
                     </tabBarItem>
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="mkF-r0-qk5">
                         <rect key="frame" x="0.0" y="44" width="390" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1735,6 +1750,7 @@
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
+        <segue reference="ZG4-nH-5Cu"/>
         <segue reference="oCB-vf-35T"/>
         <segue reference="Zbp-Gh-e93"/>
         <segue reference="Be8-eM-fyk"/>

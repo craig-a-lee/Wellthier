@@ -52,12 +52,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     WorkoutTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"WorkoutTableViewCell"];
     Workout *workout = self.filteredWorkouts[indexPath.row];
-    cell.workoutImageView.file = workout[@"image"];
-    [cell.workoutImageView loadInBackground];
-    PFUser *user = workout[@"author"];
-    cell.workoutName.text = workout.title;
-    cell.workoutAuthorInfo.text = user.username;
-    cell.workout = workout;
+    [cell setCellParams:workout];
     return cell;
 }
 

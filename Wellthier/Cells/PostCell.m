@@ -26,4 +26,9 @@
     [self.profilePicView loadInBackground];
 }
 
+- (void) setSelected:(BOOL)selected {
+    [super setSelected:selected];
+}
+
+
 @end
