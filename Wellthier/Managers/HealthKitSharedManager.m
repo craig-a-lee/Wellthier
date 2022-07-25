@@ -87,59 +87,112 @@
             return @"Gymnastics";
         case HKWorkoutActivityTypeHandball:
             return @"Handball";
-        case HKWorkoutActivityTypeHiking:                       return @"Hiking";
-        case HKWorkoutActivityTypeHockey:                       return @"Hockey";
-        case HKWorkoutActivityTypeHunting:                      return @"Hunting";
-        case HKWorkoutActivityTypeLacrosse:                     return @"Lacrosse";
-        case HKWorkoutActivityTypeMartialArts:                  return @"Martial Arts";
-        case HKWorkoutActivityTypeMindAndBody:                  return @"Mind and Body";
-        case HKWorkoutActivityTypePaddleSports:                 return @"Paddle Sports";
-        case HKWorkoutActivityTypePlay:                         return @"Play";
-        case HKWorkoutActivityTypePreparationAndRecovery:       return @"Preparation and Recovery";
-        case HKWorkoutActivityTypeRacquetball:                  return @"Racquetball";
-        case HKWorkoutActivityTypeRowing:                       return @"Rowing";
-        case HKWorkoutActivityTypeRugby:                        return @"Rugby";
-        case HKWorkoutActivityTypeRunning:                      return @"Running";
-        case HKWorkoutActivityTypeSailing:                      return @"Sailing";
-        case HKWorkoutActivityTypeSkatingSports:                return @"Skating Sports";
-        case HKWorkoutActivityTypeSnowSports:                   return @"Snow Sports";
-        case HKWorkoutActivityTypeSoccer:                       return @"Soccer";
-        case HKWorkoutActivityTypeSoftball:                     return @"Softball";
-        case HKWorkoutActivityTypeSquash:                       return @"Squash";
-        case HKWorkoutActivityTypeStairClimbing:                return @"Stair Climbing";
-        case HKWorkoutActivityTypeSurfingSports:                return @"Surfing Sports";
-        case HKWorkoutActivityTypeSwimming:                     return @"Swimming";
-        case HKWorkoutActivityTypeTableTennis:                  return @"Table Tennis";
-        case HKWorkoutActivityTypeTennis:                       return @"Tennis";
-        case HKWorkoutActivityTypeTrackAndField:                return @"Track and Field";
-        case HKWorkoutActivityTypeTraditionalStrengthTraining:  return @"Traditional Strength Training";
-        case HKWorkoutActivityTypeVolleyball:                   return @"Volleyball";
-        case HKWorkoutActivityTypeWalking:                      return @"Walking";
-        case HKWorkoutActivityTypeWaterFitness:                 return @"Water Fitness";
-        case HKWorkoutActivityTypeWaterPolo:                    return @"Water Polo";
-        case HKWorkoutActivityTypeWaterSports:                  return @"Water Sports";
-        case HKWorkoutActivityTypeWrestling:                    return @"Wrestling";
-        case HKWorkoutActivityTypeYoga:                         return @"Yoga";
-        case HKWorkoutActivityTypeBarre:                        return @"Barre";
-        case HKWorkoutActivityTypeCoreTraining:                 return @"Core Training";
-        case HKWorkoutActivityTypeCrossCountrySkiing:           return @"Cross Country Skiing";
-        case HKWorkoutActivityTypeDownhillSkiing:               return @"Downhill Skiing";
-        case HKWorkoutActivityTypeFlexibility:                  return @"Flexibility";
-        case HKWorkoutActivityTypeHighIntensityIntervalTraining:    return @"High Intensity Interval Training";
-        case HKWorkoutActivityTypeJumpRope:                     return @"Jump Rope";
-        case HKWorkoutActivityTypeKickboxing:                   return @"Kickboxing";
-        case HKWorkoutActivityTypePilates:                      return @"Pilates";
-        case HKWorkoutActivityTypeSnowboarding:                 return @"Snowboarding";
-        case HKWorkoutActivityTypeStairs:                       return @"Stairs";
-        case HKWorkoutActivityTypeStepTraining:                 return @"Step Training";
-        case HKWorkoutActivityTypeWheelchairWalkPace:           return @"Wheelchair Walk Pace";
-        case HKWorkoutActivityTypeWheelchairRunPace:            return @"Wheelchair Run Pace";
-        case HKWorkoutActivityTypeTaiChi:                       return @"Tai Chi";
-        case HKWorkoutActivityTypeMixedCardio:                  return @"Mixed Cardio";
-        case HKWorkoutActivityTypeHandCycling:                  return @"Hand Cycling";
-        case HKWorkoutActivityTypeDiscSports:                   return @"Disc Sports";
-        case HKWorkoutActivityTypeFitnessGaming:                return @"Fitness Gaming";
-        default:                                                return @"Other";
+        case HKWorkoutActivityTypeHiking:
+            return @"Hiking";
+        case HKWorkoutActivityTypeHockey:
+            return @"Hockey";
+        case HKWorkoutActivityTypeHunting:
+            return @"Hunting";
+        case HKWorkoutActivityTypeLacrosse:
+            return @"Lacrosse";
+        case HKWorkoutActivityTypeMartialArts:
+            return @"Martial Arts";
+        case HKWorkoutActivityTypeMindAndBody:
+            return @"Mind and Body";
+        case HKWorkoutActivityTypePaddleSports:
+            return @"Paddle Sports";
+        case HKWorkoutActivityTypePlay:
+            return @"Play";
+        case HKWorkoutActivityTypePreparationAndRecovery:
+            return @"Preparation and Recovery";
+        case HKWorkoutActivityTypeRacquetball:
+            return @"Racquetball";
+        case HKWorkoutActivityTypeRowing:
+            return @"Rowing";
+        case HKWorkoutActivityTypeRugby:
+            return @"Rugby";
+        case HKWorkoutActivityTypeRunning:
+            return @"Running";
+        case HKWorkoutActivityTypeSailing:
+            return @"Sailing";
+        case HKWorkoutActivityTypeSkatingSports:
+            return @"Skating Sports";
+        case HKWorkoutActivityTypeSnowSports:
+            return @"Snow Sports";
+        case HKWorkoutActivityTypeSoccer:
+            return @"Soccer";
+        case HKWorkoutActivityTypeSoftball:
+            return @"Softball";
+        case HKWorkoutActivityTypeSquash:
+            return @"Squash";
+        case HKWorkoutActivityTypeStairClimbing:
+            return @"Stair Climbing";
+        case HKWorkoutActivityTypeSurfingSports:
+            return @"Surfing Sports";
+        case HKWorkoutActivityTypeSwimming:
+            return @"Swimming";
+        case HKWorkoutActivityTypeTableTennis:
+            return @"Table Tennis";
+        case HKWorkoutActivityTypeTennis:
+            return @"Tennis";
+        case HKWorkoutActivityTypeTrackAndField:
+            return @"Track and Field";
+        case HKWorkoutActivityTypeTraditionalStrengthTraining:
+            return @"Traditional Strength Training";
+        case HKWorkoutActivityTypeVolleyball:
+            return @"Volleyball";
+        case HKWorkoutActivityTypeWalking:
+            return @"Walking";
+        case HKWorkoutActivityTypeWaterFitness:
+            return @"Water Fitness";
+        case HKWorkoutActivityTypeWaterPolo:
+            return @"Water Polo";
+        case HKWorkoutActivityTypeWaterSports:
+            return @"Water Sports";
+        case HKWorkoutActivityTypeWrestling:
+            return @"Wrestling";
+        case HKWorkoutActivityTypeYoga:
+            return @"Yoga";
+        case HKWorkoutActivityTypeBarre:
+            return @"Barre";
+        case HKWorkoutActivityTypeCoreTraining:
+            return @"Core Training";
+        case HKWorkoutActivityTypeCrossCountrySkiing:
+            return @"Cross Country Skiing";
+        case HKWorkoutActivityTypeDownhillSkiing:
+            return @"Downhill Skiing";
+        case HKWorkoutActivityTypeFlexibility:
+            return @"Flexibility";
+        case HKWorkoutActivityTypeHighIntensityIntervalTraining:
+            return @"High Intensity Interval Training";
+        case HKWorkoutActivityTypeJumpRope:
+            return @"Jump Rope";
+        case HKWorkoutActivityTypeKickboxing:
+            return @"Kickboxing";
+        case HKWorkoutActivityTypePilates:
+            return @"Pilates";
+        case HKWorkoutActivityTypeSnowboarding:
+            return @"Snowboarding";
+        case HKWorkoutActivityTypeStairs:
+            return @"Stairs";
+        case HKWorkoutActivityTypeStepTraining:
+            return @"Step Training";
+        case HKWorkoutActivityTypeWheelchairWalkPace:
+            return @"Wheelchair Walk Pace";
+        case HKWorkoutActivityTypeWheelchairRunPace:
+            return @"Wheelchair Run Pace";
+        case HKWorkoutActivityTypeTaiChi:
+            return @"Tai Chi";
+        case HKWorkoutActivityTypeMixedCardio:
+            return @"Mixed Cardio";
+        case HKWorkoutActivityTypeHandCycling:
+            return @"Hand Cycling";
+        case HKWorkoutActivityTypeDiscSports:
+            return @"Disc Sports";
+        case HKWorkoutActivityTypeFitnessGaming:
+            return @"Fitness Gaming";
+        default:
+            return @"Other";
     }
     return 0;
 }
