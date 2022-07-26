@@ -42,8 +42,8 @@
     [self.healthStore executeQuery:query];
 }
 
-- (NSString *) getWorkoutType: (NSInteger)enumeration {
-    switch (enumeration) {
+- (NSString *) getWorkoutType: (HKWorkoutActivityType)workoutType{
+    switch (workoutType) {
         case HKWorkoutActivityTypeAmericanFootball:
             return @"American Football";
         case HKWorkoutActivityTypeArchery:
