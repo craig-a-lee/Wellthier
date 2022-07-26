@@ -5,7 +5,6 @@
 //  Created by Craig Lee on 7/25/22.
 //
 
-
 #import <DateTools/DateTools.h>
 #import "HealthKitWorkoutsViewController.h"
 #import "HealthKitWorkoutTableViewCell.h"
@@ -22,10 +21,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"My Workouts";
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
-    
     [self getWorkouts];
 }
 
@@ -40,7 +39,7 @@
 
 - (IBAction)didTapDone:(id)sender {
     [self dismissViewControllerAnimated:true completion:nil];
-    [self.delegate didPickWorkout:self.currentlySelectedCell];
+    [self.delegate didPickWorkout:self.currentlySelectedCell.workout];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -54,10 +53,11 @@
     [dateFormatter setDateFormat:@"MM-dd-yyyy HH:mm:ss"];
     HealthKitWorkoutTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HealthKitWorkoutTableViewCell"];
     HKWorkout *workout = self.arrayOfWorkouts[indexPath.row];
+    cell.workout = workout;
     cell.workoutType.text = [NSString stringWithFormat:@"Workout Type: %@", [[HealthKitSharedManager sharedManager] getWorkoutType: workout.workoutActivityType]];
     cell.startDate.text = [NSString stringWithFormat:@"Start Date: %@", [dateFormatter stringFromDate:workout.startDate]];
     cell.endDate.text = [NSString stringWithFormat:@"End Date: %@", [dateFormatter stringFromDate:workout.endDate]];
-    cell.duration.text = [NSString stringWithFormat:@"Duration: %f", workout.duration];
+    cell.duration.text = [NSString stringWithFormat:@"Duration: %@", [[HealthKitSharedManager sharedManager] hoursMinsSecsFromDuration: workout.duration]];
     if (workout.totalEnergyBurned) {
         cell.energyBurned.text = [NSString stringWithFormat:@"Energy Burned: %@", workout.totalEnergyBurned];
     }

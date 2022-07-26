@@ -30,9 +30,12 @@
 }
 
 - (void) getLatestWorkout: (void(^)(NSArray <HKWorkout *> *workouts))completion {
+    NSCalendar *cal = [NSCalendar currentCalendar];
+    NSDate *startDate = [cal dateByAddingUnit:NSCalendarUnitWeekOfYear value:-1 toDate:[NSDate date] options:0];
+    NSPredicate *predicate = [HKQuery predicateForSamplesWithStartDate:startDate endDate:[NSDate date] options:HKQueryOptionStrictEndDate];
     HKObjectType *type = [HKObjectType workoutType];
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey: HKSampleSortIdentifierStartDate ascending:false];
-    HKQuery *query = [[HKSampleQuery alloc] initWithSampleType:type predicate:nil limit:HKObjectQueryNoLimit sortDescriptors:@[sortDescriptor] resultsHandler:^(HKSampleQuery * _Nonnull query, NSArray<__kindof HKSample *> * _Nullable results, NSError * _Nullable error) {
+    HKQuery *query = [[HKSampleQuery alloc] initWithSampleType:type predicate:predicate limit:HKObjectQueryNoLimit sortDescriptors:@[sortDescriptor] resultsHandler:^(HKSampleQuery * _Nonnull query, NSArray<__kindof HKSample *> * _Nullable results, NSError * _Nullable error) {
         if (results.count > 0) {
             completion(results);
         } else {
@@ -195,6 +198,14 @@
             return @"Other";
     }
     return 0;
+}
+
+- (NSString *)hoursMinsSecsFromDuration:(NSTimeInterval)interval {
+    NSInteger ti = (NSInteger)interval;
+    NSInteger seconds = ti % 60;
+    NSInteger minutes = (ti / 60) % 60;
+    NSInteger hours = (ti / 3600);
+    return [NSString stringWithFormat:@"%02ld:%02ld:%02ld", (long)hours, (long)minutes, (long)seconds];
 }
 
 @end

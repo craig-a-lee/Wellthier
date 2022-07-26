@@ -18,6 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)requestAuthorization;
 - (void) getLatestWorkout: (void(^)(NSArray <HKWorkout *> *workouts))completion;
 - (NSString *) getWorkoutType: (NSInteger)enumeration;
+- (NSString *)hoursMinsSecsFromDuration:(NSTimeInterval)interval;
 
 @end
 

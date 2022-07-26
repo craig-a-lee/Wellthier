@@ -71,8 +71,14 @@
     [self presentViewController:alert animated:YES completion:nil];
 }
 
-- (void)didPickWorkout:(HealthKitWorkoutTableViewCell *) workoutCell {
-    NSString *workoutTextInfo = [NSString stringWithFormat:@"Check out my most recent workout! \n\n%@ \n%@ \n%@", workoutCell.workoutType.text, workoutCell.duration.text, workoutCell.energyBurned.text];
+- (void)didPickWorkout:(HKWorkout *) workout {
+    NSString *workoutTypeInfo = [NSString stringWithFormat:@"Workout Type: %@", [[HealthKitSharedManager sharedManager] getWorkoutType: workout.workoutActivityType]];
+    NSString *workoutDurationInfo = [NSString stringWithFormat:@"Duration: %@", [[HealthKitSharedManager sharedManager] hoursMinsSecsFromDuration:workout.duration]];
+    NSString *workoutEnergyBurnedInfo = @"";
+    if (workout.totalEnergyBurned) {
+        workoutEnergyBurnedInfo = [NSString stringWithFormat:@"Energy Burned: %@", workout.totalEnergyBurned];
+    }
+    NSString *workoutTextInfo = [NSString stringWithFormat:@"Check out my most recent workout! \n\n%@ \n%@ \n%@", workoutTypeInfo, workoutDurationInfo, workoutEnergyBurnedInfo];
     dispatch_async(dispatch_get_main_queue(), ^{
         self.textView.text = workoutTextInfo;
     });
