@@ -38,6 +38,11 @@
     }];
 }
 
+- (IBAction)didTapDone:(id)sender {
+    [self dismissViewControllerAnimated:true completion:nil];
+    [self.delegate didPickWorkout:self.currentlySelectedCell];
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.arrayOfWorkouts.count;
 }
@@ -74,6 +79,5 @@
     HealthKitWorkoutTableViewCell *selectedCell= [self.tableView cellForRowAtIndexPath:indexPath];
     selectedCell.accessoryType = UITableViewCellAccessoryNone;
  }
-
 
 @end

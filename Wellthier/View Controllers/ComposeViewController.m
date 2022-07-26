@@ -8,13 +8,13 @@
 #import <Parse/Parse.h>
 #import <HealthKit/HealthKit.h>
 #import "ComposeViewController.h"
+#import "HealthKitWorkoutsViewController.h"
 #import "HealthKitSharedManager.h"
 #import "Post.h"
 
-@interface ComposeViewController ()
+@interface ComposeViewController () <HealtKitWorkoutsViewControllerDelegate>
 
 @property (nonatomic, weak) IBOutlet UITextView *textView;
-@property (nonatomic, strong) HKWorkout *latestWorkout;
 
 @end
 
@@ -71,6 +71,13 @@
     [self presentViewController:alert animated:YES completion:nil];
 }
 
+- (void)didPickWorkout:(HealthKitWorkoutTableViewCell *) workoutCell {
+    NSString *workoutTextInfo = [NSString stringWithFormat:@"Check out my most recent workout! \n\n%@ \n%@ \n%@", workoutCell.workoutType.text, workoutCell.duration.text, workoutCell.energyBurned.text];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.textView.text = workoutTextInfo;
+    });
+}
+
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
     UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
     CGSize size = CGSizeMake(293, 293);
@@ -109,6 +116,14 @@
 
 - (IBAction)didTapCancel:(id)sender {
     [self dismissViewControllerAnimated:true completion:nil];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"healthKitViewSegue"]) {
+        UINavigationController *navigationController = [segue destinationViewController];
+        HealthKitWorkoutsViewController *healthKitVC = (HealthKitWorkoutsViewController*) navigationController.topViewController;
+        healthKitVC.delegate = self;
+    }
 }
 
 @end
