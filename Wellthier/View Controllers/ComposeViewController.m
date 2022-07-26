@@ -8,13 +8,13 @@
 #import <Parse/Parse.h>
 #import <HealthKit/HealthKit.h>
 #import "ComposeViewController.h"
+#import "HealthKitWorkoutsViewController.h"
 #import "HealthKitSharedManager.h"
 #import "Post.h"
 
-@interface ComposeViewController ()
+@interface ComposeViewController () <HealtKitWorkoutsViewControllerDelegate>
 
 @property (nonatomic, weak) IBOutlet UITextView *textView;
-@property (nonatomic, strong) HKWorkout *latestWorkout;
 
 @end
 
@@ -71,6 +71,19 @@
     [self presentViewController:alert animated:YES completion:nil];
 }
 
+- (void)didPickWorkout:(HKWorkout *) workout {
+    NSString *workoutTypeInfo = [NSString stringWithFormat:@"Workout Type: %@", [[HealthKitSharedManager sharedManager] getWorkoutType: workout.workoutActivityType]];
+    NSString *workoutDurationInfo = [NSString stringWithFormat:@"Duration: %@", [[HealthKitSharedManager sharedManager] hoursMinsSecsFromDuration:workout.duration]];
+    NSString *workoutEnergyBurnedInfo = @"";
+    if (workout.totalEnergyBurned) {
+        workoutEnergyBurnedInfo = [NSString stringWithFormat:@"Energy Burned: %@", workout.totalEnergyBurned];
+    }
+    NSString *workoutTextInfo = [NSString stringWithFormat:@"Check out my most recent workout! \n\n%@ \n%@ \n%@", workoutTypeInfo, workoutDurationInfo, workoutEnergyBurnedInfo];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.textView.text = workoutTextInfo;
+    });
+}
+
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
     UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
     CGSize size = CGSizeMake(293, 293);
@@ -109,6 +122,14 @@
 
 - (IBAction)didTapCancel:(id)sender {
     [self dismissViewControllerAnimated:true completion:nil];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"healthKitViewSegue"]) {
+        UINavigationController *navigationController = [segue destinationViewController];
+        HealthKitWorkoutsViewController *healthKitVC = (HealthKitWorkoutsViewController*) navigationController.topViewController;
+        healthKitVC.delegate = self;
+    }
 }
 
 @end

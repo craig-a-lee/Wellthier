@@ -5,7 +5,6 @@
 //  Created by Craig Lee on 7/13/22.
 //
 
-
 #import <Parse/Parse.h>
 #import "GifViewController.h"
 #import "AnimatedGif.h"
@@ -50,13 +49,16 @@
     self.name.animationCurve = UIViewAnimationCurveEaseIn;
     self.name.fadeLength = 10.0;
     self.name.scrollDuration = 3.0;
-    self.equipment.text = [exercise.equipment capitalizedString];
-    self.bodyPart.text = [exercise.bodyPart capitalizedString];
-    self.targetMuscle.text = [exercise.target capitalizedString];
+    self.equipment.text = [NSString stringWithFormat:@"Equipment: %@", [exercise.equipment capitalizedString]];
+    self.bodyPart.text = [NSString stringWithFormat:@"Body Part: %@", [exercise.bodyPart capitalizedString]];
+    self.targetMuscle.text =  [NSString stringWithFormat:@"Target Muscle: %@", [exercise.target capitalizedString]];
+    UIImage *image = [[UIImage systemImageNamed:@"heart.fill"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     if (self.isLiked) {
-        [self.likeButton setImage: [UIImage imageNamed:@"favor-icon-red"] forState:UIControlStateNormal];
+        [self.likeButton setImage:image forState:UIControlStateNormal];
+        self.likeButton.tintColor = [UIColor redColor];
     } else {
-        [self.likeButton setImage: [UIImage imageNamed:@"heart.fill"] forState:UIControlStateNormal];
+        [self.likeButton setImage:image forState:UIControlStateNormal];
+        self.likeButton.tintColor = [UIColor whiteColor];
     }
     [self.view addSubview:self.gifImageView];
 }
@@ -65,7 +67,6 @@
     if (!self.isLiked) {
         [self.workoutQuery findObjectsInBackgroundWithBlock:^(NSArray<Workout *> * _Nullable workouts, NSError * _Nullable error) {
             if (workouts) {
-                // do something with the data fetched
                 [Workout updateUserWorkout:workouts[0] withExercise:self.detailExercise withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
                     [self setIsLiked:YES];
                     [self setExerciseProperties:self.detailExercise];

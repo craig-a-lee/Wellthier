@@ -5,6 +5,7 @@
 //  Created by Craig Lee on 7/25/22.
 //
 
+#import <HealthKit/HealthKit.h>
 #import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
@@ -16,6 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, weak) IBOutlet UILabel *endDate;
 @property (nonatomic, weak) IBOutlet UILabel *duration;
 @property (nonatomic, weak) IBOutlet UILabel *energyBurned;
+@property (nonatomic, strong) HKWorkout *workout;
 
 @end
 

@@ -49,6 +49,7 @@
     self.arrayOfExercises = [[ExerciseSharedManager sharedManager] allExercises];
     self.filteredExercises = self.arrayOfExercises;
     [self.tableView reloadData];
+    [self.activityIndicator stopAnimating];
 }
 
 - (void) getBodyParts {
