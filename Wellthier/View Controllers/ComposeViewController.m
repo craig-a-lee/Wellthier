@@ -14,6 +14,7 @@
 @interface ComposeViewController ()
 
 @property (nonatomic, weak) IBOutlet UITextView *textView;
+@property (nonatomic, strong) HKWorkout *latestWorkout;
 
 @end
 
