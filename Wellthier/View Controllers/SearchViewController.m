@@ -13,7 +13,6 @@
 #import "GifViewController.h"
 #import "ExerciseSharedManager.h"
 
-
 @interface SearchViewController () <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, UICollectionViewDataSource, UICollectionViewDelegate>
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
@@ -34,10 +33,8 @@
     [self getBodyParts];
     [self setButtonPressed:NO];
     [self setSearchBarPressed:NO];
-    // Do any additional setup after loading the view.
     self.tableView.dataSource = self;
     self.tableView.indicatorStyle = UIScrollViewIndicatorStyleWhite;
-    self.tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
     self.tableView.delegate = self;
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
@@ -146,14 +143,10 @@
             self.filteredExercises = self.arrayOfExercises;
         }
     }
-
     [self.tableView reloadData];
-
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
     if ([segue.identifier isEqualToString:@"gifSegueFromSearch"]) {
         NSIndexPath *myIndexPath = [self.tableView indexPathForCell:sender];
         Exercise *dataToPass = self.filteredExercises[myIndexPath.row];

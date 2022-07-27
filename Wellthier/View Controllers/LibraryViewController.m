@@ -14,10 +14,11 @@
 #import "AddToWorkoutViewController.h"
 #import "ProfileViewController.h"
 
-@interface LibraryViewController () <AddToWorkoutViewControllerDelegate, NewWorkoutViewControllerDelegate, UICollectionViewDelegate, UICollectionViewDataSource>
+@interface LibraryViewController () <AddToWorkoutViewControllerDelegate, NewWorkoutViewControllerDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UISearchBarDelegate>
 
 @property (nonatomic, weak) IBOutlet UICollectionView *collectionView;
 @property (nonatomic, weak) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (nonatomic, strong) IBOutlet UISearchBar *searchBar;
 
 @end
 
@@ -30,8 +31,10 @@
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
     self.currentUser = PFUser.currentUser;
+    self.collectionView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
     self.profilePic.file = self.currentUser[@"profilePic"];
     self.displayName.text = self.currentUser[@"displayName"];
+    self.searchBar.delegate = self;
     [self.profilePic loadInBackground];
 }
 
@@ -82,7 +85,20 @@
         ProfileViewController *controller = [segue destinationViewController];
         controller.selectedUser = PFUser.currentUser;
     }
-        
+}
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    searchText = [searchText lowercaseString];
+    if (searchText.length != 0) {
+        NSPredicate *searchPredicate = [NSPredicate predicateWithBlock:^BOOL(Workout *evaluatedObject, NSDictionary *bindings) {
+            return ([evaluatedObject.title containsString:searchText]);
+        }];
+        self.filteredWorkouts = (NSMutableArray *) [self.arrayOfWorkouts filteredArrayUsingPredicate:searchPredicate];
+    }
+    else {
+        self.filteredWorkouts = self.arrayOfWorkouts;
+    }
+    [self.collectionView reloadData];
 }
 
 @end

@@ -5,11 +5,11 @@
 //  Created by Craig Lee on 7/13/22.
 //
 
-#import "ViewController.h"
+#import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface SettingsViewController : ViewController
+@interface SettingsViewController : UIViewController
 
 @end
 

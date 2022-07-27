@@ -91,4 +91,22 @@
     }
 }
 
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    searchText = [searchText lowercaseString];
+    if (searchText.length != 0) {
+        NSPredicate *searchPredicate = [NSPredicate predicateWithBlock:^BOOL(Exercise *evaluatedObject, NSDictionary *bindings) {
+            return ([evaluatedObject.name containsString:searchText] ||
+                    [evaluatedObject.target containsString:searchText] ||
+                    [evaluatedObject.equipment containsString:searchText] ||
+                    [evaluatedObject.bodyPart containsString:searchText]);
+        }];
+        
+        self.filteredExercises = [self.arrayOfExercises filteredArrayUsingPredicate:searchPredicate];
+    }
+    else {
+        self.filteredExercises = self.arrayOfExercises;
+    }
+    [self.tableView reloadData];
+}
+
 @end

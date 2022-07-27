@@ -25,6 +25,8 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.layoutMargins = UIEdgeInsetsZero;
+    self.tableView.separatorInset = UIEdgeInsetsZero;
     [self getWorkouts];
 }
 
@@ -54,12 +56,12 @@
     HealthKitWorkoutTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HealthKitWorkoutTableViewCell"];
     HKWorkout *workout = self.arrayOfWorkouts[indexPath.row];
     cell.workout = workout;
-    cell.workoutType.text = [NSString stringWithFormat:@"Workout Type: %@", [[HealthKitSharedManager sharedManager] getWorkoutType: workout.workoutActivityType]];
-    cell.startDate.text = [NSString stringWithFormat:@"Start Date: %@", [dateFormatter stringFromDate:workout.startDate]];
-    cell.endDate.text = [NSString stringWithFormat:@"End Date: %@", [dateFormatter stringFromDate:workout.endDate]];
-    cell.duration.text = [NSString stringWithFormat:@"Duration: %@", [[HealthKitSharedManager sharedManager] hoursMinsSecsFromDuration: workout.duration]];
+    cell.workoutType.text = [NSString stringWithFormat:@"%@", [[HealthKitSharedManager sharedManager] getWorkoutType: workout.workoutActivityType]];
+    cell.startDateInfo.text = [NSString stringWithFormat:@"%@", [dateFormatter stringFromDate:workout.startDate]];
+    cell.endDate.text = [NSString stringWithFormat:@"%@", [dateFormatter stringFromDate:workout.endDate]];
+    cell.durationInfo.text = [NSString stringWithFormat:@"%@", [[HealthKitSharedManager sharedManager] hoursMinsSecsFromDuration: workout.duration]];
     if (workout.totalEnergyBurned) {
-        cell.energyBurned.text = [NSString stringWithFormat:@"Energy Burned: %@", workout.totalEnergyBurned];
+        cell.energyBurnedInfo.text = [NSString stringWithFormat:@"%@", workout.totalEnergyBurned];
     }
     return cell;
 }

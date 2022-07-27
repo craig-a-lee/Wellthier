@@ -5,7 +5,7 @@
 //  Created by Craig Lee on 7/19/22.
 //
 
-#import "ViewController.h"
+#import <UIKit/UIKit.h>
 #import "Post.h"
 
 NS_ASSUME_NONNULL_BEGIN

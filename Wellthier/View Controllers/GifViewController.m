@@ -55,7 +55,10 @@
     UIImage *image = [[UIImage systemImageNamed:@"heart.fill"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     if (self.isLiked) {
         [self.likeButton setImage:image forState:UIControlStateNormal];
-        self.likeButton.tintColor = [UIColor redColor];
+        self.likeButton.tintColor = [UIColor colorWithRed:30.0f/255.0f
+                                                    green:215.0f/255.0f
+                                                     blue:96.0f/255.0f
+                                                    alpha:1.0f];
     } else {
         [self.likeButton setImage:image forState:UIControlStateNormal];
         self.likeButton.tintColor = [UIColor whiteColor];

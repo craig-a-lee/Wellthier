@@ -10,7 +10,7 @@
 #import "Workout.h"
 #import "WorkoutTableViewCell.h"
 
-@interface AddToWorkoutViewController () <UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate>
+@interface AddToWorkoutViewController () <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) WorkoutTableViewCell *currentlySelectedCell;
@@ -24,6 +24,7 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.currentlySelectedCell = nil;
+    self.searchBar.delegate = self;
 }
 
 - (void) viewWillAppear:(BOOL)animated {
@@ -39,7 +40,8 @@
     [workoutQuery findObjectsInBackgroundWithBlock:^(NSArray<Workout *> * _Nullable workouts, NSError * _Nullable error) {
         if (workouts) {
             self.arrayOfWorkouts = workouts;
-            self.filteredWorkouts = workouts;
+            self.filteredWorkouts = [[workouts reverseObjectEnumerator] allObjects];
+
             [self.tableView reloadData];
         }
     }];
@@ -76,6 +78,21 @@
         }];
     }
 }
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    searchText = [searchText lowercaseString];
+    if (searchText.length != 0) {
+        NSPredicate *searchPredicate = [NSPredicate predicateWithBlock:^BOOL(Workout *evaluatedObject, NSDictionary *bindings) {
+            return ([evaluatedObject.title containsString:searchText]);
+        }];
+        self.filteredWorkouts = (NSMutableArray *) [self.arrayOfWorkouts filteredArrayUsingPredicate:searchPredicate];
+    }
+    else {
+        self.filteredWorkouts = self.arrayOfWorkouts;
+    }
+    [self.tableView reloadData];
+}
+
 
 - (IBAction)didTapCancel:(id)sender {
     [self dismissViewControllerAnimated:true completion:nil];

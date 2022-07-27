@@ -13,10 +13,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface HealthKitWorkoutTableViewCell : UITableViewCell
 
 @property (nonatomic, weak) IBOutlet UILabel *workoutType;
-@property (nonatomic, weak) IBOutlet UILabel *startDate;
+@property (nonatomic, weak) IBOutlet UILabel *startDateInfo;
 @property (nonatomic, weak) IBOutlet UILabel *endDate;
-@property (nonatomic, weak) IBOutlet UILabel *duration;
-@property (nonatomic, weak) IBOutlet UILabel *energyBurned;
+@property (nonatomic, weak) IBOutlet UILabel *durationInfo;
+@property (nonatomic, weak) IBOutlet UILabel *energyBurnedInfo;
 @property (nonatomic, strong) HKWorkout *workout;
 
 @end

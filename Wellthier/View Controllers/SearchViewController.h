@@ -5,12 +5,12 @@
 //  Created by Craig Lee on 7/7/22.
 //
 
-#import "ViewController.h"
+#import <UIKit/UIKit.h>
 #import "Exercise.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface SearchViewController : ViewController
+@interface SearchViewController : UIViewController
 
 @property (nonatomic, strong) IBOutlet UISearchBar *searchBar;
 @property (nonatomic, strong) NSArray <Exercise *> *arrayOfExercises;

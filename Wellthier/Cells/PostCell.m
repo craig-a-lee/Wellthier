@@ -20,7 +20,12 @@
     if (post[@"image"]) {
         self.postImageView.file = post[@"image"];
         [self.postImageView loadInBackground];
+        self.postImageView.hidden = NO;
+    } else {
+        self.postImageView.image = nil;
+        self.postImageView.hidden = YES;
     }
+    self.username.text = post.author.username;
     self.postText.text = post[@"text"];
     self.profilePicView.file = post.author[@"profilePic"];
     [self.profilePicView loadInBackground];

@@ -5,13 +5,13 @@
 //  Created by Craig Lee on 7/13/22.
 //
 
-#import "ViewController.h"
+#import <UIKit/UIKit.h>
 #import "Exercise.h"
 #import "MarqueeLabel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface GifViewController : ViewController
+@interface GifViewController : UIViewController
 
 @property (nonatomic, weak) IBOutlet UIImageView *gifImageView;
 @property (nonatomic, weak) Exercise *detailExercise;
