@@ -15,8 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface WorkoutViewController : UIViewController
 
-@property (nonatomic, weak) IBOutlet UILabel *workoutTitle;
-@property (nonatomic, weak) IBOutlet UILabel *author;
+@property (nonatomic, weak) IBOutlet UILabel *workoutTitleLabel;
+@property (nonatomic, weak) IBOutlet UILabel *authorLabel;
 @property (nonatomic, strong) NSArray <Exercise*> *arrayOfExercises;
 @property (nonatomic, strong) NSArray <Exercise*> *filteredExercises;
 @property (nonatomic, strong) Workout *detailWorkout;

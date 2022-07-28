@@ -15,11 +15,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, weak) IBOutlet UIImageView *gifImageView;
 @property (nonatomic, weak) Exercise *detailExercise;
-@property (nonatomic, weak) IBOutlet MarqueeLabel *name;
-@property (nonatomic, weak) IBOutlet UILabel *equipment;
-@property (nonatomic, weak) IBOutlet UILabel *targetMuscle;
-@property (nonatomic, weak) IBOutlet UILabel *bodyPart;
-@property (nonatomic, weak) IBOutlet UIButton *likeButton;
+@property (nonatomic, weak) IBOutlet MarqueeLabel *nameLabel;
+@property (nonatomic, weak) IBOutlet UILabel *equipmentLabel;
+@property (nonatomic, weak) IBOutlet UILabel *targetMuscleLabel;
+@property (nonatomic, weak) IBOutlet UILabel *bodyPartLabel;
+@property (nonatomic, weak) IBOutlet UIButton *likeButtonLabel;
 
 @end
 

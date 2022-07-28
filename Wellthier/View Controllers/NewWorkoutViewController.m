@@ -56,7 +56,7 @@
     UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
 
     CGSize size = CGSizeMake(167, 167);
-    self.workoutImage.image = [self resizeImage:originalImage withSize:size];
+    self.workoutImageView.image = [self resizeImage:originalImage withSize:size];
 
     [self dismissViewControllerAnimated:YES completion:nil];
 }
@@ -76,7 +76,7 @@
 }
 
 - (IBAction)didTapCreate:(id)sender {
-    [Workout postUserWorkout:self.workoutImage.image withTitle:self.workoutName.text withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+    [Workout postUserWorkout:self.workoutImageView.image withTitle:self.workoutName.text withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
         [self.delegate didCreateWorkout];
         [self.navigationController popViewControllerAnimated:true];
     }];

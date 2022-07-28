@@ -45,23 +45,23 @@
 - (void) setExerciseProperties:(Exercise *)exercise {
     AnimatedGif *newGif = [AnimatedGif getAnimationForGifAtUrl:exercise.gifUrl];
     [self.gifImageView setAnimatedGif:newGif startImmediately:YES];
-    self.name.text = [exercise.name capitalizedString];
-    self.name.animationCurve = UIViewAnimationCurveEaseIn;
-    self.name.fadeLength = 10.0;
-    self.name.scrollDuration = 3.0;
-    self.equipment.text = [NSString stringWithFormat:@"Equipment: %@", [exercise.equipment capitalizedString]];
-    self.bodyPart.text = [NSString stringWithFormat:@"Body Part: %@", [exercise.bodyPart capitalizedString]];
-    self.targetMuscle.text =  [NSString stringWithFormat:@"Target Muscle: %@", [exercise.target capitalizedString]];
+    self.nameLabel.text = [exercise.name capitalizedString];
+    self.nameLabel.animationCurve = UIViewAnimationCurveEaseIn;
+    self.nameLabel.fadeLength = 10.0;
+    self.nameLabel.scrollDuration = 3.0;
+    self.equipmentLabel.text = [NSString stringWithFormat:@"Equipment: %@", [exercise.equipment capitalizedString]];
+    self.bodyPartLabel.text = [NSString stringWithFormat:@"Body Part: %@", [exercise.bodyPart capitalizedString]];
+    self.targetMuscleLabel.text =  [NSString stringWithFormat:@"Target Muscle: %@", [exercise.target capitalizedString]];
     UIImage *image = [[UIImage systemImageNamed:@"heart.fill"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     if (self.isLiked) {
-        [self.likeButton setImage:image forState:UIControlStateNormal];
-        self.likeButton.tintColor = [UIColor colorWithRed:30.0f/255.0f
+        [self.likeButtonLabel setImage:image forState:UIControlStateNormal];
+        self.likeButtonLabel.tintColor = [UIColor colorWithRed:30.0f/255.0f
                                                     green:215.0f/255.0f
                                                      blue:96.0f/255.0f
                                                     alpha:1.0f];
     } else {
-        [self.likeButton setImage:image forState:UIControlStateNormal];
-        self.likeButton.tintColor = [UIColor whiteColor];
+        [self.likeButtonLabel setImage:image forState:UIControlStateNormal];
+        self.likeButtonLabel.tintColor = [UIColor whiteColor];
     }
     [self.view addSubview:self.gifImageView];
 }

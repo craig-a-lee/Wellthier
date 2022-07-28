@@ -103,11 +103,11 @@
     ExerciseCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ExerciseCell"];
     Exercise *ex = self.filteredExercises[indexPath.row];
     cell.tintColor = [UIColor greenColor];
-    cell.name.text = [ex.name capitalizedString];
-    cell.name.animationCurve = UIViewAnimationCurveEaseIn;
-    cell.name.fadeLength = 10.0;
-    cell.name.scrollDuration = 3.0;
-    cell.bodyPart.text = [ex.bodyPart capitalizedString];
+    cell.nameLabel.text = [ex.name capitalizedString];
+    cell.nameLabel.animationCurve = UIViewAnimationCurveEaseIn;
+    cell.nameLabel.fadeLength = 10.0;
+    cell.nameLabel.scrollDuration = 3.0;
+    cell.bodyPartLabel.text = [ex.bodyPart capitalizedString];
     return cell;
 }
 

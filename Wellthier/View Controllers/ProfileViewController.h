@@ -17,8 +17,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface ProfileViewController : UIViewController
 
 @property (nonatomic, weak) IBOutlet PFImageView *profilePic;
-@property (nonatomic, weak) IBOutlet UILabel *displayName;
-@property (nonatomic, weak) IBOutlet UILabel *username;
+@property (nonatomic, weak) IBOutlet UILabel *displayNameLabel;
+@property (nonatomic, weak) IBOutlet UILabel *usernameLabel;
 @property (nonatomic, strong) NSArray <Workout *> *arrayOfWorkouts;
 @property (nonatomic, strong) NSArray <Post *> *arrayOfPosts;
 @property (nonatomic, strong) PFUser *selectedUser;

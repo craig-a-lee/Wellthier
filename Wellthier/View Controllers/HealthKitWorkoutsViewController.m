@@ -56,12 +56,12 @@
     HealthKitWorkoutTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HealthKitWorkoutTableViewCell"];
     HKWorkout *workout = self.arrayOfWorkouts[indexPath.row];
     cell.workout = workout;
-    cell.workoutType.text = [NSString stringWithFormat:@"%@", [[HealthKitSharedManager sharedManager] getWorkoutType: workout.workoutActivityType]];
-    cell.startDateInfo.text = [NSString stringWithFormat:@"%@", [dateFormatter stringFromDate:workout.startDate]];
-    cell.endDate.text = [NSString stringWithFormat:@"%@", [dateFormatter stringFromDate:workout.endDate]];
-    cell.durationInfo.text = [NSString stringWithFormat:@"%@", [[HealthKitSharedManager sharedManager] hoursMinsSecsFromDuration: workout.duration]];
+    cell.workoutTypeLabel.text = [NSString stringWithFormat:@"%@", [[HealthKitSharedManager sharedManager] getWorkoutType: workout.workoutActivityType]];
+    cell.startDateLabel.text = [NSString stringWithFormat:@"%@", [dateFormatter stringFromDate:workout.startDate]];
+    cell.endDateLabel.text = [NSString stringWithFormat:@"%@", [dateFormatter stringFromDate:workout.endDate]];
+    cell.durationLabel.text = [NSString stringWithFormat:@"%@", [[HealthKitSharedManager sharedManager] hoursMinsSecsFromDuration: workout.duration]];
     if (workout.totalEnergyBurned) {
-        cell.energyBurnedInfo.text = [NSString stringWithFormat:@"%@", workout.totalEnergyBurned];
+        cell.energyBurnedLabel.text = [NSString stringWithFormat:@"%@", workout.totalEnergyBurned];
     }
     return cell;
 }

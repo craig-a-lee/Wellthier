@@ -32,8 +32,8 @@
 }
 
 - (void) setProfileParams {
-    self.displayName.text = self.selectedUser[@"displayName"];
-    self.username.text = self.selectedUser.username;
+    self.displayNameLabel.text = self.selectedUser[@"displayName"];
+    self.usernameLabel.text = self.selectedUser.username;
     self.profilePic.file = self.selectedUser[@"profilePic"];
     [self.profilePic loadInBackground];
 }

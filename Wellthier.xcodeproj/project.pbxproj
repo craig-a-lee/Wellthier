@@ -15,6 +15,7 @@
 		7300D040288879950057FEEB /* Managers in Resources */ = {isa = PBXBuildFile; fileRef = 7300D03F288879950057FEEB /* Managers */; };
 		731AA44E288F527200C9F4AE /* HealthKitWorkoutsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 731AA44D288F527200C9F4AE /* HealthKitWorkoutsViewController.m */; };
 		731AA451288F537700C9F4AE /* HealthKitWorkoutTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 731AA450288F537700C9F4AE /* HealthKitWorkoutTableViewCell.m */; };
+		731AA4572893041A00C9F4AE /* MainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 731AA4562893041A00C9F4AE /* MainTabBarController.m */; };
 		7344C92A288A18D10017C4EB /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7344C929288A18D10017C4EB /* ProfileViewController.m */; };
 		73496B45287F83E600A1E77C /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73496B44287F83E600A1E77C /* LoginViewController.m */; };
 		735236E2287745A7002BB65E /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 735236E1287745A7002BB65E /* SignUpViewController.m */; };
@@ -87,6 +88,8 @@
 		731AA44D288F527200C9F4AE /* HealthKitWorkoutsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = HealthKitWorkoutsViewController.m; path = "View Controllers/HealthKitWorkoutsViewController.m"; sourceTree = "<group>"; };
 		731AA44F288F537700C9F4AE /* HealthKitWorkoutTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HealthKitWorkoutTableViewCell.h; path = Cells/HealthKitWorkoutTableViewCell.h; sourceTree = "<group>"; };
 		731AA450288F537700C9F4AE /* HealthKitWorkoutTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = HealthKitWorkoutTableViewCell.m; path = Cells/HealthKitWorkoutTableViewCell.m; sourceTree = "<group>"; };
+		731AA4552893041A00C9F4AE /* MainTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MainTabBarController.h; path = "View Controllers/MainTabBarController.h"; sourceTree = "<group>"; };
+		731AA4562893041A00C9F4AE /* MainTabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = MainTabBarController.m; path = "View Controllers/MainTabBarController.m"; sourceTree = "<group>"; };
 		7344C928288A18D10017C4EB /* ProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ProfileViewController.h; path = "View Controllers/ProfileViewController.h"; sourceTree = "<group>"; };
 		7344C929288A18D10017C4EB /* ProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ProfileViewController.m; path = "View Controllers/ProfileViewController.m"; sourceTree = "<group>"; };
 		73496B43287F83E600A1E77C /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = "View Controllers/LoginViewController.h"; sourceTree = "<group>"; };
@@ -296,6 +299,8 @@
 				731AA44D288F527200C9F4AE /* HealthKitWorkoutsViewController.m */,
 				731AA44F288F537700C9F4AE /* HealthKitWorkoutTableViewCell.h */,
 				731AA450288F537700C9F4AE /* HealthKitWorkoutTableViewCell.m */,
+				731AA4552893041A00C9F4AE /* MainTabBarController.h */,
+				731AA4562893041A00C9F4AE /* MainTabBarController.m */,
 			);
 			path = Wellthier;
 			sourceTree = "<group>";
@@ -587,6 +592,7 @@
 				737E430328887AE7004D0C13 /* ExerciseSharedManager.m in Sources */,
 				7300D03428876B6B0057FEEB /* PostCell.m in Sources */,
 				73B22DA3287F3ABA002548DE /* Workout.m in Sources */,
+				731AA4572893041A00C9F4AE /* MainTabBarController.m in Sources */,
 				73B22DA9287F3EBE002548DE /* SettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
