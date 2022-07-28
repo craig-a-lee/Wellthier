@@ -5,14 +5,14 @@
 //  Created by Craig Lee on 7/19/22.
 //
 
+#import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
-#import "ViewController.h"
 
 @import Parse;
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ComposeViewController : ViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface ComposeViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property (nonatomic, weak) IBOutlet PFImageView *profilePic;
 @property (nonatomic, strong) PFUser *currentUser;

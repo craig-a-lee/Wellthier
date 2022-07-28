@@ -5,7 +5,7 @@
 //  Created by Craig Lee on 7/18/22.
 //
 
-#import "ViewController.h"
+#import <UIKit/UIKit.h>
 #import "Workout.h"
 
 NS_ASSUME_NONNULL_BEGIN
@@ -16,8 +16,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-@interface AddToWorkoutViewController : ViewController
+@interface AddToWorkoutViewController : UIViewController <UISearchBarDelegate>
 
+@property (nonatomic, strong) IBOutlet UISearchBar *searchBar;
 @property (nonatomic, weak) id<AddToWorkoutViewControllerDelegate> delegate;
 @property (nonatomic, strong) NSArray <Workout *> *arrayOfWorkouts;
 @property (nonatomic, strong) NSArray <Workout *> *filteredWorkouts;

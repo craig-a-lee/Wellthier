@@ -62,7 +62,7 @@
 
     // Do something with the images (based on your use case)
     CGSize size = CGSizeMake(112, 112);
-    self.profilePic.image = [self resizeImage:originalImage withSize:size];
+    self.profilePicImageView.image = [self resizeImage:originalImage withSize:size];
     
     // Dismiss UIImagePickerController to go back to your original view controller
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -106,7 +106,7 @@
         newUser.username = self.usernameField.text;
         newUser[@"displayName"] = self.displayNameField.text;
         newUser.password = self.passwordField.text;
-        newUser[@"profilePic"] = [self getPFFileFromImage:self.profilePic.image];
+        newUser[@"profilePic"] = [self getPFFileFromImage:self.profilePicImageView.image];
         
         // call sign up function on the object
         [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {

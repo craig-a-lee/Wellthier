@@ -5,7 +5,7 @@
 //  Created by Craig Lee on 7/11/22.
 //
 
-#import "ViewController.h"
+#import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface NewWorkoutViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property (nonatomic, weak) id<NewWorkoutViewControllerDelegate> delegate;
-@property (nonatomic, weak) IBOutlet UIImageView *workoutImage;
+@property (nonatomic, weak) IBOutlet UIImageView *workoutImageView;
 @property (nonatomic, weak) IBOutlet UITextField *workoutName;
 
 @end

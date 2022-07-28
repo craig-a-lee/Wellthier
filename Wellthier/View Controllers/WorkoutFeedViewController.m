@@ -12,11 +12,14 @@
 #import "PostCell.h"
 #import "ProfileViewController.h"
 
-@interface WorkoutFeedViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface WorkoutFeedViewController () <UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate>
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
 @property (nonatomic, strong) Post *selectedPost;
+@property (nonatomic, assign) BOOL isMoreDataLoading;
+@property (nonatomic, assign) int numberOfPostsToSkip;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingMoreDataIndicator;
 
 @end
 
@@ -32,13 +35,18 @@
     [[HealthKitSharedManager sharedManager] requestAuthorization];
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl setTintColor:[UIColor whiteColor]];
     [self.refreshControl addTarget:self action:@selector(beginRefresh:) forControlEvents:UIControlEventValueChanged];
     [self.tableView insertSubview:self.refreshControl atIndex:0];
-    [self getTimeline];
+    self.tableView.layoutMargins = UIEdgeInsetsZero;
+    self.tableView.separatorInset = UIEdgeInsetsZero;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    self.arrayOfPosts = [NSArray new];
+    self.numberOfPostsToSkip = 0;
+    [self getTimeline];
 }
 
 - (void)beginRefresh:(UIRefreshControl *)refreshControl {
@@ -49,16 +57,33 @@
     PFQuery *postQuery = [Post query];
     [postQuery orderByDescending:@"createdAt"];
     [postQuery includeKey:@"author"];
-    postQuery.limit = 20;
+    [postQuery setSkip:self.numberOfPostsToSkip];
+    postQuery.limit = 5;
     [postQuery findObjectsInBackgroundWithBlock:^(NSArray<Post *> * _Nullable posts, NSError * _Nullable error) {
         if (posts) {
-            self.arrayOfPosts = posts;
+            self.isMoreDataLoading = false;
+            self.arrayOfPosts = [self.arrayOfPosts arrayByAddingObjectsFromArray:posts];
             [self.tableView reloadData];
+            [self.loadingMoreDataIndicator stopAnimating];
             [self.refreshControl endRefreshing];
+            self.numberOfPostsToSkip += 5;
         }
         else {
         }
     }];
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    if (!self.isMoreDataLoading) {
+        int scrollViewContentHeight = self.tableView.contentSize.height;
+        int scrollOffsetThreshold = scrollViewContentHeight - self.tableView.bounds.size.height;
+        
+        if(scrollView.contentOffset.y > scrollOffsetThreshold && self.tableView.isDragging) {
+            self.isMoreDataLoading = true;
+            [self.loadingMoreDataIndicator startAnimating];
+            [self getTimeline];
+        }
+    }
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

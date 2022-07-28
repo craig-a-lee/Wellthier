@@ -5,7 +5,7 @@
 //  Created by Craig Lee on 7/14/22.
 //
 
-#import "ViewController.h"
+#import <UIKit/UIKit.h>
 #import "Workout.h"
 #import "Exercise.h"
 
@@ -13,10 +13,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface WorkoutViewController : ViewController
+@interface WorkoutViewController : UIViewController
 
-@property (nonatomic, weak) IBOutlet UILabel *workoutTitle;
-@property (nonatomic, weak) IBOutlet UILabel *author;
+@property (nonatomic, weak) IBOutlet UILabel *workoutTitleLabel;
+@property (nonatomic, weak) IBOutlet UILabel *authorLabel;
 @property (nonatomic, strong) NSArray <Exercise*> *arrayOfExercises;
 @property (nonatomic, strong) NSArray <Exercise*> *filteredExercises;
 @property (nonatomic, strong) Workout *detailWorkout;

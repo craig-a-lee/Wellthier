@@ -13,7 +13,6 @@
 #import "GifViewController.h"
 #import "ExerciseSharedManager.h"
 
-
 @interface SearchViewController () <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, UICollectionViewDataSource, UICollectionViewDelegate>
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
@@ -34,10 +33,8 @@
     [self getBodyParts];
     [self setButtonPressed:NO];
     [self setSearchBarPressed:NO];
-    // Do any additional setup after loading the view.
     self.tableView.dataSource = self;
     self.tableView.indicatorStyle = UIScrollViewIndicatorStyleWhite;
-    self.tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
     self.tableView.delegate = self;
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
@@ -106,11 +103,11 @@
     ExerciseCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ExerciseCell"];
     Exercise *ex = self.filteredExercises[indexPath.row];
     cell.tintColor = [UIColor greenColor];
-    cell.name.text = [ex.name capitalizedString];
-    cell.name.animationCurve = UIViewAnimationCurveEaseIn;
-    cell.name.fadeLength = 10.0;
-    cell.name.scrollDuration = 3.0;
-    cell.bodyPart.text = [ex.bodyPart capitalizedString];
+    cell.nameLabel.text = [ex.name capitalizedString];
+    cell.nameLabel.animationCurve = UIViewAnimationCurveEaseIn;
+    cell.nameLabel.fadeLength = 10.0;
+    cell.nameLabel.scrollDuration = 3.0;
+    cell.bodyPartLabel.text = [ex.bodyPart capitalizedString];
     return cell;
 }
 
@@ -146,14 +143,10 @@
             self.filteredExercises = self.arrayOfExercises;
         }
     }
-
     [self.tableView reloadData];
-
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
     if ([segue.identifier isEqualToString:@"gifSegueFromSearch"]) {
         NSIndexPath *myIndexPath = [self.tableView indexPathForCell:sender];
         Exercise *dataToPass = self.filteredExercises[myIndexPath.row];

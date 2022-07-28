@@ -38,10 +38,10 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.searchBar.delegate = self;
-    self.workoutTitle.text = self.detailWorkout.title;
+    self.workoutTitleLabel.text = self.detailWorkout.title;
     self.workoutImageView.file = self.detailWorkout[@"image"];
     PFUser *user = self.detailWorkout[@"author"];
-    self.author.text = user[@"displayName"];
+    self.authorLabel.text = user[@"displayName"];
 }
 
 - (void) viewWillAppear:(BOOL)animated {
@@ -74,11 +74,11 @@
     ExerciseCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ExerciseCell"];
     Exercise *ex = self.filteredExercises[indexPath.row];
     cell.tintColor = [UIColor greenColor];
-    cell.name.text = [ex.name capitalizedString];
-    cell.name.animationCurve = UIViewAnimationCurveEaseIn;
-    cell.name.fadeLength = 10.0;
-    cell.name.scrollDuration = 3.0;
-    cell.bodyPart.text = [ex.bodyPart capitalizedString];
+    cell.nameLabel.text = [ex.name capitalizedString];
+    cell.nameLabel.animationCurve = UIViewAnimationCurveEaseIn;
+    cell.nameLabel.fadeLength = 10.0;
+    cell.nameLabel.scrollDuration = 3.0;
+    cell.bodyPartLabel.text = [ex.bodyPart capitalizedString];
     return cell;
 }
 
@@ -89,6 +89,24 @@
         GifViewController *gVC = [segue destinationViewController];
         gVC.detailExercise = dataToPass;
     }
+}
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    searchText = [searchText lowercaseString];
+    if (searchText.length != 0) {
+        NSPredicate *searchPredicate = [NSPredicate predicateWithBlock:^BOOL(Exercise *evaluatedObject, NSDictionary *bindings) {
+            return ([evaluatedObject.name containsString:searchText] ||
+                    [evaluatedObject.target containsString:searchText] ||
+                    [evaluatedObject.equipment containsString:searchText] ||
+                    [evaluatedObject.bodyPart containsString:searchText]);
+        }];
+        
+        self.filteredExercises = [self.arrayOfExercises filteredArrayUsingPredicate:searchPredicate];
+    }
+    else {
+        self.filteredExercises = self.arrayOfExercises;
+    }
+    [self.tableView reloadData];
 }
 
 @end
