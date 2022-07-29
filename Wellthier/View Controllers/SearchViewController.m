@@ -12,14 +12,18 @@
 #import "SearchCell.h"
 #import "GifViewController.h"
 #import "ExerciseSharedManager.h"
+#import "AnimatedGif.h"
+#import "UIImageView+AnimatedGif.h"
 
-@interface SearchViewController () <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, UICollectionViewDataSource, UICollectionViewDelegate>
+@interface SearchViewController () <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UIGestureRecognizerDelegate>
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 @property (nonatomic, weak) IBOutlet UICollectionView *collectionView;
 @property (nonatomic, assign) BOOL buttonPressed;
 @property (nonatomic, assign) BOOL searchBarPressed;
 @property (nonatomic, weak) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (nonatomic, weak) UIView *mySubview;
+@property (nonatomic, weak) IBOutlet UIImageView *temporaryGifImageView;
 
 @end
 
@@ -28,7 +32,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.activityIndicator startAnimating];
+    UILongPressGestureRecognizer *lpgr = [[UILongPressGestureRecognizer alloc]
+      initWithTarget:self action:@selector(handleLongPress:)];
+    lpgr.minimumPressDuration = 2.0; //seconds
+    lpgr.delegate = self;
+    [self.tableView addGestureRecognizer:lpgr];
     self.title = @"Search";
+    self.temporaryGifImageView.hidden = YES;
     [self getAllExercises];
     [self getBodyParts];
     [self setButtonPressed:NO];
@@ -42,14 +52,33 @@
     self.tableView.rowHeight = UITableViewAutomaticDimension;
 }
 
-- (void) getAllExercises {
+- (void)handleLongPress:(UILongPressGestureRecognizer *)gestureRecognizer {
+    CGPoint p = [gestureRecognizer locationInView:self.tableView];
+    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:p];
+    if (indexPath == nil) {
+        NSLog(@"long press on table view but not on a row");
+    } else if (gestureRecognizer.state == UIGestureRecognizerStateBegan || gestureRecognizer.state == 2) {
+        Exercise *ex = self.filteredExercises[indexPath.row];
+        self.tableView.hidden = YES;
+        self.temporaryGifImageView.hidden = NO;
+        AnimatedGif *newGif = [AnimatedGif getAnimationForGifAtUrl:ex.gifUrl];
+        [self.temporaryGifImageView setAnimatedGif:newGif startImmediately:YES];
+        NSLog(@"long press on table view at row %ld", indexPath.row);
+    } else {
+        self.tableView.hidden = NO;
+        self.temporaryGifImageView.hidden = YES;
+        NSLog(@"gestureRecognizer.state = %ld", gestureRecognizer.state);
+    }
+}
+
+- (void)getAllExercises {
     self.arrayOfExercises = [[ExerciseSharedManager sharedManager] allExercises];
     self.filteredExercises = self.arrayOfExercises;
     [self.tableView reloadData];
     [self.activityIndicator stopAnimating];
 }
 
-- (void) getBodyParts {
+- (void)getBodyParts {
     self.bodyParts = @[@"back", @"cardio", @"chest", @"lower arms", @"lower legs", @"neck", @"shoulders", @"upper arms", @"upper legs", @"waist"];
 }
 

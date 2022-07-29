@@ -111,7 +111,6 @@
     }
 }
 
-
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"feedToProfileSegue"]) {
         Post *selectedPost = self.arrayOfPosts[[sender tag]];
