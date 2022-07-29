@@ -24,5 +24,7 @@
         [self performSegueWithIdentifier:@"logoutSegue" sender:self];
     }];
 }
+- (IBAction)didTapEditProfile:(id)sender {
+}
 
 @end

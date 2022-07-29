@@ -83,7 +83,7 @@
 }
 
 - (IBAction)didTapSignUp:(id)sender {
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Empty Field"
+    UIAlertController *emptyAlert = [UIAlertController alertControllerWithTitle:@"Empty Field"
                                                                                message:@"There is an empty field, please fill it."
                                                                         preferredStyle:(UIAlertControllerStyleAlert)];
     
@@ -92,11 +92,16 @@
                                                      handler:^(UIAlertAction * _Nonnull action) {
                                                              // handle response here.
                                                      }];
+    UIAlertController *invalidAlert = [UIAlertController alertControllerWithTitle:@"Invalid Username"
+                                                                               message:@"Account already exists for this username."
+                                                                        preferredStyle:(UIAlertControllerStyleAlert)];
     // add the OK action to the alert controller
-    [alert addAction:okAction];
+    [emptyAlert addAction:okAction];
+    [invalidAlert addAction:okAction];
+    
     
     if ([self.usernameField.text isEqual:@""] || [self.passwordField.text isEqual:@""] || [self.displayNameField.text isEqual:@""]) {
-        [self presentViewController:alert animated:YES completion:^{
+        [self presentViewController:emptyAlert animated:YES completion:^{
             // optional code for what happens after the alert controller has finished presenting
         }];
     } else {
@@ -110,7 +115,10 @@
         
         // call sign up function on the object
         [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
-            if (error != nil) {
+            if (error.code == 202) {
+                [self presentViewController:invalidAlert animated:YES completion:^{
+                    // optional code for what happens after the alert controller has finished presenting
+                }];
             } else {
                 // manually segue to logged in view
                 [Workout postUserWorkout:[UIImage imageNamed:@"purpleheart"] withTitle:@"Liked Exercises" withCompletion:^(BOOL succeeded, NSError * _Nullable error) {

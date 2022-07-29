@@ -111,9 +111,6 @@
     self.clearImageButton.hidden = YES;
 }
 
-- (IBAction)didTapFetchData:(id)sender {
-}
-
 - (IBAction)didTapPost:(id)sender {
     [Post makeUserPost:self.selectedPhotoView.image withText:self.textView.text withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
         [self dismissViewControllerAnimated:true completion:nil];
