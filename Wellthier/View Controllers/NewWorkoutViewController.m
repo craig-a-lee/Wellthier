@@ -30,19 +30,20 @@
                                                        style:UIAlertActionStyleDefault
                                                      handler:^(UIAlertAction * _Nonnull action) {
                                                              // handle response here.
+        imagePickerVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    [self presentViewController:imagePickerVC animated:YES completion:nil];
+                                                     }];
+    
+    UIAlertAction *takePicAction = [UIAlertAction actionWithTitle:@"Take a Picture"
+                                                       style:UIAlertActionStyleDefault
+                                                     handler:^(UIAlertAction * _Nonnull action) {
+        
         if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
             imagePickerVC.sourceType = UIImagePickerControllerSourceTypeCamera;
         }
         else {
             imagePickerVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
         }
-        [self presentViewController:imagePickerVC animated:YES completion:nil];
-                                                     }];
-    
-    UIAlertAction *takePicAction = [UIAlertAction actionWithTitle:@"Take a Picture"
-                                                       style:UIAlertActionStyleDefault
-                                                     handler:^(UIAlertAction * _Nonnull action) {
-            imagePickerVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
         [self presentViewController:imagePickerVC animated:YES completion:nil];
 
                                                      }];

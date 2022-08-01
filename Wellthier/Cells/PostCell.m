@@ -31,6 +31,9 @@
     [self.profilePicView loadInBackground];
 }
 
+- (IBAction)tapOnPicGesture:(id)sender {
+}
+
 - (void) setSelected:(BOOL)selected {
     [super setSelected:selected];
 }
