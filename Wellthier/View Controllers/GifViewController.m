@@ -52,15 +52,16 @@
     self.equipmentLabel.text = [NSString stringWithFormat:@"Equipment: %@", [exercise.equipment capitalizedString]];
     self.bodyPartLabel.text = [NSString stringWithFormat:@"Body Part: %@", [exercise.bodyPart capitalizedString]];
     self.targetMuscleLabel.text =  [NSString stringWithFormat:@"Target Muscle: %@", [exercise.target capitalizedString]];
-    UIImage *image = [[UIImage systemImageNamed:@"heart.fill"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    UIImage *likedHeart = [[UIImage systemImageNamed:@"heart.fill"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    UIImage *unlikedHeart = [[UIImage systemImageNamed:@"heart"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     if (self.isLiked) {
-        [self.likeButtonLabel setImage:image forState:UIControlStateNormal];
+        [self.likeButtonLabel setImage:likedHeart forState:UIControlStateNormal];
         self.likeButtonLabel.tintColor = [UIColor colorWithRed:30.0f/255.0f
                                                     green:215.0f/255.0f
                                                      blue:96.0f/255.0f
                                                     alpha:1.0f];
     } else {
-        [self.likeButtonLabel setImage:image forState:UIControlStateNormal];
+        [self.likeButtonLabel setImage:unlikedHeart forState:UIControlStateNormal];
         self.likeButtonLabel.tintColor = [UIColor whiteColor];
     }
     [self.view addSubview:self.gifImageView];

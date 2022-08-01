@@ -17,7 +17,21 @@
 
 
 - (void)scene:(UIScene *)scene willConnectToSession:(UISceneSession *)session options:(UISceneConnectionOptions *)connectionOptions {
-    [[ExerciseSharedManager sharedManager] fetchAllExercises];
+//    NSString *path = @"/Users/craiglee/Desktop/Projects/Wellthier/Wellthier/ExerciseData.plist";
+//    NSFileManager *manager = [NSFileManager defaultManager];
+//    if ([manager fileExistsAtPath:path]) {
+//        NSDictionary *attributes = [manager attributesOfItemAtPath:path error:nil];
+//        unsigned long long size = [attributes fileSize];
+//        if (attributes && size == 0) {
+//            [[ExerciseSharedManager sharedManager] fetchAllExercisesFromApi];
+//        } else {
+//            [[ExerciseSharedManager sharedManager] fetchAllExercisesFromFile];
+//        }
+//    } else {
+//        [[ExerciseSharedManager sharedManager] fetchAllExercisesFromApi];
+//    }
+    [[ExerciseSharedManager sharedManager] fetchAllExercisesFromApi];
+    
     if (PFUser.currentUser) {
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
 
