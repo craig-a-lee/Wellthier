@@ -13,8 +13,6 @@
 		7300D03728876E200057FEEB /* ComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7300D03628876E200057FEEB /* ComposeViewController.m */; };
 		7300D03A288863640057FEEB /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 7300D039288863640057FEEB /* Post.m */; };
 		7300D040288879950057FEEB /* Managers in Resources */ = {isa = PBXBuildFile; fileRef = 7300D03F288879950057FEEB /* Managers */; };
-		730B7EC22898807A00DD2554 /* DocManagers in Resources */ = {isa = PBXBuildFile; fileRef = 730B7EC12898807A00DD2554 /* DocManagers */; };
-		730B7EC52898826B00DD2554 /* ExerciseDoc.m in Sources */ = {isa = PBXBuildFile; fileRef = 730B7EC42898826B00DD2554 /* ExerciseDoc.m */; };
 		731AA44E288F527200C9F4AE /* HealthKitWorkoutsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 731AA44D288F527200C9F4AE /* HealthKitWorkoutsViewController.m */; };
 		731AA451288F537700C9F4AE /* HealthKitWorkoutTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 731AA450288F537700C9F4AE /* HealthKitWorkoutTableViewCell.m */; };
 		731AA4572893041A00C9F4AE /* MainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 731AA4562893041A00C9F4AE /* MainTabBarController.m */; };
@@ -89,9 +87,6 @@
 		7300D039288863640057FEEB /* Post.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = Post.m; path = Models/Post.m; sourceTree = "<group>"; };
 		7300D03B28886EE20057FEEB /* Wellthier.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Wellthier.entitlements; sourceTree = "<group>"; };
 		7300D03F288879950057FEEB /* Managers */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Managers; sourceTree = "<group>"; };
-		730B7EC12898807A00DD2554 /* DocManagers */ = {isa = PBXFileReference; lastKnownFileType = folder; path = DocManagers; sourceTree = "<group>"; };
-		730B7EC32898826B00DD2554 /* ExerciseDoc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ExerciseDoc.h; path = DocManagers/ExerciseDoc.h; sourceTree = "<group>"; };
-		730B7EC42898826B00DD2554 /* ExerciseDoc.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ExerciseDoc.m; path = DocManagers/ExerciseDoc.m; sourceTree = "<group>"; };
 		731AA44C288F527200C9F4AE /* HealthKitWorkoutsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HealthKitWorkoutsViewController.h; path = "View Controllers/HealthKitWorkoutsViewController.h"; sourceTree = "<group>"; };
 		731AA44D288F527200C9F4AE /* HealthKitWorkoutsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = HealthKitWorkoutsViewController.m; path = "View Controllers/HealthKitWorkoutsViewController.m"; sourceTree = "<group>"; };
 		731AA44F288F537700C9F4AE /* HealthKitWorkoutTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HealthKitWorkoutTableViewCell.h; path = Cells/HealthKitWorkoutTableViewCell.h; sourceTree = "<group>"; };
@@ -248,7 +243,6 @@
 		73B91B7628762EA500857F73 /* Wellthier */ = {
 			isa = PBXGroup;
 			children = (
-				730B7EC12898807A00DD2554 /* DocManagers */,
 				7300D03F288879950057FEEB /* Managers */,
 				7300D03B28886EE20057FEEB /* Wellthier.entitlements */,
 				73DE058D2885BE5B00CAB9F6 /* Cells */,
@@ -322,8 +316,6 @@
 				731AA45C2894425700C9F4AE /* TransitionAnimator.m */,
 				731AA45E289448A800C9F4AE /* TransitionSegue.h */,
 				731AA45F289448A800C9F4AE /* TransitionSegue.m */,
-				730B7EC32898826B00DD2554 /* ExerciseDoc.h */,
-				730B7EC42898826B00DD2554 /* ExerciseDoc.m */,
 			);
 			path = Wellthier;
 			sourceTree = "<group>";
@@ -455,7 +447,6 @@
 			files = (
 				73B91B8728762EA700857F73 /* LaunchScreen.storyboard in Resources */,
 				73B91B8428762EA700857F73 /* Assets.xcassets in Resources */,
-				730B7EC22898807A00DD2554 /* DocManagers in Resources */,
 				73DE058E2885BE5B00CAB9F6 /* Cells in Resources */,
 				73B91BAE287632CE00857F73 /* View Controllers in Resources */,
 				735236F12878913F002BB65E /* API in Resources */,
@@ -604,7 +595,6 @@
 				739535CE287DF79500D1D4CF /* Exercise.m in Sources */,
 				731AA44E288F527200C9F4AE /* HealthKitWorkoutsViewController.m in Sources */,
 				739535D6287DF7E600D1D4CF /* SearchCell.m in Sources */,
-				730B7EC52898826B00DD2554 /* ExerciseDoc.m in Sources */,
 				73B91B7C28762EA500857F73 /* SceneDelegate.m in Sources */,
 				731AA460289448A800C9F4AE /* TransitionSegue.m in Sources */,
 				731AA451288F537700C9F4AE /* HealthKitWorkoutTableViewCell.m in Sources */,

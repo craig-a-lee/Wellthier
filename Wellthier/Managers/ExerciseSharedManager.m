@@ -27,13 +27,12 @@
 }
 
 - (void)fetchAllExercisesFromFile {
-//    NSDictionary *dictionary = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Values" ofType:@"plist"]];
-    
-
-    //NSString *path = @"/Users/craiglee/Desktop/Projects/Wellthier/Wellthier/ExerciseData.plist";
-    NSDictionary *theDict = [NSDictionary dictionaryWithContentsOfFile:@"ExerciseData.plist"];
-    // NSFileManager *manager = [NSFileManager defaultManager];
-    NSArray *exercisesFromFile;
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *filePath = [documentsDirectory stringByAppendingPathComponent:@"ExerciseData.plist"];
+    NSArray *exercisesFromFile = [NSArray new];
+    exercisesFromFile = [NSArray arrayWithContentsOfFile:filePath];
+    NSLog(@"%@", exercisesFromFile);
     self.allExercises = [Exercise exercisesWithDictionaries:exercisesFromFile];
 }
 
