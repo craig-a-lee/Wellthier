@@ -34,7 +34,7 @@
     [self.activityIndicator startAnimating];
     UILongPressGestureRecognizer *lpgr = [[UILongPressGestureRecognizer alloc]
       initWithTarget:self action:@selector(handleLongPress:)];
-    lpgr.minimumPressDuration = 2.0; //seconds
+    lpgr.minimumPressDuration = 1.0; //seconds
     lpgr.delegate = self;
     [self.tableView addGestureRecognizer:lpgr];
     self.title = @"Search";
@@ -52,22 +52,24 @@
     self.tableView.rowHeight = UITableViewAutomaticDimension;
 }
 
+- (void) hideElements:(BOOL) shouldHide {
+    self.tableView.hidden = shouldHide;
+    self.temporaryGifImageView.hidden = !shouldHide;
+    self.collectionView.hidden = shouldHide;
+    self.searchBar.hidden = shouldHide;
+}
+
 - (void)handleLongPress:(UILongPressGestureRecognizer *)gestureRecognizer {
     CGPoint p = [gestureRecognizer locationInView:self.tableView];
     NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:p];
     if (indexPath == nil) {
-        NSLog(@"long press on table view but not on a row");
     } else if (gestureRecognizer.state == UIGestureRecognizerStateBegan || gestureRecognizer.state == 2) {
         Exercise *ex = self.filteredExercises[indexPath.row];
-        self.tableView.hidden = YES;
-        self.temporaryGifImageView.hidden = NO;
+        [self hideElements:YES];
         AnimatedGif *newGif = [AnimatedGif getAnimationForGifAtUrl:ex.gifUrl];
         [self.temporaryGifImageView setAnimatedGif:newGif startImmediately:YES];
-        NSLog(@"long press on table view at row %ld", indexPath.row);
     } else {
-        self.tableView.hidden = NO;
-        self.temporaryGifImageView.hidden = YES;
-        NSLog(@"gestureRecognizer.state = %ld", gestureRecognizer.state);
+        [self hideElements:NO];
     }
 }
 
