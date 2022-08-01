@@ -13,7 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface ExerciseSharedManager : NSObject //change to exercise shared manager
 
 + (id)sharedManager;
-- (void) fetchAllExercises;
+- (void)fetchAllExercisesFromApi;
+- (void)fetchAllExercisesFromFile;
 
 @property (nonatomic, strong) NSArray <Exercise *> *allExercises;
 

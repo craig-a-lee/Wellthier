@@ -13,18 +13,24 @@
 #import "ProfileViewController.h"
 #import "PostDetailsViewController.h"
 
-@interface WorkoutFeedViewController () <UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate>
+@interface WorkoutFeedViewController () <UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate, UIGestureRecognizerDelegate>
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
 @property (nonatomic, strong) Post *selectedPost;
 @property (nonatomic, assign) BOOL isMoreDataLoading;
 @property (nonatomic, assign) int numberOfPostsToSkip;
-@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingMoreDataIndicator;
+@property (nonatomic, strong) UITapGestureRecognizer *tap;
+@property (nonatomic, weak) IBOutlet UIActivityIndicatorView *loadingMoreDataIndicator;
+@property (nonatomic, weak) UIImageView *prevImageView;
 
 @end
 
 @implementation WorkoutFeedViewController
+
+BOOL isFullScreen;
+
+CGRect prevFrame;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -33,6 +39,14 @@
        @{NSForegroundColorAttributeName:[UIColor whiteColor]}];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    isFullScreen = false;
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc]
+      initWithTarget:self action:@selector(handleTap:)];
+    tapGesture.delegate = self;
+    [self.tableView addGestureRecognizer:tapGesture];
+//    self.tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imgToFullScreen)];;
+//    self.tap.delegate = self;
+//    [self.view addGestureRecognizer:self.tap];
     [[HealthKitSharedManager sharedManager] requestAuthorization];
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.refreshControl = [[UIRefreshControl alloc] init];
@@ -41,6 +55,58 @@
     [self.tableView insertSubview:self.refreshControl atIndex:0];
     self.tableView.layoutMargins = UIEdgeInsetsZero;
     self.tableView.separatorInset = UIEdgeInsetsZero;
+}
+
+- (void)handleTap:(UITapGestureRecognizer *)gestureRecognizer {
+    CGPoint p = [gestureRecognizer locationInView:self.tableView];
+    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:p];
+    if (indexPath == nil) {
+    } else if (gestureRecognizer.state == UIGestureRecognizerStateBegan || gestureRecognizer.state == 2) {
+        PostCell *postCell = [self.tableView cellForRowAtIndexPath:indexPath];
+        if (postCell.postImageView == gestureRecognizer.view) {
+            self.prevImageView = postCell.postImageView;
+            [self imgToFullScreen];
+        }
+    }
+}
+
+//- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
+//    BOOL shouldReceiveTouch = YES;
+//
+//    if (gestureRecognizer == self.tap) {
+//        CGPoint p = [gestureRecognizer locationInView:self.tableView];
+//        NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:p];
+//        if (indexPath != nil) {
+//            Post *post = self.arrayOfPosts[indexPath.row];
+//            NSLog(@"%@", post.author.username);
+//            //if (post[@"image"]) {
+//                //PostCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+//                shouldReceiveTouch = (touch.view == self.prevImageView);
+//            //}
+//        }
+//        
+//    }
+//    return shouldReceiveTouch;
+//}
+
+-(void)imgToFullScreen{
+    if (!isFullScreen) {
+        [UIView animateWithDuration:0.5 delay:0 options:0 animations:^{
+            //save previous frame
+            prevFrame = self.prevImageView.frame;
+            [self.prevImageView setFrame:[[UIScreen mainScreen] bounds]];
+        }completion:^(BOOL finished){
+            isFullScreen = true;
+        }];
+        return;
+    } else {
+        [UIView animateWithDuration:0.5 delay:0 options:0 animations:^{
+            [self.prevImageView setFrame:prevFrame];
+        }completion:^(BOOL finished){
+            isFullScreen = false;
+        }];
+        return;
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {

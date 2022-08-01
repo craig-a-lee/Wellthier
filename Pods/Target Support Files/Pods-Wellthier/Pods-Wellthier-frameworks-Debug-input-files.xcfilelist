@@ -1,0 +1,7 @@
+${PODS_ROOT}/Target Support Files/Pods-Wellthier/Pods-Wellthier-frameworks.sh
+${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework
+${BUILT_PRODUCTS_DIR}/Animated-Gif-iOS/Animated_Gif_iOS.framework
+${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework
+${BUILT_PRODUCTS_DIR}/DateTools/DateTools.framework
+${BUILT_PRODUCTS_DIR}/MarqueeLabel-ObjC/MarqueeLabel_ObjC.framework
+${BUILT_PRODUCTS_DIR}/Parse/Parse.framework
