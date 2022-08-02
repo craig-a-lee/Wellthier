@@ -34,26 +34,12 @@
                                                                 if ([object isKindOfClass:[NSArray class]]) {
                                                                     NSArray *allExercises = (NSArray *)object;
                                                                     NSArray *exercises = [Exercise exercisesWithDictionaries:allExercises];
+                                                                    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+                                                                    NSString *documentsDirectory = [paths objectAtIndex:0];
+                                                                    NSString *filePath = [documentsDirectory stringByAppendingPathComponent:@"ExerciseData.plist"];
+                                                                    
+                                                                    [allExercises writeToFile:filePath atomically:YES];
                                                                     completion(exercises, nil);
-//                                                                    
-//                                                                    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-//                                                                    NSString *documentsDirectory = [paths objectAtIndex:0];
-//                                                                    NSString *path = [documentsDirectory stringByAppendingPathComponent:@"ExerciseData.plist"];
-//                                                                    NSFileManager *fileManager = [NSFileManager defaultManager];
-//
-//                                                                    if (![fileManager fileExistsAtPath: path]) {
-//
-//                                                                        path = [documentsDirectory stringByAppendingPathComponent: [NSString stringWithFormat:@"ExerciseData.plist"] ];
-//                                                                    }
-//                                                                    [allExercises writeToFile:path atomically:YES];
-//                                                                    
-//                                                                    
-//                                                                    NSString* filePath = [[NSBundle mainBundle] pathForResource:@"/Users/craiglee/Desktop/Projects/Wellthier/Wellthier/ExerciseData.plist" ofType:@"plist"];
-//                                                                    NSArray* plist = [NSArray arrayWithContentsOfFile:filePath];
-//                                                                    NSLog(@"%@", plist);
-//                                                                    [[NSFileManager defaultManager] createFileAtPath:@"/Users/craiglee/Desktop/Projects/Wellthier/Wellthier/ExerciseData.plist" contents:nil attributes:nil];
-//                                                                    NSString *path = @"/Users/craiglee/Desktop/Projects/Wellthier/Wellthier/ExerciseData.plist";
-//                                                                    [allExercises writeToFile:path atomically:YES];
                                                                 }
                                                             }
     }];
