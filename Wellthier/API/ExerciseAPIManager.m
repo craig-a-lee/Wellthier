@@ -37,7 +37,6 @@
                                                                     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
                                                                     NSString *documentsDirectory = [paths objectAtIndex:0];
                                                                     NSString *filePath = [documentsDirectory stringByAppendingPathComponent:@"ExerciseData.plist"];
-                                                                    
                                                                     [allExercises writeToFile:filePath atomically:YES];
                                                                     completion(exercises, nil);
                                                                 }

@@ -32,7 +32,6 @@
     NSString *filePath = [documentsDirectory stringByAppendingPathComponent:@"ExerciseData.plist"];
     NSArray *exercisesFromFile = [NSArray new];
     exercisesFromFile = [NSArray arrayWithContentsOfFile:filePath];
-    NSLog(@"%@", exercisesFromFile);
     self.allExercises = [Exercise exercisesWithDictionaries:exercisesFromFile];
 }
 
