@@ -118,7 +118,29 @@
 }
 
 - (IBAction)didTapCancel:(id)sender {
-    [self dismissViewControllerAnimated:true completion:nil];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Would you like to save this post as a draft?"
+                                                                               message:@""
+                                                                        preferredStyle:(UIAlertControllerStyleAlert)];
+    
+    UIAlertAction *saveDraftAction = [UIAlertAction actionWithTitle:@"Save Draft"
+                                                       style:UIAlertActionStyleDefault
+                                                     handler:^(UIAlertAction * _Nonnull action) {
+                                                             // handle response here.
+        [self dismissViewControllerAnimated:true completion:nil];
+                                                     }];
+    
+    UIAlertAction *discardAction = [UIAlertAction actionWithTitle:@"Discard"
+                                                       style:UIAlertActionStyleDefault
+                                                     handler:^(UIAlertAction * _Nonnull action) {
+        [self dismissViewControllerAnimated:true completion:nil];
+                                                     }];
+    
+    [discardAction setValue:[UIColor redColor] forKey:@"_titleTextColor"];
+    [alert addAction:saveDraftAction];
+    [alert addAction:discardAction];
+    
+    [self presentViewController:alert animated:YES completion:nil];
+    
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
