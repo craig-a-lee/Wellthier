@@ -89,7 +89,7 @@ CGRect prevFrame;
 //    return shouldReceiveTouch;
 //}
 
--(void)imgToFullScreen{
+- (void)imgToFullScreen{
     if (!isFullScreen) {
         [UIView animateWithDuration:0.5 delay:0 options:0 animations:^{
             //save previous frame
