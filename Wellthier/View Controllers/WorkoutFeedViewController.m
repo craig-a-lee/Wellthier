@@ -23,7 +23,7 @@
 @property (nonatomic, strong) UITapGestureRecognizer *tap;
 @property (nonatomic, weak) IBOutlet UIActivityIndicatorView *loadingMoreDataIndicator;
 @property (nonatomic, weak) UIImageView *prevImageView;
-@property (nonatomic, strong) UIImageView *duplicateView;
+@property (nonatomic, strong) UIImageView *fullScreenImageView;
 
 @end
 
@@ -56,7 +56,7 @@ CGRect prevFrame;
     PostCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
     if (cell.postImageView.image != nil) {
         self.prevImageView = (UIImageView *) gestureRecognizer.view;
-        [self imgToFullScreen];
+        [self animateFullScreenImage];
     }
 }
 
@@ -64,26 +64,25 @@ CGRect prevFrame;
     self.tableView.hidden = NO;
     self.navigationController.navigationBarHidden = NO;
     self.tabBarController.tabBar.hidden = NO;
-    [self.duplicateView removeFromSuperview];
+    [self.fullScreenImageView removeFromSuperview];
 }
 
-- (void)imgToFullScreen {
+- (void)animateFullScreenImage {
     [UIView animateWithDuration:0.5 delay:0 options:0 animations:^{
         //save previous frame
         prevFrame = self.prevImageView.frame;
-        self.duplicateView = [UIImageView new];
-        self.duplicateView.image = self.prevImageView.image;
-        self.duplicateView.frame = self.view.frame;
-        self.duplicateView.userInteractionEnabled = YES;
-        self.duplicateView.contentMode = UIViewContentModeScaleAspectFit;
-        self.duplicateView.layer.zPosition = MAXFLOAT;
-        self.duplicateView.center = self.view.center;
-        [self.view addSubview: self.duplicateView];
+        self.fullScreenImageView = [UIImageView new];
+        self.fullScreenImageView.image = self.prevImageView.image;
+        self.fullScreenImageView.frame = self.view.frame;
+        self.fullScreenImageView.userInteractionEnabled = YES;
+        self.fullScreenImageView.contentMode = UIViewContentModeScaleAspectFit;
+        self.fullScreenImageView.layer.zPosition = MAXFLOAT;
+        self.fullScreenImageView.center = self.view.center;
+        [self.view addSubview: self.fullScreenImageView];
         UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc]
                                                 initWithTarget:self action:@selector(handleDismissingPicture:)];
         tapGesture.delegate = self;
-        [self.duplicateView addGestureRecognizer:tapGesture];
-        self.prevImageView.backgroundColor = [UIColor brownColor];
+        [self.fullScreenImageView addGestureRecognizer:tapGesture];
         self.tableView.hidden = YES;
         self.navigationController.navigationBarHidden = YES;
         self.tabBarController.tabBar.hidden = YES;
