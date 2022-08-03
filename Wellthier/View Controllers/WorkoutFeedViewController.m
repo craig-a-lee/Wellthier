@@ -23,6 +23,7 @@
 @property (nonatomic, strong) UITapGestureRecognizer *tap;
 @property (nonatomic, weak) IBOutlet UIActivityIndicatorView *loadingMoreDataIndicator;
 @property (nonatomic, weak) UIImageView *prevImageView;
+@property (nonatomic, strong) UIImageView *duplicateView;
 
 @end
 
@@ -40,13 +41,6 @@ CGRect prevFrame;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     isFullScreen = false;
-    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc]
-      initWithTarget:self action:@selector(handleTap:)];
-    tapGesture.delegate = self;
-    [self.tableView addGestureRecognizer:tapGesture];
-//    self.tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imgToFullScreen)];;
-//    self.tap.delegate = self;
-//    [self.view addGestureRecognizer:self.tap];
     [[HealthKitSharedManager sharedManager] requestAuthorization];
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.refreshControl = [[UIRefreshControl alloc] init];
@@ -58,55 +52,43 @@ CGRect prevFrame;
 }
 
 - (void)handleTap:(UITapGestureRecognizer *)gestureRecognizer {
-    CGPoint p = [gestureRecognizer locationInView:self.tableView];
-    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:p];
-    if (indexPath == nil) {
-    } else if (gestureRecognizer.state == UIGestureRecognizerStateBegan || gestureRecognizer.state == 2) {
-        PostCell *postCell = [self.tableView cellForRowAtIndexPath:indexPath];
-        if (postCell.postImageView == gestureRecognizer.view) {
-            self.prevImageView = postCell.postImageView;
-            [self imgToFullScreen];
-        }
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:gestureRecognizer.view.tag inSection:0];
+    PostCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    if (cell.postImageView.image != nil) {
+        self.prevImageView = (UIImageView *) gestureRecognizer.view;
+        [self imgToFullScreen];
     }
 }
 
-//- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
-//    BOOL shouldReceiveTouch = YES;
-//
-//    if (gestureRecognizer == self.tap) {
-//        CGPoint p = [gestureRecognizer locationInView:self.tableView];
-//        NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:p];
-//        if (indexPath != nil) {
-//            Post *post = self.arrayOfPosts[indexPath.row];
-//            NSLog(@"%@", post.author.username);
-//            //if (post[@"image"]) {
-//                //PostCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
-//                shouldReceiveTouch = (touch.view == self.prevImageView);
-//            //}
-//        }
-//        
-//    }
-//    return shouldReceiveTouch;
-//}
+- (void) handleDismissingPicture:(UITapGestureRecognizer *)gestureRecognizer {
+    self.tableView.hidden = NO;
+    self.navigationController.navigationBarHidden = NO;
+    self.tabBarController.tabBar.hidden = NO;
+    [self.duplicateView removeFromSuperview];
+}
 
-- (void)imgToFullScreen{
-    if (!isFullScreen) {
-        [UIView animateWithDuration:0.5 delay:0 options:0 animations:^{
-            //save previous frame
-            prevFrame = self.prevImageView.frame;
-            [self.prevImageView setFrame:[[UIScreen mainScreen] bounds]];
-        }completion:^(BOOL finished){
-            isFullScreen = true;
-        }];
-        return;
-    } else {
-        [UIView animateWithDuration:0.5 delay:0 options:0 animations:^{
-            [self.prevImageView setFrame:prevFrame];
-        }completion:^(BOOL finished){
-            isFullScreen = false;
-        }];
-        return;
-    }
+- (void)imgToFullScreen {
+    [UIView animateWithDuration:0.5 delay:0 options:0 animations:^{
+        //save previous frame
+        prevFrame = self.prevImageView.frame;
+        self.duplicateView = [UIImageView new];
+        self.duplicateView.image = self.prevImageView.image;
+        self.duplicateView.frame = self.view.frame;
+        self.duplicateView.userInteractionEnabled = YES;
+        self.duplicateView.contentMode = UIViewContentModeScaleAspectFit;
+        self.duplicateView.layer.zPosition = MAXFLOAT;
+        self.duplicateView.center = self.view.center;
+        [self.view addSubview: self.duplicateView];
+        UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc]
+                                                initWithTarget:self action:@selector(handleDismissingPicture:)];
+        tapGesture.delegate = self;
+        [self.duplicateView addGestureRecognizer:tapGesture];
+        self.prevImageView.backgroundColor = [UIColor brownColor];
+        self.tableView.hidden = YES;
+        self.navigationController.navigationBarHidden = YES;
+        self.tabBarController.tabBar.hidden = YES;
+    } completion: nil];
+    return;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -160,11 +142,16 @@ CGRect prevFrame;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc]
+      initWithTarget:self action:@selector(handleTap:)];
+    tapGesture.delegate = self;
     PostCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"PostCell"];
     Post *post = self.arrayOfPosts[indexPath.row];
     cell.detailPost = post;
     [cell setPostDetails:cell.detailPost];
     cell.toProfileHiddenButton.tag = indexPath.row;
+    [cell.postImageView addGestureRecognizer:tapGesture];
+    cell.postImageView.tag = indexPath.row;
     return cell;
 }
 
