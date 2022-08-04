@@ -557,7 +557,7 @@
                                 <gestureRecognizers/>
                                 <color key="sectionIndexColor" red="0.1166579252" green="0.84342966919999995" blue="0.37734218079999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <activityIndicatorView key="tableFooterView" hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" id="M8M-cH-bsP">
-                                    <rect key="frame" x="0.0" y="190.33333206176761" width="390" height="44"/>
+                                    <rect key="frame" x="0.0" y="190.33333206176758" width="390" height="44"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </activityIndicatorView>
@@ -2171,7 +2171,6 @@
         <!--Navigation Controller-->
         <scene sceneID="gkA-KX-Syw">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="NAn-PK-2CS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="woj-Aw-WCT" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="rZW-Dk-qyk"/>
@@ -2184,6 +2183,7 @@
                         <segue destination="5Oo-oh-sGa" kind="relationship" relationship="rootViewController" id="Z6o-Vh-hbd"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NAn-PK-2CS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="244.61538461538461" y="5046.6824644549761"/>
         </scene>

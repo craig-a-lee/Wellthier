@@ -24,14 +24,15 @@
 @property (nonatomic, weak) IBOutlet UIActivityIndicatorView *loadingMoreDataIndicator;
 @property (nonatomic, weak) UIImageView *prevImageView;
 @property (nonatomic, strong) UIImageView *fullScreenImageView;
+@property (nonatomic, strong) UIScrollView *fullScreenScrollView;
 
 @end
 
 @implementation WorkoutFeedViewController
 
 BOOL isFullScreen;
-
 CGRect prevFrame;
+CGFloat lastScale;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -64,25 +65,57 @@ CGRect prevFrame;
     self.tableView.hidden = NO;
     self.navigationController.navigationBarHidden = NO;
     self.tabBarController.tabBar.hidden = NO;
-    [self.fullScreenImageView removeFromSuperview];
+    [self.fullScreenScrollView removeFromSuperview];
+}
+
+- (void)tapTwice:(UIGestureRecognizer *)gesture
+{
+    NSLog(@"worked");
+}
+
+- (void)handlePinchGesture:(UIPinchGestureRecognizer *)pinch {
+    UIView *pinchView = pinch.view;
+    CGRect bounds = pinchView.bounds;
+    CGPoint pinchCenter = [pinch locationInView:pinchView];
+    pinchCenter.x -= CGRectGetMidX(bounds);
+    pinchCenter.y -= CGRectGetMidY(bounds);
+    CGAffineTransform transform = pinchView.transform;
+    transform = CGAffineTransformTranslate(transform, pinchCenter.x, pinchCenter.y);
+    CGFloat scale = pinch.scale;
+    transform = CGAffineTransformScale(transform, scale, scale);
+    transform = CGAffineTransformTranslate(transform, -pinchCenter.x, -pinchCenter.y);
+    pinchView.transform = transform;
+    pinch.scale = 1.0;
 }
 
 - (void)animateFullScreenImage {
+    self.fullScreenScrollView = [UIScrollView new];
+    self.fullScreenScrollView.frame = self.view.frame;
+    self.fullScreenScrollView.userInteractionEnabled = YES;
+    self.fullScreenScrollView.layer.zPosition = MAXFLOAT;
+    self.fullScreenScrollView.center = self.view.center;
+    [self.view addSubview:self.fullScreenScrollView];
     [UIView animateWithDuration:0.5 delay:0 options:0 animations:^{
         //save previous frame
         prevFrame = self.prevImageView.frame;
         self.fullScreenImageView = [UIImageView new];
-        self.fullScreenImageView.image = self.prevImageView.image;
-        self.fullScreenImageView.frame = self.view.frame;
-        self.fullScreenImageView.userInteractionEnabled = YES;
-        self.fullScreenImageView.contentMode = UIViewContentModeScaleAspectFit;
         self.fullScreenImageView.layer.zPosition = MAXFLOAT;
+        self.fullScreenImageView.image = self.prevImageView.image;
+        self.fullScreenImageView.contentMode = UIViewContentModeScaleAspectFit;
         self.fullScreenImageView.center = self.view.center;
-        [self.view addSubview: self.fullScreenImageView];
-        UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc]
+        self.fullScreenImageView.frame = self.view.frame;
+        [self.fullScreenScrollView addSubview:self.fullScreenImageView];
+        UITapGestureRecognizer *singleTapGesture = [[UITapGestureRecognizer alloc]
                                                 initWithTarget:self action:@selector(handleDismissingPicture:)];
-        tapGesture.delegate = self;
-        [self.fullScreenImageView addGestureRecognizer:tapGesture];
+        singleTapGesture.numberOfTapsRequired = 1;
+        UIPinchGestureRecognizer *pinchGesture = [[UIPinchGestureRecognizer alloc]
+                                                  initWithTarget:self action:@selector(handlePinchGesture:)];
+        singleTapGesture.delegate = self;
+        self.fullScreenScrollView.bouncesZoom = YES;
+        self.fullScreenScrollView.clipsToBounds = YES;
+        pinchGesture.delegate = self;
+        [self.fullScreenScrollView addGestureRecognizer:singleTapGesture];
+        [self.fullScreenScrollView addGestureRecognizer:pinchGesture];
         self.tableView.hidden = YES;
         self.navigationController.navigationBarHidden = YES;
         self.tabBarController.tabBar.hidden = YES;
