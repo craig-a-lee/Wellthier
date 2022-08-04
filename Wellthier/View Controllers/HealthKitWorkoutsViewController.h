@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol HealtKitWorkoutsViewControllerDelegate
 
-- (void)didPickWorkout:(HKWorkout *) workout;
+- (void)didPickWorkout:(HKWorkout *)workout;
 
 @end
 

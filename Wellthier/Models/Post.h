@@ -20,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSNumber *likeCount;
 @property (nonatomic, strong) NSNumber *commentCount;
 
-+ (void) makeUserPost: (UIImage* _Nullable )image withText: (NSString* _Nullable )text withCompletion: (PFBooleanResultBlock  _Nullable)completion;
++ (void)makeUserPost:(UIImage* _Nullable )image withText: (NSString* _Nullable )text withCompletion: (PFBooleanResultBlock  _Nullable)completion;
 
 @end
 

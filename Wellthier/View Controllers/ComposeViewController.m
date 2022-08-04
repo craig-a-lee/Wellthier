@@ -29,7 +29,7 @@
     self.clearImageButton.hidden = YES;
 }
 
-- (void) setUserInfo {
+- (void)setUserInfo {
     self.currentUser = PFUser.currentUser;
     self.profilePic.file = self.currentUser[@"profilePic"];
     [self.profilePic loadInBackground];
@@ -72,7 +72,7 @@
     [self presentViewController:alert animated:YES completion:nil];
 }
 
-- (void)didPickWorkout:(HKWorkout *) workout {
+- (void)didPickWorkout:(HKWorkout *)workout {
     NSString *workoutTypeInfo = [NSString stringWithFormat:@"Workout Type: %@", [[HealthKitSharedManager sharedManager] getWorkoutType: workout.workoutActivityType]];
     NSString *workoutDurationInfo = [NSString stringWithFormat:@"Duration: %@", [[HealthKitSharedManager sharedManager] hoursMinsSecsFromDuration:workout.duration]];
     NSString *workoutEnergyBurnedInfo = @"";

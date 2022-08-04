@@ -9,7 +9,7 @@
 
 @implementation WorkoutTableViewCell
 
-- (void)setCellParams: (Workout *)workout {
+- (void)setCellParams:(Workout *)workout {
     self.workoutImageView.file = workout[@"image"];
     [self.workoutImageView loadInBackground];
     self.workoutName.text = workout.title;

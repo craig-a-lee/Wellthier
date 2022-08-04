@@ -23,7 +23,7 @@
     return @"Workout";
 }
 
-+ (void) postUserWorkout: (UIImage* _Nullable )image withTitle: (NSString* _Nullable )title withCompletion: (PFBooleanResultBlock  _Nullable)completion {
++ (void)postUserWorkout:(UIImage* _Nullable )image withTitle:(NSString* _Nullable )title withCompletion:(PFBooleanResultBlock  _Nullable)completion {
         Workout *newWorkout = [Workout new];
         newWorkout.image = [self getPFFileFromImage:image];
         newWorkout.author = [PFUser currentUser];
@@ -33,17 +33,17 @@
         [newWorkout saveInBackgroundWithBlock: completion];
 }
 
-+ (void) updateUserWorkout: (Workout* _Nullable )workout withExercise: (Exercise* _Nullable )exercise withCompletion: (PFBooleanResultBlock  _Nullable)completion {
++ (void)updateUserWorkout:(Workout* _Nullable )workout withExercise:(Exercise* _Nullable )exercise withCompletion:(PFBooleanResultBlock  _Nullable)completion {
     [workout addObject:exercise.exerciseID forKey:@"exercises"];
     [workout saveInBackgroundWithBlock: completion];
 }
 
-+ (void) deleteExerciseFromWorkout: (Workout* _Nullable )workout withExercise: (Exercise* _Nullable )exercise withCompletion: (PFBooleanResultBlock  _Nullable)completion {
++ (void)deleteExerciseFromWorkout:(Workout* _Nullable )workout withExercise:(Exercise* _Nullable )exercise withCompletion:(PFBooleanResultBlock  _Nullable)completion {
     [workout removeObject:exercise.exerciseID forKey:@"exercises"];
     [workout saveInBackgroundWithBlock: completion];
 }
 
-+ (PFFileObject*)getPFFileFromImage: (UIImage* _Nullable)image {
++ (PFFileObject*)getPFFileFromImage:(UIImage* _Nullable)image {
     if (!image) {
         return nil;
     }

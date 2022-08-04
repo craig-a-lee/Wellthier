@@ -17,8 +17,6 @@
 		731AA451288F537700C9F4AE /* HealthKitWorkoutTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 731AA450288F537700C9F4AE /* HealthKitWorkoutTableViewCell.m */; };
 		731AA4572893041A00C9F4AE /* MainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 731AA4562893041A00C9F4AE /* MainTabBarController.m */; };
 		731AA45A2893586600C9F4AE /* PostDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 731AA4592893586600C9F4AE /* PostDetailsViewController.m */; };
-		731AA45D2894425700C9F4AE /* TransitionAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 731AA45C2894425700C9F4AE /* TransitionAnimator.m */; };
-		731AA460289448A800C9F4AE /* TransitionSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 731AA45F289448A800C9F4AE /* TransitionSegue.m */; };
 		7344C92A288A18D10017C4EB /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7344C929288A18D10017C4EB /* ProfileViewController.m */; };
 		73496B45287F83E600A1E77C /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73496B44287F83E600A1E77C /* LoginViewController.m */; };
 		735236E2287745A7002BB65E /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 735236E1287745A7002BB65E /* SignUpViewController.m */; };
@@ -42,9 +40,6 @@
 		73B91B8428762EA700857F73 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73B91B8328762EA700857F73 /* Assets.xcassets */; };
 		73B91B8728762EA700857F73 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73B91B8528762EA700857F73 /* LaunchScreen.storyboard */; };
 		73B91B8A28762EA700857F73 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 73B91B8928762EA700857F73 /* main.m */; };
-		73B91B9428762EA700857F73 /* WellthierTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 73B91B9328762EA700857F73 /* WellthierTests.m */; };
-		73B91B9E28762EA700857F73 /* WellthierUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 73B91B9D28762EA700857F73 /* WellthierUITests.m */; };
-		73B91BA028762EA700857F73 /* WellthierUITestsLaunchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 73B91B9F28762EA700857F73 /* WellthierUITestsLaunchTests.m */; };
 		73B91BAE287632CE00857F73 /* View Controllers in Resources */ = {isa = PBXBuildFile; fileRef = 73B91BAD287632CE00857F73 /* View Controllers */; };
 		73CAFF9D28999728005E9706 /* Draft.m in Sources */ = {isa = PBXBuildFile; fileRef = 73CAFF9C28999728005E9706 /* Draft.m */; };
 		73CAFFA328999C7F005E9706 /* DraftSharedManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 73CAFFA228999C7F005E9706 /* DraftSharedManager.m */; };
@@ -53,7 +48,7 @@
 		73DE05972885E04700CAB9F6 /* AddToWorkoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73DE05962885E04700CAB9F6 /* AddToWorkoutViewController.m */; };
 		73DE059A2885E11100CAB9F6 /* WorkoutTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 73DE05992885E11100CAB9F6 /* WorkoutTableViewCell.m */; };
 		73E55CA42880B78000D9B73F /* WorkoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73E55CA32880B78000D9B73F /* WorkoutViewController.m */; };
-		73E5EAE7287F3792008E3BC1 /* GifViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73E5EAE6287F3792008E3BC1 /* GifViewController.m */; };
+		73E5EAE7287F3792008E3BC1 /* ExerciseDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73E5EAE6287F3792008E3BC1 /* ExerciseDetailViewController.m */; };
 		7DEE59C124C6097B1AA7133A /* Pods_Wellthier_WellthierUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A44740A45D23BA248963FB1B /* Pods_Wellthier_WellthierUITests.framework */; };
 		FA17B6F140A560E7931667F7 /* Pods_Wellthier.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE365CA49EA2890D9F7E56A7 /* Pods_Wellthier.framework */; };
 /* End PBXBuildFile section */
@@ -97,10 +92,6 @@
 		731AA4562893041A00C9F4AE /* MainTabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = MainTabBarController.m; path = "View Controllers/MainTabBarController.m"; sourceTree = "<group>"; };
 		731AA4582893586600C9F4AE /* PostDetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PostDetailsViewController.h; path = "View Controllers/PostDetailsViewController.h"; sourceTree = "<group>"; };
 		731AA4592893586600C9F4AE /* PostDetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = PostDetailsViewController.m; path = "View Controllers/PostDetailsViewController.m"; sourceTree = "<group>"; };
-		731AA45B2894425700C9F4AE /* TransitionAnimator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TransitionAnimator.h; path = Models/TransitionAnimator.h; sourceTree = "<group>"; };
-		731AA45C2894425700C9F4AE /* TransitionAnimator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = TransitionAnimator.m; path = Models/TransitionAnimator.m; sourceTree = "<group>"; };
-		731AA45E289448A800C9F4AE /* TransitionSegue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TransitionSegue.h; path = Models/TransitionSegue.h; sourceTree = "<group>"; };
-		731AA45F289448A800C9F4AE /* TransitionSegue.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = TransitionSegue.m; path = Models/TransitionSegue.m; sourceTree = "<group>"; };
 		7344C928288A18D10017C4EB /* ProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ProfileViewController.h; path = "View Controllers/ProfileViewController.h"; sourceTree = "<group>"; };
 		7344C929288A18D10017C4EB /* ProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ProfileViewController.m; path = "View Controllers/ProfileViewController.m"; sourceTree = "<group>"; };
 		73496B43287F83E600A1E77C /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = "View Controllers/LoginViewController.h"; sourceTree = "<group>"; };
@@ -143,10 +134,7 @@
 		73B91B8828762EA700857F73 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		73B91B8928762EA700857F73 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		73B91B8F28762EA700857F73 /* WellthierTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WellthierTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		73B91B9328762EA700857F73 /* WellthierTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WellthierTests.m; sourceTree = "<group>"; };
 		73B91B9928762EA700857F73 /* WellthierUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WellthierUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		73B91B9D28762EA700857F73 /* WellthierUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WellthierUITests.m; sourceTree = "<group>"; };
-		73B91B9F28762EA700857F73 /* WellthierUITestsLaunchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WellthierUITestsLaunchTests.m; sourceTree = "<group>"; };
 		73B91BAD287632CE00857F73 /* View Controllers */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "View Controllers"; sourceTree = "<group>"; };
 		73CAFF9B28999727005E9706 /* Draft.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Draft.h; path = Models/Draft.h; sourceTree = "<group>"; };
 		73CAFF9C28999728005E9706 /* Draft.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = Draft.m; path = Models/Draft.m; sourceTree = "<group>"; };
@@ -161,8 +149,8 @@
 		73DE05992885E11100CAB9F6 /* WorkoutTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = WorkoutTableViewCell.m; path = Cells/WorkoutTableViewCell.m; sourceTree = "<group>"; };
 		73E55CA22880B78000D9B73F /* WorkoutViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = WorkoutViewController.h; path = "View Controllers/WorkoutViewController.h"; sourceTree = "<group>"; };
 		73E55CA32880B78000D9B73F /* WorkoutViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = WorkoutViewController.m; path = "View Controllers/WorkoutViewController.m"; sourceTree = "<group>"; };
-		73E5EAE5287F3792008E3BC1 /* GifViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GifViewController.h; path = "View Controllers/GifViewController.h"; sourceTree = "<group>"; };
-		73E5EAE6287F3792008E3BC1 /* GifViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = GifViewController.m; path = "View Controllers/GifViewController.m"; sourceTree = "<group>"; };
+		73E5EAE5287F3792008E3BC1 /* ExerciseDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ExerciseDetailViewController.h; path = "View Controllers/ExerciseDetailViewController.h"; sourceTree = "<group>"; };
+		73E5EAE6287F3792008E3BC1 /* ExerciseDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ExerciseDetailViewController.m; path = "View Controllers/ExerciseDetailViewController.m"; sourceTree = "<group>"; };
 		A44740A45D23BA248963FB1B /* Pods_Wellthier_WellthierUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Wellthier_WellthierUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B50347A7FFD4FFC4FEA8C3B0 /* Pods-Wellthier-WellthierUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wellthier-WellthierUITests.debug.xcconfig"; path = "Target Support Files/Pods-Wellthier-WellthierUITests/Pods-Wellthier-WellthierUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		C8699F23106F104BBFBB9A4E /* Pods-Wellthier-WellthierUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wellthier-WellthierUITests.release.xcconfig"; path = "Target Support Files/Pods-Wellthier-WellthierUITests/Pods-Wellthier-WellthierUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -228,8 +216,6 @@
 			isa = PBXGroup;
 			children = (
 				73B91B7628762EA500857F73 /* Wellthier */,
-				73B91B9228762EA700857F73 /* WellthierTests */,
-				73B91B9C28762EA700857F73 /* WellthierUITests */,
 				73B91B7528762EA500857F73 /* Products */,
 				4E2C2FCAA658489E9FAC4F4C /* Pods */,
 				1138062957852184F3862F92 /* Frameworks */,
@@ -278,8 +264,8 @@
 				73B91B8528762EA700857F73 /* LaunchScreen.storyboard */,
 				73B91B8828762EA700857F73 /* Info.plist */,
 				73B91B8928762EA700857F73 /* main.m */,
-				73E5EAE5287F3792008E3BC1 /* GifViewController.h */,
-				73E5EAE6287F3792008E3BC1 /* GifViewController.m */,
+				73E5EAE5287F3792008E3BC1 /* ExerciseDetailViewController.h */,
+				73E5EAE6287F3792008E3BC1 /* ExerciseDetailViewController.m */,
 				73B22DA1287F3ABA002548DE /* Workout.h */,
 				73B22DA2287F3ABA002548DE /* Workout.m */,
 				73B22DA4287F3DDD002548DE /* LibraryViewController.h */,
@@ -318,33 +304,12 @@
 				731AA4562893041A00C9F4AE /* MainTabBarController.m */,
 				731AA4582893586600C9F4AE /* PostDetailsViewController.h */,
 				731AA4592893586600C9F4AE /* PostDetailsViewController.m */,
-				731AA45B2894425700C9F4AE /* TransitionAnimator.h */,
-				731AA45C2894425700C9F4AE /* TransitionAnimator.m */,
-				731AA45E289448A800C9F4AE /* TransitionSegue.h */,
-				731AA45F289448A800C9F4AE /* TransitionSegue.m */,
 				73CAFF9B28999727005E9706 /* Draft.h */,
 				73CAFF9C28999728005E9706 /* Draft.m */,
 				73CAFFA128999C7F005E9706 /* DraftSharedManager.h */,
 				73CAFFA228999C7F005E9706 /* DraftSharedManager.m */,
 			);
 			path = Wellthier;
-			sourceTree = "<group>";
-		};
-		73B91B9228762EA700857F73 /* WellthierTests */ = {
-			isa = PBXGroup;
-			children = (
-				73B91B9328762EA700857F73 /* WellthierTests.m */,
-			);
-			path = WellthierTests;
-			sourceTree = "<group>";
-		};
-		73B91B9C28762EA700857F73 /* WellthierUITests */ = {
-			isa = PBXGroup;
-			children = (
-				73B91B9D28762EA700857F73 /* WellthierUITests.m */,
-				73B91B9F28762EA700857F73 /* WellthierUITestsLaunchTests.m */,
-			);
-			path = WellthierUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -590,12 +555,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				731AA45D2894425700C9F4AE /* TransitionAnimator.m in Sources */,
 				735236E2287745A7002BB65E /* SignUpViewController.m in Sources */,
 				73B91B7928762EA500857F73 /* AppDelegate.m in Sources */,
 				73B91B8A28762EA700857F73 /* main.m in Sources */,
 				73CAFFA328999C7F005E9706 /* DraftSharedManager.m in Sources */,
-				73E5EAE7287F3792008E3BC1 /* GifViewController.m in Sources */,
+				73E5EAE7287F3792008E3BC1 /* ExerciseDetailViewController.m in Sources */,
 				737E430628887B88004D0C13 /* HealthKitSharedManager.m in Sources */,
 				73DE059A2885E11100CAB9F6 /* WorkoutTableViewCell.m in Sources */,
 				739535D1287DF7B500D1D4CF /* ExerciseCell.m in Sources */,
@@ -608,7 +572,6 @@
 				731AA44E288F527200C9F4AE /* HealthKitWorkoutsViewController.m in Sources */,
 				739535D6287DF7E600D1D4CF /* SearchCell.m in Sources */,
 				73B91B7C28762EA500857F73 /* SceneDelegate.m in Sources */,
-				731AA460289448A800C9F4AE /* TransitionSegue.m in Sources */,
 				731AA451288F537700C9F4AE /* HealthKitWorkoutTableViewCell.m in Sources */,
 				7300D03A288863640057FEEB /* Post.m in Sources */,
 				731AA45A2893586600C9F4AE /* PostDetailsViewController.m in Sources */,
@@ -631,7 +594,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				73B91B9428762EA700857F73 /* WellthierTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -639,8 +601,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				73B91B9E28762EA700857F73 /* WellthierUITests.m in Sources */,
-				73B91BA028762EA700857F73 /* WellthierUITestsLaunchTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

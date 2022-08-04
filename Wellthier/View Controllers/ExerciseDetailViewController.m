@@ -6,21 +6,21 @@
 //
 
 #import <Parse/Parse.h>
-#import "GifViewController.h"
+#import "ExerciseDetailViewController.h"
 #import "AnimatedGif.h"
 #import "UIImageView+AnimatedGif.h"
 #import "Workout.h"
 #import "AddToWorkoutViewController.h"
 #import "WorkoutViewController.h"
 
-@interface GifViewController ()
+@interface ExerciseDetailViewController ()
 
 @property (nonatomic, assign) BOOL isLiked;
 @property (nonatomic, strong) PFQuery *workoutQuery;
 
 @end
 
-@implementation GifViewController
+@implementation ExerciseDetailViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -42,7 +42,7 @@
     
 }
 
-- (void) setExerciseProperties:(Exercise *)exercise {
+- (void)setExerciseProperties:(Exercise *)exercise {
     AnimatedGif *newGif = [AnimatedGif getAnimationForGifAtUrl:exercise.gifUrl];
     [self.gifImageView setAnimatedGif:newGif startImmediately:YES];
     self.nameLabel.text = [exercise.name capitalizedString];

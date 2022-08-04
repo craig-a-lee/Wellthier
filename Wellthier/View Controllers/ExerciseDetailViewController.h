@@ -11,7 +11,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface GifViewController : UIViewController
+@interface ExerciseDetailViewController : UIViewController
 
 @property (nonatomic, weak) IBOutlet UIImageView *gifImageView;
 @property (nonatomic, weak) Exercise *detailExercise;

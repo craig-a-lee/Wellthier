@@ -17,8 +17,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *draftText;
 @property (nonatomic, strong) NSData *draftImage;
 
-- (id) initWithDictionary:(NSDictionary *)dictionary;
-+ (NSArray *) draftsWithDictionaries: (NSArray *) dictionaries;
+- (id)initWithDictionary:(NSDictionary *)dictionary;
++ (NSArray *)draftsWithDictionaries: (NSArray *) dictionaries;
 
 @end
 

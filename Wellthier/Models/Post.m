@@ -21,7 +21,7 @@
     return @"Post";
 }
 
-+ (void) makeUserPost: (UIImage* _Nullable )image withText: (NSString* _Nullable )text withCompletion: (PFBooleanResultBlock  _Nullable)completion {
++ (void)makeUserPost:(UIImage* _Nullable )image withText: (NSString* _Nullable )text withCompletion: (PFBooleanResultBlock  _Nullable)completion {
     Post *newPost = [Post new];
     newPost.image = [self getPFFileFromImage:image];
     newPost.author = [PFUser currentUser];
@@ -31,7 +31,7 @@
     [newPost saveInBackgroundWithBlock: completion];
 }
 
-+ (PFFileObject *)getPFFileFromImage: (UIImage * _Nullable)image {
++ (PFFileObject *)getPFFileFromImage:(UIImage * _Nullable)image {
     if (!image) {
         return nil;
     }
