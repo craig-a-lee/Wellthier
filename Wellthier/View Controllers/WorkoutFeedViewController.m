@@ -68,11 +68,6 @@ CGFloat lastScale;
     [self.fullScreenScrollView removeFromSuperview];
 }
 
-- (void)tapTwice:(UIGestureRecognizer *)gesture
-{
-    NSLog(@"worked");
-}
-
 - (void)handlePinchGesture:(UIPinchGestureRecognizer *)pinch {
     UIView *pinchView = pinch.view;
     CGRect bounds = pinchView.bounds;
