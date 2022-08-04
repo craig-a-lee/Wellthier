@@ -19,7 +19,7 @@
     return commonManager;
 }
 
-- (void) requestAuthorization {
+- (void)requestAuthorization {
     if (![HKHealthStore isHealthDataAvailable]) {
         return;
     }
@@ -29,7 +29,7 @@
     }];
 }
 
-- (void) getLatestWorkout: (void(^)(NSArray <HKWorkout *> *workouts))completion {
+- (void)getLatestWorkout:(void(^)(NSArray <HKWorkout *> *workouts))completion {
     NSCalendar *cal = [NSCalendar currentCalendar];
     NSDate *startDate = [cal dateByAddingUnit:NSCalendarUnitWeekOfYear value:-1 toDate:[NSDate date] options:0];
     NSPredicate *predicate = [HKQuery predicateForSamplesWithStartDate:startDate endDate:[NSDate date] options:HKQueryOptionStrictEndDate];
@@ -45,7 +45,7 @@
     [self.healthStore executeQuery:query];
 }
 
-- (NSString *) getWorkoutType: (HKWorkoutActivityType)workoutType{
+- (NSString *)getWorkoutType:(HKWorkoutActivityType)workoutType{
     switch (workoutType) {
         case HKWorkoutActivityTypeAmericanFootball:
             return @"American Football";

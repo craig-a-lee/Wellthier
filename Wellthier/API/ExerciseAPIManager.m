@@ -25,7 +25,7 @@
     return self;
 }
 
-- (void) fetchAllExercises: (void(^)(NSArray *exercises, NSError *error))completion {
+- (void)fetchAllExercises:(void(^)(NSArray *exercises, NSError *error))completion {
 
     NSMutableURLRequest *request = [self urlRequestForItems:@""];
     [self makeRequest:request completion:^(id object, NSError *error) {
@@ -44,7 +44,7 @@
     }];
 }
 
-- (NSMutableURLRequest *) urlRequestForItems: (NSString *) itemsName {
+- (NSMutableURLRequest *)urlRequestForItems:(NSString *)itemsName {
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://exercisedb.p.rapidapi.com/exercises%@", itemsName]]
                                                            cachePolicy:NSURLRequestUseProtocolCachePolicy
                                                        timeoutInterval:10.0];

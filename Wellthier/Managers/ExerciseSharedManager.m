@@ -19,7 +19,7 @@
     return commonManager;
 }
 
-- (void) fetchAllExercisesFromApi {
+- (void)fetchAllExercisesFromApi {
     ExerciseAPIManager *manager = [ExerciseAPIManager new];
     [manager fetchAllExercises:^(NSArray *exercises, NSError *error) {
         self.allExercises = exercises;

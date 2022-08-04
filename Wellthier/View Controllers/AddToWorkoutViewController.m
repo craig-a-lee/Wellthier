@@ -19,7 +19,7 @@
 
 @implementation AddToWorkoutViewController
 
-- (void) viewDidLoad {
+- (void)viewDidLoad {
     [super viewDidLoad];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -27,12 +27,12 @@
     self.searchBar.delegate = self;
 }
 
-- (void) viewWillAppear:(BOOL)animated {
+- (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self getWorkouts];
 }
 
-- (void) getWorkouts {
+- (void)getWorkouts {
     PFQuery *workoutQuery = [Workout query];
     [workoutQuery includeKey:@"author"];
     [workoutQuery whereKey:@"author" equalTo:PFUser.currentUser];

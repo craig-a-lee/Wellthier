@@ -16,8 +16,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
 }
+
 - (IBAction)didTapLogin:(id)sender {
     UIAlertController *emptyAlert = [UIAlertController alertControllerWithTitle:@"Empty Field"
                                                                                message:@"There is an empty field, please fill it."
@@ -25,9 +25,7 @@
 
     UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK"
                                                        style:UIAlertActionStyleDefault
-                                                     handler:^(UIAlertAction * _Nonnull action) {
-                                                             // handle response here.
-                                                     }];
+                                                     handler:nil];
     UIAlertController *invalidAlert = [UIAlertController alertControllerWithTitle:@"Invalid Credentials"
                                                                                message:@"An account does not exist with these credentials, please try again."
                                                                         preferredStyle:(UIAlertControllerStyleAlert)];
@@ -36,9 +34,7 @@
     [invalidAlert addAction:okAction];
     
     if ([self.usernameField.text isEqual:@""] || [self.passwordField.text isEqual:@""]) {
-        [self presentViewController:emptyAlert animated:YES completion:^{
-            // optional code for what happens after the alert controller has finished presenting
-        }];
+        [self presentViewController:emptyAlert animated:YES completion:nil];
     }
     else {
         NSString *username = self.usernameField.text;
@@ -46,9 +42,7 @@
         
         [PFUser logInWithUsernameInBackground:username password:password block:^(PFUser * user, NSError *  error) {
             if (error != nil) {
-                [self presentViewController:invalidAlert animated:YES completion:^{
-                    // optional code for what happens after the alert controller has finished presenting
-                }];
+                [self presentViewController:invalidAlert animated:YES completion:nil];
             } else {
                 NSLog(@"User logged in successfully");
                 

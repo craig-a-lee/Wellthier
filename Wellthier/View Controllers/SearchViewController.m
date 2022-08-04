@@ -10,7 +10,7 @@
 #import "ExerciseCell.h"
 #import "Exercise.h"
 #import "SearchCell.h"
-#import "GifViewController.h"
+#import "ExerciseDetailViewController.h"
 #import "ExerciseSharedManager.h"
 #import "AnimatedGif.h"
 #import "UIImageView+AnimatedGif.h"
@@ -183,7 +183,7 @@
     if ([segue.identifier isEqualToString:@"gifSegueFromSearch"]) {
         NSIndexPath *myIndexPath = [self.tableView indexPathForCell:sender];
         Exercise *dataToPass = self.filteredExercises[myIndexPath.row];
-        GifViewController *gVC = [segue destinationViewController];
+        ExerciseDetailViewController *gVC = [segue destinationViewController];
         gVC.detailExercise = dataToPass;
     }
 }

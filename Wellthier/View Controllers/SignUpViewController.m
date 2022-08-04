@@ -89,36 +89,24 @@
     
     UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK"
                                                        style:UIAlertActionStyleDefault
-                                                     handler:^(UIAlertAction * _Nonnull action) {
-                                                             // handle response here.
-                                                     }];
+                                                     handler:nil];
     UIAlertController *invalidAlert = [UIAlertController alertControllerWithTitle:@"Invalid Username"
                                                                                message:@"Account already exists for this username."
                                                                         preferredStyle:(UIAlertControllerStyleAlert)];
-    // add the OK action to the alert controller
     [emptyAlert addAction:okAction];
     [invalidAlert addAction:okAction];
     
-    
     if ([self.usernameField.text isEqual:@""] || [self.passwordField.text isEqual:@""] || [self.displayNameField.text isEqual:@""]) {
-        [self presentViewController:emptyAlert animated:YES completion:^{
-            // optional code for what happens after the alert controller has finished presenting
-        }];
+        [self presentViewController:emptyAlert animated:YES completion:nil];
     } else {
         PFUser *newUser = [PFUser user];
-        
-        // set user properties
         newUser.username = self.usernameField.text;
         newUser[@"displayName"] = self.displayNameField.text;
         newUser.password = self.passwordField.text;
         newUser[@"profilePic"] = [self getPFFileFromImage:self.profilePicImageView.image];
-        
-        // call sign up function on the object
         [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
             if (error.code == 202) {
-                [self presentViewController:invalidAlert animated:YES completion:^{
-                    // optional code for what happens after the alert controller has finished presenting
-                }];
+                [self presentViewController:invalidAlert animated:YES completion:nil];
             } else {
                 // manually segue to logged in view
                 [Workout postUserWorkout:[UIImage imageNamed:@"purpleheart"] withTitle:@"Liked Exercises" withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
@@ -130,18 +118,14 @@
     }
 }
 
-- (PFFileObject *)getPFFileFromImage: (UIImage * _Nullable)image {
-    // check if image is not nil
+- (PFFileObject *)getPFFileFromImage:(UIImage * _Nullable)image {
     if (!image) {
         return nil;
     }
-    
     NSData *imageData = UIImagePNGRepresentation(image);
-    // get image data and check if that is not nil
     if (!imageData) {
         return nil;
     }
-    
     return [PFFileObject fileObjectWithName:@"image.png" data:imageData];
 }
 

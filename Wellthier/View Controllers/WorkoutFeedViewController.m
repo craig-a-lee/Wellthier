@@ -30,8 +30,6 @@
 
 @implementation WorkoutFeedViewController
 
-BOOL isFullScreen;
-CGRect prevFrame;
 CGFloat lastScale;
 
 - (void)viewDidLoad {
@@ -41,7 +39,6 @@ CGFloat lastScale;
        @{NSForegroundColorAttributeName:[UIColor whiteColor]}];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    isFullScreen = false;
     [[HealthKitSharedManager sharedManager] requestAuthorization];
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.refreshControl = [[UIRefreshControl alloc] init];
@@ -91,8 +88,6 @@ CGFloat lastScale;
     self.fullScreenScrollView.center = self.view.center;
     [self.view addSubview:self.fullScreenScrollView];
     [UIView animateWithDuration:0.5 delay:0 options:0 animations:^{
-        //save previous frame
-        prevFrame = self.prevImageView.frame;
         self.fullScreenImageView = [UIImageView new];
         self.fullScreenImageView.layer.zPosition = MAXFLOAT;
         self.fullScreenImageView.image = self.prevImageView.image;

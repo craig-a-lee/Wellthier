@@ -9,7 +9,7 @@
 
 @implementation Exercise
 
-- (id) initWithDictionary:(NSDictionary *)dictionary {
+- (id)initWithDictionary:(NSDictionary *)dictionary {
     self = [super init];
     self.name = dictionary[@"name"];
     self.target = dictionary[@"target"];
@@ -22,7 +22,7 @@
     return self;
 }
 
-+ (NSArray *) exercisesWithDictionaries: (NSArray *) dictionaries {
++ (NSArray *)exercisesWithDictionaries:(NSArray *)dictionaries {
     NSMutableArray *exercises = [[NSMutableArray alloc] init];
     for (NSDictionary *dictionary in dictionaries) {
         Exercise *exercise = [[Exercise alloc] initWithDictionary:dictionary];

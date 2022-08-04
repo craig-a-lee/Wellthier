@@ -8,7 +8,7 @@
 #import <Parse/Parse.h>
 #import "WorkoutViewController.h"
 #import "Exercise.h"
-#import "GifViewController.h"
+#import "ExerciseDetailViewController.h"
 #import "ExerciseCell.h"
 #import "ExerciseAPIManager.h"
 #import "ExerciseSharedManager.h"
@@ -24,7 +24,7 @@
 
 @implementation WorkoutViewController
 
-- (id) init {
+- (id)init {
     self = [super init];
     if (self) {
         self.addToWorkoutController = [AddToWorkoutViewController new];
@@ -33,7 +33,7 @@
     return self;
 }
 
-- (void) viewDidLoad {
+- (void)viewDidLoad {
     [super viewDidLoad];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -44,11 +44,11 @@
     self.authorLabel.text = user[@"displayName"];
 }
 
-- (void) viewWillAppear:(BOOL)animated {
+- (void)viewWillAppear:(BOOL)animated {
     [self getExercises];
 }
 
-- (void) getExercises {
+- (void)getExercises {
     self.arrayOfExercises = [NSArray new];
     self.filteredExercises = [NSArray new];
     NSArray *allExercises = [[ExerciseSharedManager sharedManager] allExercises];
@@ -86,7 +86,7 @@
     if ([segue.identifier isEqualToString:@"gifSegueFromWorkout"]) {
         NSIndexPath *myIndexPath = [self.tableView indexPathForCell:sender];
         Exercise *dataToPass = self.filteredExercises[myIndexPath.row];
-        GifViewController *gVC = [segue destinationViewController];
+        ExerciseDetailViewController *gVC = [segue destinationViewController];
         gVC.detailExercise = dataToPass;
     }
 }
