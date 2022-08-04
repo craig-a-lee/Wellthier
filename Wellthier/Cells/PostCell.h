@@ -22,7 +22,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, weak) IBOutlet UILabel *date;
 @property (nonatomic, strong) Post *detailPost;
 @property (nonatomic, weak) IBOutlet PFImageView *profilePicView;
-@property (nonatomic, weak) IBOutlet UIButton *toExpandedPicHiddenButton;
 
 - (void)setPostDetails: (Post *)post;
 

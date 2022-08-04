@@ -17,5 +17,4 @@
     self.workout = workout;
 }
 
-
 @end

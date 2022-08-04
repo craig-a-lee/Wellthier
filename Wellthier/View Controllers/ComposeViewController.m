@@ -10,6 +10,7 @@
 #import "ComposeViewController.h"
 #import "HealthKitWorkoutsViewController.h"
 #import "HealthKitSharedManager.h"
+#import "DraftSharedManager.h"
 #import "Post.h"
 
 @interface ComposeViewController () <HealtKitWorkoutsViewControllerDelegate>
@@ -78,7 +79,7 @@
     if (workout.totalEnergyBurned) {
         workoutEnergyBurnedInfo = [NSString stringWithFormat:@"Energy Burned: %@", workout.totalEnergyBurned];
     }
-    NSString *workoutTextInfo = [NSString stringWithFormat:@"Check out my most recent workout! \n\n%@ \n%@ \n%@", workoutTypeInfo, workoutDurationInfo, workoutEnergyBurnedInfo];
+    NSString *workoutTextInfo = [NSString stringWithFormat:@"Check out one of last week's workout! \n\n%@ \n%@ \n%@", workoutTypeInfo, workoutDurationInfo, workoutEnergyBurnedInfo];
     dispatch_async(dispatch_get_main_queue(), ^{
         self.textView.text = workoutTextInfo;
     });
@@ -126,6 +127,15 @@
                                                        style:UIAlertActionStyleDefault
                                                      handler:^(UIAlertAction * _Nonnull action) {
                                                              // handle response here.
+        NSDictionary *draftDictionary = [NSDictionary new];
+        NSData *imageData;
+        if (self.selectedPhotoView.image) {
+            imageData = UIImagePNGRepresentation(self.selectedPhotoView.image);
+        } else {
+            imageData = [NSData new];
+        }
+        draftDictionary = @{@"username": PFUser.currentUser.username, @"draftText": self.textView.text, @"draftImage": imageData};
+        [[DraftSharedManager sharedManager] addDraftToFile:draftDictionary];        
         [self dismissViewControllerAnimated:true completion:nil];
                                                      }];
     
@@ -139,8 +149,11 @@
     [alert addAction:saveDraftAction];
     [alert addAction:discardAction];
     
-    [self presentViewController:alert animated:YES completion:nil];
-    
+    if (!(self.selectedPhotoView.image == nil && [self.textView.text isEqualToString:@""])) {
+        [self presentViewController:alert animated:YES completion:nil];
+    } else {
+        [self dismissViewControllerAnimated:true completion:nil];
+    }
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

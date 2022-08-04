@@ -57,6 +57,8 @@
     self.temporaryGifImageView.hidden = !shouldHide;
     self.collectionView.hidden = shouldHide;
     self.searchBar.hidden = shouldHide;
+    self.navigationController.navigationBarHidden = shouldHide;
+    self.tabBarController.tabBar.hidden = shouldHide;
 }
 
 - (void)handleLongPress:(UILongPressGestureRecognizer *)gestureRecognizer {
@@ -127,7 +129,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-        return self.filteredExercises.count;
+    return self.filteredExercises.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
