@@ -41,7 +41,6 @@
 		73B91B8728762EA700857F73 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73B91B8528762EA700857F73 /* LaunchScreen.storyboard */; };
 		73B91B8A28762EA700857F73 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 73B91B8928762EA700857F73 /* main.m */; };
 		73B91BAE287632CE00857F73 /* View Controllers in Resources */ = {isa = PBXBuildFile; fileRef = 73B91BAD287632CE00857F73 /* View Controllers */; };
-		73CAFF9D28999728005E9706 /* Draft.m in Sources */ = {isa = PBXBuildFile; fileRef = 73CAFF9C28999728005E9706 /* Draft.m */; };
 		73CAFFA328999C7F005E9706 /* DraftSharedManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 73CAFFA228999C7F005E9706 /* DraftSharedManager.m */; };
 		73DE058E2885BE5B00CAB9F6 /* Cells in Resources */ = {isa = PBXBuildFile; fileRef = 73DE058D2885BE5B00CAB9F6 /* Cells */; };
 		73DE05942885CEDF00CAB9F6 /* NewWorkoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73DE05932885CEDF00CAB9F6 /* NewWorkoutViewController.m */; };
@@ -136,8 +135,6 @@
 		73B91B8F28762EA700857F73 /* WellthierTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WellthierTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		73B91B9928762EA700857F73 /* WellthierUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WellthierUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		73B91BAD287632CE00857F73 /* View Controllers */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "View Controllers"; sourceTree = "<group>"; };
-		73CAFF9B28999727005E9706 /* Draft.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Draft.h; path = Models/Draft.h; sourceTree = "<group>"; };
-		73CAFF9C28999728005E9706 /* Draft.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = Draft.m; path = Models/Draft.m; sourceTree = "<group>"; };
 		73CAFFA128999C7F005E9706 /* DraftSharedManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DraftSharedManager.h; path = Managers/DraftSharedManager.h; sourceTree = "<group>"; };
 		73CAFFA228999C7F005E9706 /* DraftSharedManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = DraftSharedManager.m; path = Managers/DraftSharedManager.m; sourceTree = "<group>"; };
 		73DE058D2885BE5B00CAB9F6 /* Cells */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Cells; sourceTree = "<group>"; };
@@ -304,8 +301,6 @@
 				731AA4562893041A00C9F4AE /* MainTabBarController.m */,
 				731AA4582893586600C9F4AE /* PostDetailsViewController.h */,
 				731AA4592893586600C9F4AE /* PostDetailsViewController.m */,
-				73CAFF9B28999727005E9706 /* Draft.h */,
-				73CAFF9C28999728005E9706 /* Draft.m */,
 				73CAFFA128999C7F005E9706 /* DraftSharedManager.h */,
 				73CAFFA228999C7F005E9706 /* DraftSharedManager.m */,
 			);
@@ -567,7 +562,6 @@
 				73E55CA42880B78000D9B73F /* WorkoutViewController.m in Sources */,
 				73B22DA6287F3DDD002548DE /* LibraryViewController.m in Sources */,
 				739535CB287DF75100D1D4CF /* ExerciseAPIManager.m in Sources */,
-				73CAFF9D28999728005E9706 /* Draft.m in Sources */,
 				739535CE287DF79500D1D4CF /* Exercise.m in Sources */,
 				731AA44E288F527200C9F4AE /* HealthKitWorkoutsViewController.m in Sources */,
 				739535D6287DF7E600D1D4CF /* SearchCell.m in Sources */,
