@@ -27,6 +27,23 @@
     [[self.textView layer] setBorderWidth:1.0];
     [self setUserInfo];
     self.clearImageButton.hidden = YES;
+    
+}
+
+- (void) viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    NSDictionary *previousDraft = [[DraftSharedManager sharedManager] fetchDraftForUser:PFUser.currentUser.username];
+    if ([previousDraft count] != 0) {
+        self.textView.text = previousDraft[@"draftText"];
+        if ([previousDraft[@"draftImage"] length] != 0) {
+            self.selectedPhotoView.image = [UIImage imageWithData:previousDraft[@"draftImage"]];
+            self.clearImageButton.hidden = NO;
+        } else {
+            self.clearImageButton.hidden = YES;
+        }
+    } else {
+        self.clearImageButton.hidden = YES;
+    }
 }
 
 - (void)setUserInfo {
@@ -113,20 +130,20 @@
 }
 
 - (IBAction)didTapPost:(id)sender {
-    [Post makeUserPost:self.selectedPhotoView.image withText:self.textView.text withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
-        [self dismissViewControllerAnimated:true completion:nil];
-    }];
+    if (!(self.selectedPhotoView.image == nil && [self.textView.text isEqualToString:@""])) {
+        [Post makeUserPost:self.selectedPhotoView.image withText:self.textView.text withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+            [self dismissViewControllerAnimated:true completion:nil];
+        }];
+    }
 }
 
 - (IBAction)didTapCancel:(id)sender {
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Would you like to save this post as a draft?"
                                                                                message:@""
                                                                         preferredStyle:(UIAlertControllerStyleAlert)];
-    
     UIAlertAction *saveDraftAction = [UIAlertAction actionWithTitle:@"Save Draft"
                                                        style:UIAlertActionStyleDefault
                                                      handler:^(UIAlertAction * _Nonnull action) {
-                                                             // handle response here.
         NSDictionary *draftDictionary = [NSDictionary new];
         NSData *imageData;
         if (self.selectedPhotoView.image) {
@@ -134,11 +151,10 @@
         } else {
             imageData = [NSData new];
         }
-        draftDictionary = @{@"username": PFUser.currentUser.username, @"draftText": self.textView.text, @"draftImage": imageData};
-        [[DraftSharedManager sharedManager] addDraftToFile:draftDictionary];        
+        draftDictionary = @{@"draftText": self.textView.text, @"draftImage": imageData};
+        [[DraftSharedManager sharedManager] addDraftToFile:draftDictionary forUser:PFUser.currentUser.username];
         [self dismissViewControllerAnimated:true completion:nil];
                                                      }];
-    
     UIAlertAction *discardAction = [UIAlertAction actionWithTitle:@"Discard"
                                                        style:UIAlertActionStyleDefault
                                                      handler:^(UIAlertAction * _Nonnull action) {
@@ -148,7 +164,6 @@
     [discardAction setValue:[UIColor redColor] forKey:@"_titleTextColor"];
     [alert addAction:saveDraftAction];
     [alert addAction:discardAction];
-    
     if (!(self.selectedPhotoView.image == nil && [self.textView.text isEqualToString:@""])) {
         [self presentViewController:alert animated:YES completion:nil];
     } else {

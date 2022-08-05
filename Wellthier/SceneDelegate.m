@@ -40,7 +40,6 @@
 
         self.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"MainTabBarController"];
     }
-    
 }
 
 @end

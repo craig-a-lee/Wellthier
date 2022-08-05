@@ -1132,19 +1132,8 @@
                                             <action selector="didTapClearImageButton:" destination="bFM-B1-5qp" eventType="touchUpInside" id="eeH-6G-SIv"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9U0-c5-Nln">
-                                        <rect key="frame" x="179" y="131" width="67" height="31"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Drafts">
-                                            <color key="baseForegroundColor" red="0.1166579252" green="0.84342966919999995" blue="0.37734218079999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        </buttonConfiguration>
-                                        <connections>
-                                            <segue destination="woj-Aw-WCT" kind="show" id="rZH-TH-63Z"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="9U0-c5-Nln" firstAttribute="centerY" secondItem="6la-7N-NOm" secondAttribute="centerY" id="37s-OQ-nzh"/>
                                     <constraint firstItem="Tq0-c6-Jdw" firstAttribute="top" secondItem="sk5-yZ-1yf" secondAttribute="bottom" constant="8" symbolic="YES" id="6AA-ML-xxn"/>
                                     <constraint firstItem="Zqe-2M-nWk" firstAttribute="leading" secondItem="Vtn-Pk-Zyd" secondAttribute="trailing" constant="8" symbolic="YES" id="8xo-9W-SBy"/>
                                     <constraint firstAttribute="bottom" secondItem="Tq0-c6-Jdw" secondAttribute="bottom" constant="522" id="CCm-eg-GbZ"/>
@@ -1158,7 +1147,6 @@
                                     <constraint firstItem="Vtn-Pk-Zyd" firstAttribute="top" secondItem="q92-bd-siJ" secondAttribute="top" id="jiK-HP-KkV"/>
                                     <constraint firstItem="Zqe-2M-nWk" firstAttribute="trailing" secondItem="sk5-yZ-1yf" secondAttribute="trailing" id="jjl-4K-aoe"/>
                                     <constraint firstAttribute="trailing" secondItem="Zqe-2M-nWk" secondAttribute="trailing" constant="16" id="nBg-uU-MgI"/>
-                                    <constraint firstItem="9U0-c5-Nln" firstAttribute="leading" secondItem="6la-7N-NOm" secondAttribute="trailing" constant="26" id="owz-hd-jX9"/>
                                     <constraint firstItem="F6M-n5-siQ" firstAttribute="trailing" secondItem="Zqe-2M-nWk" secondAttribute="trailing" constant="16" id="qbw-QW-bA8"/>
                                     <constraint firstItem="Zqe-2M-nWk" firstAttribute="leading" secondItem="ZSm-Ut-EHV" secondAttribute="leading" id="rPh-Ex-Px9"/>
                                     <constraint firstItem="ZSm-Ut-EHV" firstAttribute="top" secondItem="Zqe-2M-nWk" secondAttribute="bottom" constant="10" id="ubA-Rm-VdN"/>

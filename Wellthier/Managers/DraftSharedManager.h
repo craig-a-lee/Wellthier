@@ -12,12 +12,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface DraftSharedManager : NSObject
 
-@property (nonatomic, strong) NSMutableArray <Draft *> *allDraftObjects;
-@property (nonatomic, strong) NSMutableArray <NSDictionary *> *allDraftDictionaries;
+@property (nonatomic, strong) NSMutableDictionary <NSString *, NSDictionary *> *allDrafts;
 
 + (id)sharedManager;
 - (void)fetchAllDrafts;
-- (void)addDraftToFile:(NSDictionary*) draft;
+- (void)addDraftToFile:(NSDictionary *) draft forUser:(NSString *) username;
+- (NSDictionary *)fetchDraftForUser:(NSString *) username;
 
 @end
 

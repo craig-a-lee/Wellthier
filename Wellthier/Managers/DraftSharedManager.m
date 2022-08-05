@@ -19,40 +19,34 @@
     return commonManager;
 }
 
-- (void)addDraftToFile:(NSDictionary*) draft {
+- (void)addDraftToFile:(NSDictionary*)draft forUser:(NSString *) username {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
     NSString *filePath = [documentsDirectory stringByAppendingPathComponent:@"DraftData.plist"];
-    Draft *draftObject = [Draft new];
-    draftObject.username = draft[@"username"];
-    draftObject.draftText = draft[@"draftText"];
-    draftObject.draftImage = draft[@"draftImage"];
-    [self.allDraftDictionaries addObject:draft];
-    [self.allDraftObjects addObject:draftObject];
-    [self.allDraftDictionaries writeToFile:filePath atomically:YES];
+    [self.allDrafts setObject:draft forKey:username];
+    [self.allDrafts writeToFile:filePath atomically:YES];
 }
 
 - (void)fetchAllDrafts {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
     NSString *filePath = [documentsDirectory stringByAppendingPathComponent:@"DraftData.plist"];
-    NSArray *draftsFromFile = [NSArray new];
     NSFileManager *manager = [NSFileManager defaultManager];
     if ([manager fileExistsAtPath:filePath]) {
         NSDictionary *attributes = [manager attributesOfItemAtPath:filePath error:nil];
         unsigned long long size = [attributes fileSize];
         if (attributes && size == 0) {
-            self.allDraftDictionaries = [NSMutableArray new];
-            self.allDraftObjects = [NSMutableArray new];
+            self.allDrafts = [NSMutableDictionary new];
         } else {
-            draftsFromFile = [NSArray arrayWithContentsOfFile:filePath];
-            self.allDraftDictionaries = (NSMutableArray *) draftsFromFile;
-            self.allDraftObjects = (NSMutableArray *) [Draft draftsWithDictionaries:draftsFromFile];
+            self.allDrafts = [NSMutableDictionary dictionaryWithContentsOfFile:filePath];
         }
     } else {
-        self.allDraftDictionaries = [NSMutableArray new];
-        self.allDraftObjects = [NSMutableArray new];
+        self.allDrafts = [NSMutableDictionary new];
     }
+}
+
+- (NSDictionary *)fetchDraftForUser:(NSString *) username {
+    return self.allDrafts[username];
 }
 
 
