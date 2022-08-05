@@ -29,6 +29,8 @@
     [self getWorkouts];
     [self getPosts];
     [self setProfileParams];
+    self.tableView.layoutMargins = UIEdgeInsetsZero;
+    self.tableView.separatorInset = UIEdgeInsetsZero;
 }
 
 - (void) setProfileParams {

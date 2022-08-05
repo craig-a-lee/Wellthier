@@ -13,12 +13,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface WorkoutCollectionViewCell : UICollectionViewCell
 
-@property (weak, nonatomic) IBOutlet PFImageView *workoutImageView;
-@property (weak, nonatomic) IBOutlet UILabel *workoutTitleLabel;
-@property (weak, nonatomic) IBOutlet UILabel *numberOfExercisesLabel;
-@property (strong, nonatomic) Workout *workout;
+@property (nonatomic, weak) IBOutlet PFImageView *workoutImageView;
+@property (nonatomic, weak) IBOutlet UILabel *workoutTitleLabel;
+@property (nonatomic, weak) IBOutlet UILabel *numberOfExercisesLabel;
 
-- (void)setParams:(Workout *)detailWorkout;
+- (void)setWorkoutDetails:(Workout *)detailWorkout;
 
 @end
 

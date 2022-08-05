@@ -27,6 +27,8 @@
 - (id)init {
     self = [super init];
     if (self) {
+        self.arrayOfExercises = [NSArray new];
+        self.filteredExercises = [NSArray new];
         self.addToWorkoutController = [AddToWorkoutViewController new];
         self.addToWorkoutController.delegate = self;
     }
@@ -45,12 +47,11 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     [self getExercises];
 }
 
 - (void)getExercises {
-    self.arrayOfExercises = [NSArray new];
-    self.filteredExercises = [NSArray new];
     NSArray *allExercises = [[ExerciseSharedManager sharedManager] allExercises];
     for (NSString *currentID in self.detailWorkout.exercises) {
         NSPredicate *idPredicate = [NSPredicate predicateWithBlock:^BOOL(Exercise *evaluatedObject, NSDictionary *bindings) {

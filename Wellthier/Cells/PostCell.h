@@ -17,13 +17,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, weak) IBOutlet UIButton *toProfileHiddenButton;
 @property (nonatomic, weak) IBOutlet UILabel *displayNameLabel;
 @property (nonatomic, weak) IBOutlet UILabel *usernameLabel;
+@property (nonatomic, weak) IBOutlet UILabel *date;
 @property (nonatomic, weak) IBOutlet UITextView *postTextView;
 @property (nonatomic, weak) IBOutlet PFImageView *postImageView;
-@property (nonatomic, weak) IBOutlet UILabel *date;
-@property (nonatomic, strong) Post *detailPost;
 @property (nonatomic, weak) IBOutlet PFImageView *profilePicView;
+@property (nonatomic, strong) Post *detailPost;
 
-- (void)setPostDetails: (Post *)post;
+- (void)setPostDetails:(Post *)post;
 
 @end
 

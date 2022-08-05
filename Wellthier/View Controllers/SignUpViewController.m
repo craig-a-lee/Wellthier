@@ -17,10 +17,6 @@
 
 @implementation SignUpViewController 
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-}
-
 - (IBAction)didTapUploadPic:(id)sender {
     UIImagePickerController *imagePickerVC = [UIImagePickerController new];
     imagePickerVC.delegate = self;
@@ -39,8 +35,6 @@
     UIAlertAction *takePicAction = [UIAlertAction actionWithTitle:@"Take a Picture"
                                                        style:UIAlertActionStyleDefault
                                                      handler:^(UIAlertAction * _Nonnull action) {
-                                                             // handle response here.
-
         if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
             imagePickerVC.sourceType = UIImagePickerControllerSourceTypeCamera;
         }
@@ -49,22 +43,15 @@
         }
         [self presentViewController:imagePickerVC animated:YES completion:nil];
                                                      }];
-    // add the OK action to the alert controller
     [alert addAction:chooseAction];
     [alert addAction:takePicAction];
-    
     [self presentViewController:alert animated:YES completion:nil];
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
-    // Get the image captured by the UIImagePickerController
     UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
-
-    // Do something with the images (based on your use case)
-    CGSize size = CGSizeMake(112, 112);
+    CGSize size = CGSizeMake(500, 500);
     self.profilePicImageView.image = [self resizeImage:originalImage withSize:size];
-    
-    // Dismiss UIImagePickerController to go back to your original view controller
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -108,7 +95,6 @@
             if (error.code == 202) {
                 [self presentViewController:invalidAlert animated:YES completion:nil];
             } else {
-                // manually segue to logged in view
                 [Workout postUserWorkout:[UIImage imageNamed:@"purpleheart"] withTitle:@"Liked Exercises" withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
 
                 }];

@@ -14,10 +14,6 @@
 
 @implementation LoginViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-}
-
 - (IBAction)didTapLogin:(id)sender {
     UIAlertController *emptyAlert = [UIAlertController alertControllerWithTitle:@"Empty Field"
                                                                                message:@"There is an empty field, please fill it."
@@ -29,7 +25,6 @@
     UIAlertController *invalidAlert = [UIAlertController alertControllerWithTitle:@"Invalid Credentials"
                                                                                message:@"An account does not exist with these credentials, please try again."
                                                                         preferredStyle:(UIAlertControllerStyleAlert)];
-    // add the OK action to the alert controller
     [emptyAlert addAction:okAction];
     [invalidAlert addAction:okAction];
     
@@ -45,8 +40,6 @@
                 [self presentViewController:invalidAlert animated:YES completion:nil];
             } else {
                 NSLog(@"User logged in successfully");
-                
-                // display view controller that needs to shown after successful login
                 [self performSegueWithIdentifier:@"loginSegue" sender:self];
             }
         }];

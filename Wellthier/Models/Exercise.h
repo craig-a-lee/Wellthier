@@ -19,7 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *exerciseID;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;
-+ (NSArray *)exercisesWithDictionaries:(NSArray *)dictionaries;
++ (NSArray <Exercise *>*)exercisesWithDictionaries:(NSArray *)dictionaries;
 
 @end
 

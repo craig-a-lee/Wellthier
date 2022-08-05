@@ -19,7 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, weak) IBOutlet UILabel *numberOfExercises;
 @property (nonatomic, strong) Workout *workout;
 
-- (void)setCellParams: (Workout *)workout;
+- (void)setWorkoutDetails:(Workout *)workout;
 
 @end
 

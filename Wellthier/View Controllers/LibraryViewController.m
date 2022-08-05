@@ -68,7 +68,7 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     WorkoutCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"WorkoutCell" forIndexPath:indexPath];
     Workout *workout = self.filteredWorkouts[indexPath.row];
-    [cell setParams:workout];
+    [cell setWorkoutDetails:workout];
     return cell;
 }
 
@@ -99,6 +99,12 @@
         self.filteredWorkouts = self.arrayOfWorkouts;
     }
     [self.collectionView reloadData];
+}
+
+- (IBAction)didTapLogOut:(id)sender {
+    [PFUser logOutInBackgroundWithBlock:^(NSError * _Nullable error) {
+        [self performSegueWithIdentifier:@"logoutSegue" sender:self];
+    }];
 }
 
 @end

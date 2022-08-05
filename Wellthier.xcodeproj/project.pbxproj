@@ -32,7 +32,6 @@
 		739535D6287DF7E600D1D4CF /* SearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 739535D2287DF7E600D1D4CF /* SearchCell.m */; };
 		73B22DA3287F3ABA002548DE /* Workout.m in Sources */ = {isa = PBXBuildFile; fileRef = 73B22DA2287F3ABA002548DE /* Workout.m */; };
 		73B22DA6287F3DDD002548DE /* LibraryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73B22DA5287F3DDD002548DE /* LibraryViewController.m */; };
-		73B22DA9287F3EBE002548DE /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73B22DA8287F3EBE002548DE /* SettingsViewController.m */; };
 		73B22DAC287F490A002548DE /* WorkoutCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 73B22DAB287F490A002548DE /* WorkoutCollectionViewCell.m */; };
 		73B91B7928762EA500857F73 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 73B91B7828762EA500857F73 /* AppDelegate.m */; };
 		73B91B7C28762EA500857F73 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 73B91B7B28762EA500857F73 /* SceneDelegate.m */; };
@@ -118,8 +117,6 @@
 		73B22DA2287F3ABA002548DE /* Workout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = Workout.m; path = Models/Workout.m; sourceTree = "<group>"; };
 		73B22DA4287F3DDD002548DE /* LibraryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LibraryViewController.h; path = "View Controllers/LibraryViewController.h"; sourceTree = "<group>"; };
 		73B22DA5287F3DDD002548DE /* LibraryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = LibraryViewController.m; path = "View Controllers/LibraryViewController.m"; sourceTree = "<group>"; };
-		73B22DA7287F3EBE002548DE /* SettingsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SettingsViewController.h; path = "View Controllers/SettingsViewController.h"; sourceTree = "<group>"; };
-		73B22DA8287F3EBE002548DE /* SettingsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = SettingsViewController.m; path = "View Controllers/SettingsViewController.m"; sourceTree = "<group>"; };
 		73B22DAB287F490A002548DE /* WorkoutCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = WorkoutCollectionViewCell.m; path = Cells/WorkoutCollectionViewCell.m; sourceTree = "<group>"; };
 		73B22DAD287F64AA002548DE /* WorkoutCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = WorkoutCollectionViewCell.h; path = Cells/WorkoutCollectionViewCell.h; sourceTree = "<group>"; };
 		73B91B7428762EA500857F73 /* Wellthier.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wellthier.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -267,8 +264,6 @@
 				73B22DA2287F3ABA002548DE /* Workout.m */,
 				73B22DA4287F3DDD002548DE /* LibraryViewController.h */,
 				73B22DA5287F3DDD002548DE /* LibraryViewController.m */,
-				73B22DA7287F3EBE002548DE /* SettingsViewController.h */,
-				73B22DA8287F3EBE002548DE /* SettingsViewController.m */,
 				73B22DAB287F490A002548DE /* WorkoutCollectionViewCell.m */,
 				73B22DAD287F64AA002548DE /* WorkoutCollectionViewCell.h */,
 				73496B43287F83E600A1E77C /* LoginViewController.h */,
@@ -580,7 +575,6 @@
 				7300D03428876B6B0057FEEB /* PostCell.m in Sources */,
 				73B22DA3287F3ABA002548DE /* Workout.m in Sources */,
 				731AA4572893041A00C9F4AE /* MainTabBarController.m in Sources */,
-				73B22DA9287F3EBE002548DE /* SettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

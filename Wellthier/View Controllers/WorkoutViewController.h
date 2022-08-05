@@ -17,10 +17,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, weak) IBOutlet UILabel *workoutTitleLabel;
 @property (nonatomic, weak) IBOutlet UILabel *authorLabel;
+@property (nonatomic, strong) IBOutlet PFImageView *workoutImageView;
 @property (nonatomic, strong) NSArray <Exercise*> *arrayOfExercises;
 @property (nonatomic, strong) NSArray <Exercise*> *filteredExercises;
 @property (nonatomic, strong) Workout *detailWorkout;
-@property (nonatomic, strong) IBOutlet PFImageView *workoutImageView;
 
 @end
 

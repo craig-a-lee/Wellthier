@@ -54,7 +54,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     WorkoutTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"WorkoutTableViewCell"];
     Workout *workout = self.filteredWorkouts[indexPath.row];
-    [cell setCellParams:workout];
+    [cell setWorkoutDetails:workout];
     return cell;
 }
 

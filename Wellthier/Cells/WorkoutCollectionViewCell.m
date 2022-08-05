@@ -10,8 +10,7 @@
 
 @implementation WorkoutCollectionViewCell
 
-- (void)setParams:(Workout *)detailWorkout {
-    _workout = detailWorkout;
+- (void)setWorkoutDetails:(Workout *)detailWorkout {
     self.workoutImageView.file = detailWorkout[@"image"];
     [self.workoutImageView loadInBackground];
     self.numberOfExercisesLabel.text = [NSString stringWithFormat:@"%lu Exercises", detailWorkout.exercises.count];

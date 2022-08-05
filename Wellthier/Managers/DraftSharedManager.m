@@ -6,7 +6,6 @@
 //
 
 #import "DraftSharedManager.h"
-#import "Draft.h"
 
 @implementation DraftSharedManager
 

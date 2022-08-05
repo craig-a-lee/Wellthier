@@ -14,10 +14,6 @@
 
 @implementation NewWorkoutViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-}
-
 - (IBAction)didTapUploadPic:(id)sender {
     UIImagePickerController *imagePickerVC = [UIImagePickerController new];
     imagePickerVC.delegate = self;
@@ -56,7 +52,7 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
     UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
 
-    CGSize size = CGSizeMake(167, 167);
+    CGSize size = CGSizeMake(500, 500);
     self.workoutImageView.image = [self resizeImage:originalImage withSize:size];
 
     [self dismissViewControllerAnimated:YES completion:nil];
