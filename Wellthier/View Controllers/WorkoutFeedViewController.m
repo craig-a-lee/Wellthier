@@ -16,12 +16,12 @@
 @interface WorkoutFeedViewController () <UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate, UIGestureRecognizerDelegate>
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
+@property (nonatomic, weak) IBOutlet UIActivityIndicatorView *loadingMoreDataIndicator;
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
 @property (nonatomic, strong) Post *selectedPost;
 @property (nonatomic, assign) BOOL isMoreDataLoading;
 @property (nonatomic, assign) int numberOfPostsToSkip;
 @property (nonatomic, strong) UITapGestureRecognizer *tap;
-@property (nonatomic, weak) IBOutlet UIActivityIndicatorView *loadingMoreDataIndicator;
 @property (nonatomic, weak) UIImageView *prevImageView;
 @property (nonatomic, strong) UIImageView *fullScreenImageView;
 @property (nonatomic, strong) UIScrollView *fullScreenScrollView;
@@ -85,14 +85,14 @@ CGFloat lastScale;
     self.fullScreenScrollView.frame = self.view.frame;
     self.fullScreenScrollView.userInteractionEnabled = YES;
     self.fullScreenScrollView.layer.zPosition = MAXFLOAT;
-    self.fullScreenScrollView.center = self.view.center;
+    self.fullScreenScrollView.center = self.tableView.center;
     [self.view addSubview:self.fullScreenScrollView];
     [UIView animateWithDuration:0.5 delay:0 options:0 animations:^{
         self.fullScreenImageView = [UIImageView new];
         self.fullScreenImageView.layer.zPosition = MAXFLOAT;
         self.fullScreenImageView.image = self.prevImageView.image;
         self.fullScreenImageView.contentMode = UIViewContentModeScaleAspectFit;
-        self.fullScreenImageView.center = self.view.center;
+        self.fullScreenImageView.center = self.tableView.center;
         self.fullScreenImageView.frame = self.view.frame;
         [self.fullScreenScrollView addSubview:self.fullScreenImageView];
         UITapGestureRecognizer *singleTapGesture = [[UITapGestureRecognizer alloc]
@@ -134,8 +134,9 @@ CGFloat lastScale;
         if (posts) {
             self.isMoreDataLoading = false;
             self.arrayOfPosts = [self.arrayOfPosts arrayByAddingObjectsFromArray:posts];
+            __weak WorkoutFeedViewController *weakSelf = self;
             dispatch_async(dispatch_get_main_queue(), ^{
-                [self.tableView reloadData];
+                [weakSelf.tableView reloadData];
             });
             [self.loadingMoreDataIndicator stopAnimating];
             [self.refreshControl endRefreshing];

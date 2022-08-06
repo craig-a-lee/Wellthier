@@ -17,9 +17,10 @@ NS_ASSUME_NONNULL_BEGIN
 + (id)sharedManager;
 - (void)requestAuthorization;
 - (void) getLatestWorkout: (void(^)(NSArray <HKWorkout *> *workouts))completion;
-- (NSString *) getWorkoutType: (NSInteger)enumeration;
-- (NSString *)hoursMinsSecsFromDuration:(NSTimeInterval)interval;
 
 @end
+
+NSString *WellthierAppGetWorkoutType(HKWorkoutActivityType enumeration);
+NSString *WellthierAppFormattedDuration(NSTimeInterval interval);
 
 NS_ASSUME_NONNULL_END

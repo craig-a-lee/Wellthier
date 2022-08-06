@@ -31,10 +31,11 @@
 }
 
 - (void)getWorkouts {
+    __weak HealthKitWorkoutsViewController *weakSelf = self;
     [[HealthKitSharedManager sharedManager] getLatestWorkout:^(NSArray<HKWorkout *> * _Nonnull workouts) {
-        self.arrayOfWorkouts = workouts;
+        weakSelf.arrayOfWorkouts = workouts;
         dispatch_async(dispatch_get_main_queue(), ^{
-            [self.tableView reloadData];
+            [weakSelf.tableView reloadData];
         });
     }];
 }
@@ -56,10 +57,10 @@
     HealthKitWorkoutTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HealthKitWorkoutTableViewCell"];
     HKWorkout *workout = self.arrayOfWorkouts[indexPath.row];
     cell.workout = workout;
-    cell.workoutTypeLabel.text = [NSString stringWithFormat:@"%@", [[HealthKitSharedManager sharedManager] getWorkoutType: workout.workoutActivityType]];
+    cell.workoutTypeLabel.text = [NSString stringWithFormat:@"%@", WellthierAppGetWorkoutType(workout.workoutActivityType)];
     cell.startDateLabel.text = [NSString stringWithFormat:@"%@", [dateFormatter stringFromDate:workout.startDate]];
     cell.endDateLabel.text = [NSString stringWithFormat:@"%@", [dateFormatter stringFromDate:workout.endDate]];
-    cell.durationLabel.text = [NSString stringWithFormat:@"%@", [[HealthKitSharedManager sharedManager] hoursMinsSecsFromDuration: workout.duration]];
+    cell.durationLabel.text = [NSString stringWithFormat:@"%@", WellthierAppFormattedDuration(workout.duration)];
     if (workout.totalEnergyBurned) {
         cell.energyBurnedLabel.text = [NSString stringWithFormat:@"%@", workout.totalEnergyBurned];
     }

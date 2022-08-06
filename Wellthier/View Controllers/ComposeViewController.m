@@ -27,11 +27,6 @@
     [[self.textView layer] setBorderWidth:1.0];
     [self setUserInfo];
     self.clearImageButton.hidden = YES;
-    
-}
-
-- (void) viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
     NSDictionary *previousDraft = [[DraftSharedManager sharedManager] fetchDraftForUser:PFUser.currentUser.username];
     if ([previousDraft count] != 0) {
         self.textView.text = previousDraft[@"draftText"];
@@ -44,6 +39,7 @@
     } else {
         self.clearImageButton.hidden = YES;
     }
+    
 }
 
 - (void)setUserInfo {
@@ -51,6 +47,7 @@
     self.profilePic.file = self.currentUser[@"profilePic"];
     [self.profilePic loadInBackground];
 }
+
 - (IBAction)didTapUploadPic:(id)sender {
     UIImagePickerController *imagePickerVC = [UIImagePickerController new];
     imagePickerVC.delegate = self;
@@ -90,8 +87,8 @@
 }
 
 - (void)didPickWorkout:(HKWorkout *)workout {
-    NSString *workoutTypeInfo = [NSString stringWithFormat:@"Workout Type: %@", [[HealthKitSharedManager sharedManager] getWorkoutType: workout.workoutActivityType]];
-    NSString *workoutDurationInfo = [NSString stringWithFormat:@"Duration: %@", [[HealthKitSharedManager sharedManager] hoursMinsSecsFromDuration:workout.duration]];
+    NSString *workoutTypeInfo = [NSString stringWithFormat:@"Workout Type: %@", WellthierAppFormattedDuration(workout.workoutActivityType)];
+    NSString *workoutDurationInfo = [NSString stringWithFormat:@"Duration: %@", WellthierAppFormattedDuration(workout.duration)];
     NSString *workoutEnergyBurnedInfo = @"";
     if (workout.totalEnergyBurned) {
         workoutEnergyBurnedInfo = [NSString stringWithFormat:@"Energy Burned: %@", workout.totalEnergyBurned];

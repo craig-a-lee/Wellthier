@@ -22,7 +22,7 @@
     return self;
 }
 
-+ (NSArray *)exercisesWithDictionaries:(NSArray *)dictionaries {
++ (NSArray <Exercise *>*)exercisesWithDictionaries:(NSArray *)dictionaries {
     NSMutableArray *exercises = [[NSMutableArray alloc] init];
     for (NSDictionary *dictionary in dictionaries) {
         Exercise *exercise = [[Exercise alloc] initWithDictionary:dictionary];

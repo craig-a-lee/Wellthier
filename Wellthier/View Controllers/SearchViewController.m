@@ -19,11 +19,11 @@
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 @property (nonatomic, weak) IBOutlet UICollectionView *collectionView;
+@property (nonatomic, weak) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (nonatomic, weak) IBOutlet UIImageView *temporaryGifImageView;
 @property (nonatomic, assign) BOOL buttonPressed;
 @property (nonatomic, assign) BOOL searchBarPressed;
-@property (nonatomic, weak) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (nonatomic, weak) UIView *mySubview;
-@property (nonatomic, weak) IBOutlet UIImageView *temporaryGifImageView;
 
 @end
 
