@@ -11,20 +11,19 @@
 #import "Post.h"
 #import "PostCell.h"
 #import "ProfileViewController.h"
-#import "PostDetailsViewController.h"
 
 @interface WorkoutFeedViewController () <UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate, UIGestureRecognizerDelegate>
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 @property (nonatomic, weak) IBOutlet UIActivityIndicatorView *loadingMoreDataIndicator;
-@property (nonatomic, strong) UIRefreshControl *refreshControl;
-@property (nonatomic, strong) Post *selectedPost;
-@property (nonatomic, assign) BOOL isMoreDataLoading;
-@property (nonatomic, assign) int numberOfPostsToSkip;
-@property (nonatomic, strong) UITapGestureRecognizer *tap;
 @property (nonatomic, weak) UIImageView *prevImageView;
+@property (nonatomic, strong) UIRefreshControl *refreshControl;
 @property (nonatomic, strong) UIImageView *fullScreenImageView;
 @property (nonatomic, strong) UIScrollView *fullScreenScrollView;
+@property (nonatomic, strong) Post *selectedPost;
+@property (nonatomic, strong) UITapGestureRecognizer *tap;
+@property (nonatomic, assign) BOOL isMoreDataLoading;
+@property (nonatomic, assign) int numberOfPostsToSkip;
 
 @end
 

@@ -14,7 +14,7 @@
 @implementation PostCell
 
 - (void)setPostDetails:(Post *)post {
-    _detailPost = post;
+    self.detailPost = post;
     self.displayNameLabel.text = post.author[@"displayName"];
     self.date.text = post.createdAt.shortTimeAgoSinceNow;
     if (post[@"image"]) {

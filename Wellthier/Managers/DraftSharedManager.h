@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (id)sharedManager;
 - (void)fetchAllDrafts;
-- (void)addDraftToFile:(NSDictionary *) draft forUser:(NSString *) username;
+- (void)addDraftToFile:(NSDictionary *)draft forUser:(NSString *)username;
 - (NSDictionary *)fetchDraftForUser:(NSString *) username;
 
 @end

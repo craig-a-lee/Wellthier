@@ -26,7 +26,6 @@
 }
 
 - (void)fetchAllExercises:(void(^)(NSArray *exercises, NSError *error))completion {
-
     NSMutableURLRequest *request = [self urlRequestForItems:@""];
     [self makeRequest:request completion:^(id object, NSError *error) {
                                                             if (error) {
@@ -54,7 +53,7 @@
     return request;
 }
 
-- (void) makeRequest:(NSMutableURLRequest *)request completion:(void(^)(id object, NSError *error))completion {
+- (void)makeRequest:(NSMutableURLRequest *)request completion:(void(^)(id object, NSError *error))completion {
     NSURLSessionDataTask *dataTask = [self.session dataTaskWithRequest:request
                                                 completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
                                                     if (error) {
