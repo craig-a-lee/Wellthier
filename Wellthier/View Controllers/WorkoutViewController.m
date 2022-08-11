@@ -27,8 +27,6 @@
 - (id)init {
     self = [super init];
     if (self) {
-        self.arrayOfExercises = [NSArray new];
-        self.filteredExercises = [NSArray new];
         self.addToWorkoutController = [AddToWorkoutViewController new];
         self.addToWorkoutController.delegate = self;
     }
@@ -37,6 +35,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.arrayOfExercises = [NSArray new];
+    self.filteredExercises = [NSArray new];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.searchBar.delegate = self;

@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (id)sharedManager;
 - (void)requestAuthorization;
-- (void) getLatestWorkout: (void(^)(NSArray <HKWorkout *> *workouts))completion;
+- (void)getLatestWorkout:(void(^)(NSArray <HKWorkout *> *workouts))completion;
 
 @end
 

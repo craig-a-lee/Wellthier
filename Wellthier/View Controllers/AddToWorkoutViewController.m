@@ -41,14 +41,13 @@
         if (workouts) {
             self.arrayOfWorkouts = workouts;
             self.filteredWorkouts = [[workouts reverseObjectEnumerator] allObjects];
-
             [self.tableView reloadData];
         }
     }];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-        return self.filteredWorkouts.count;
+    return self.filteredWorkouts.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
