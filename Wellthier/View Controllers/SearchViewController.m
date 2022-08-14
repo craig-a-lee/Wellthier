@@ -58,7 +58,6 @@
     self.collectionView.hidden = shouldHide;
     self.searchBar.hidden = shouldHide;
     self.navigationController.navigationBarHidden = shouldHide;
-    self.tabBarController.tabBar.hidden = shouldHide;
 }
 
 - (void)handleLongPress:(UILongPressGestureRecognizer *)gestureRecognizer {

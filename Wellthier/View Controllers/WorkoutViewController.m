@@ -44,10 +44,6 @@
     self.workoutImageView.file = self.detailWorkout[@"image"];
     PFUser *user = self.detailWorkout[@"author"];
     self.authorLabel.text = user[@"displayName"];
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
     [self getExercises];
 }
 
