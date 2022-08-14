@@ -6,7 +6,6 @@
 //
 
 #import <Parse/Parse.h>
-#import <UserNotifications/UserNotifications.h>
 #import "AppDelegate.h"
 
 
@@ -21,11 +20,6 @@
         configuration.applicationId = @"X0oPQxZ9JY0Wmwb5DgleCECZJNqjdK5NXOXuBKWw";
         configuration.clientKey = @"fShMEGtvQdVH4feEwSLJCMMXyIqcOi7MMJqjoRGw";
         configuration.server = @"https://parseapi.back4app.com";
-    }];
-    UNUserNotificationCenter* center = [UNUserNotificationCenter currentNotificationCenter];
-    [center requestAuthorizationWithOptions:(UNAuthorizationOptionAlert + UNAuthorizationOptionSound)
-       completionHandler:^(BOOL granted, NSError * _Nullable error) {
-          // Enable or disable features based on authorization.
     }];
     [Parse initializeWithConfiguration:config];
     return YES;
