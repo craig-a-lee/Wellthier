@@ -87,7 +87,7 @@
 }
 
 - (void)didPickWorkout:(HKWorkout *)workout {
-    NSString *workoutTypeInfo = [NSString stringWithFormat:@"Workout Type: %@", WellthierAppFormattedDuration(workout.workoutActivityType)];
+    NSString *workoutTypeInfo = [NSString stringWithFormat:@"Workout Type: %@", WellthierAppGetWorkoutType(workout.workoutActivityType)];
     NSString *workoutDurationInfo = [NSString stringWithFormat:@"Duration: %@", WellthierAppFormattedDuration(workout.duration)];
     NSString *workoutEnergyBurnedInfo = @"";
     if (workout.totalEnergyBurned) {

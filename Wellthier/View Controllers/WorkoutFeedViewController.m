@@ -177,25 +177,12 @@ CGFloat lastScale;
     return cell;
 }
 
-- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
-    Post *selectedPost = self.arrayOfPosts[[sender tag]];
-    if (!selectedPost.image && [identifier isEqualToString:@"expandedPicSegue"]) {
-        return NO;
-    } else {
-        return YES;
-    }
-}
-
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"feedToProfileSegue"]) {
         Post *selectedPost = self.arrayOfPosts[[sender tag]];
         PFUser *userToPass = selectedPost.author;
         ProfileViewController *profileController = [segue destinationViewController];
         profileController.selectedUser = userToPass;
-    } else if ([segue.identifier isEqualToString:@"expandedPicSegue"]) {
-        Post *selectedPost = self.arrayOfPosts[[sender tag]];
-        PostDetailsViewController *detailsController = [segue destinationViewController];
-        detailsController.pictureView.file = selectedPost[@"image"];
     }
 }
 

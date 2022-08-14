@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol AddToWorkoutViewControllerDelegate
 
-- (void) didAddToWorkout;
+- (void)didAddToWorkout;
 
 @end
 
