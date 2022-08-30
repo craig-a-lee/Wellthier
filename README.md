@@ -1,6 +1,6 @@
 # Overview
 
-Wellthier is an app mainly designed for those interested in fitness. Its primary purpose is to allow users to search for workouts which align with their goals and keep track of these workouts in a user-friendly way. The user is also able to maintain a community by viewing a feed which includes status updates from others on their fitness journey. The user will also be able to view another user’s profile which will include that user’s list of workouts and previous posts they have made. 
+Wellthier is an app mainly designed for those interested in fitness. Its primary purpose is to allow users to search for exercises which align with their goals and keep track of these workouts in a user-friendly way. The user is also able to maintain a community by viewing a feed which includes status updates from others on their fitness journey. The user will also be able to view another user’s profile which will include that user’s list of workouts and previous posts they have made. 
 
 # Required User Stories
 - [x] User can create a profile
